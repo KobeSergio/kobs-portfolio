@@ -1,9 +1,11 @@
 import ExperienceCard, { Experience } from "@/components/ExperienceCard";
-import Pill from "@/components/Pill";
 import ProjectCard, { Project } from "@/components/ProjectCard";
 import SectionLabel from "@/components/SectionLabel";
 import Link from "next/link";
-import StatCard from "@/components/StatCard";
+import Headline from "@/components/page-sections/Headline";
+import About from "@/components/page-sections/About";
+import Projects from "@/components/page-sections/Projects";
+import Contact from "@/components/page-sections/Contact";
 
 export default function Home() {
   const projects: Project[] = [
@@ -45,6 +47,13 @@ export default function Home() {
     "Docker",
   ];
 
+  const stats = [
+    { label: "Years building", value: "4+" },
+    { label: "Products shipped", value: "7+" },
+    { label: "Teams led", value: "13 cross-functional devs" },
+    { label: "Education", value: "BS Computer Science" },
+  ];
+
   const experiences: Experience[] = [
     {
       role: "Senior Full Stack Engineer",
@@ -60,13 +69,6 @@ export default function Home() {
       summary:
         "Built creator tools, token-gated experiences, and contract libraries used by thousands of holders.",
     },
-  ];
-
-  const stats = [
-    { label: "Years building", value: "5+" },
-    { label: "Projects shipped", value: "30+" },
-    { label: "Contracts audited", value: "12" },
-    { label: "Stacks shipped", value: "FE + BE + Chain" },
   ];
 
   const navItems = [
@@ -103,10 +105,42 @@ export default function Home() {
       label: "Projects",
       icon: (
         <>
-          <rect x="4" y="4" width="7" height="7" rx="1.3" stroke="#ededed" strokeWidth="1.6" />
-          <rect x="13" y="4" width="7" height="7" rx="1.3" stroke="#ededed" strokeWidth="1.6" />
-          <rect x="4" y="13" width="7" height="7" rx="1.3" stroke="#ededed" strokeWidth="1.6" />
-          <rect x="13" y="13" width="7" height="7" rx="1.3" stroke="#ededed" strokeWidth="1.6" />
+          <rect
+            x="4"
+            y="4"
+            width="7"
+            height="7"
+            rx="1.3"
+            stroke="#ededed"
+            strokeWidth="1.6"
+          />
+          <rect
+            x="13"
+            y="4"
+            width="7"
+            height="7"
+            rx="1.3"
+            stroke="#ededed"
+            strokeWidth="1.6"
+          />
+          <rect
+            x="4"
+            y="13"
+            width="7"
+            height="7"
+            rx="1.3"
+            stroke="#ededed"
+            strokeWidth="1.6"
+          />
+          <rect
+            x="13"
+            y="13"
+            width="7"
+            height="7"
+            rx="1.3"
+            stroke="#ededed"
+            strokeWidth="1.6"
+          />
         </>
       ),
     },
@@ -115,8 +149,20 @@ export default function Home() {
       label: "Experience",
       icon: (
         <>
-          <rect x="5" y="8" width="14" height="10" rx="2" stroke="#ededed" strokeWidth="1.6" />
-          <path d="M9 8V6.8A2.8 2.8 0 0 1 12 4a2.8 2.8 0 0 1 3 2.8V8" stroke="#ededed" strokeWidth="1.6" />
+          <rect
+            x="5"
+            y="8"
+            width="14"
+            height="10"
+            rx="2"
+            stroke="#ededed"
+            strokeWidth="1.6"
+          />
+          <path
+            d="M9 8V6.8A2.8 2.8 0 0 1 12 4a2.8 2.8 0 0 1 3 2.8V8"
+            stroke="#ededed"
+            strokeWidth="1.6"
+          />
         </>
       ),
     },
@@ -125,150 +171,63 @@ export default function Home() {
       label: "Contact",
       icon: (
         <>
-          <rect x="3.5" y="6" width="17" height="12" rx="2" stroke="#ededed" strokeWidth="1.6" />
-          <path d="m5 8 7 5 7-5" stroke="#ededed" strokeWidth="1.6" strokeLinecap="round" />
+          <rect
+            x="3.5"
+            y="6"
+            width="17"
+            height="12"
+            rx="2"
+            stroke="#ededed"
+            strokeWidth="1.6"
+          />
+          <path
+            d="m5 8 7 5 7-5"
+            stroke="#ededed"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+          />
         </>
       ),
     },
   ];
 
   return (
-    <div id="top" className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-50">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(251,191,36,0.18),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(248,180,0,0.12),transparent_32%),radial-gradient(circle_at_50%_80%,rgba(251,146,60,0.15),transparent_34%)]" />
+    <div
+      id="top"
+      className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-50"
+    >
+      <div
+        className="absolute inset-0
+        bg-[radial-gradient(circle_at_20%_20%,rgba(251,191,36,0.10),transparent_30%),radial-gradient(circle_at_80%_10%,rgba(248,180,0,0.06),transparent_20%),radial-gradient(circle_at_50%_80%,rgba(251,146,60,0.05),transparent_15%)]
+        sm:bg-[radial-gradient(circle_at_20%_20%,rgba(251,191,36,0.18),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(248,180,0,0.12),transparent_32%),radial-gradient(circle_at_50%_80%,rgba(251,146,60,0.15),transparent_34%)]
+        "
+      />
 
-      <main className="relative mx-auto flex max-w-5xl flex-col gap-24 px-6 pb-40 pt-16 sm:pt-24">
-        <section className="grid gap-10 md:grid-cols-[1.2fr,0.8fr] md:items-center">
-          <div className="space-y-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-amber-200">
-              Full stack web3 developer
-            </p>
-            <h1 className="text-4xl font-bold leading-tight text-slate-50 sm:text-5xl">
-              I design and ship reliable experiences for decentralized products
-            </h1>
-            <p className="max-w-2xl text-lg leading-8 text-slate-300">
-              I help teams launch fast, secure, and human-first dApps. From
-              contract architecture to frontend polish, I bridge product
-              thinking with deep engineering so your users trust every click.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="#projects"
-                className="rounded-full bg-amber-400 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-amber-400/30 transition hover:-translate-y-0.5 hover:shadow-amber-300/40"
-              >
-                View projects
-              </a>
-              <a
-                href="#contact"
-                className="rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-slate-50 transition hover:border-amber-200 hover:text-amber-200"
-              >
-                Book a call
-              </a>
-            </div>
-          </div>
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/40 backdrop-blur">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-slate-300">Based in</p>
-                <p className="text-lg font-semibold text-slate-50">
-                  Cebu, Philippines
-                </p>
-              </div>
-              <div className="rounded-full bg-amber-400/20 px-3 py-1 text-xs font-semibold text-amber-100">
-                Available for new work
-              </div>
-            </div>
-            <div className="mt-6 grid grid-cols-2 gap-4 text-slate-100">
-              {stats.map((stat) => (
-                <StatCard
-                  key={stat.label}
-                  label={stat.label}
-                  value={stat.value}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
+      <main className="relative mx-auto flex flex-col gap-24 pb-40 pt-16 sm:pt-24">
+        <Headline />
 
-        <section id="about" className="scroll-mt-24 space-y-6">
-          <SectionLabel label="About" />
-          <p className="max-w-3xl text-lg leading-8 text-slate-200">
-            I thrive at the intersection of shipping fast and shipping right. I
-            pair hands-on contract work with strong frontend systems to deliver
-            trustable flows: minting, payments, custody, dashboards, and admin
-            surfaces. I keep teams unblocked with crisp communication, clear
-            acceptance criteria, and documentation that future teammates can
-            depend on.
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {skills.map((skill) => (
-              <Pill key={skill}>{skill}</Pill>
-            ))}
-          </div>
-        </section>
+        <About skills={skills} stats={stats} />
 
-        <section id="projects" className="scroll-mt-24 space-y-6">
-          <SectionLabel label="Featured projects" />
-          <div className="grid gap-6 md:grid-cols-3">
-            {projects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
-            ))}
-          </div>
-        </section>
+        <Projects projects={projects} />
 
-        <section id="experience" className="scroll-mt-24 space-y-6">
-          <SectionLabel label="Experience" />
-          <div className="grid gap-4 md:grid-cols-2">
-            {experiences.map((exp) => (
-              <ExperienceCard key={exp.role} exp={exp} />
-            ))}
-          </div>
-        </section>
+        {/* <Experience experiences={experiences} /> */}
 
-        <section
-          id="contact"
-          className="scroll-mt-24 rounded-3xl border border-white/10 bg-linear-to-r from-amber-400/15 via-slate-900 to-orange-400/10 p-8 shadow-xl shadow-black/40"
-        >
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-amber-100">
-                Contact
-              </p>
-              <h3 className="text-2xl font-semibold text-slate-50">
-                Let us build your next release
-              </h3>
-              <p className="mt-2 text-sm text-slate-200">
-                Tell me about the experience you want to deliver. I will reply
-                within one business day.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="mailto:kobesergiodeveloper@gmail.com"
-                className="rounded-full bg-amber-400 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-amber-400/30 transition hover:-translate-y-0.5 hover:shadow-amber-300/40"
-              >
-                Email me
-              </a>
-              <a
-                href="https://cal.com/"
-                className="rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-slate-50 transition hover:border-amber-200 hover:text-amber-200"
-              >
-                Schedule time
-              </a>
-            </div>
-          </div>
-        </section>
+        <Contact />
       </main>
 
-      <nav className="fixed inset-x-0 bottom-4 z-30 mx-auto max-w-full border-t border-white/10 bg-slate-950/85 backdrop-blur lg:max-w-fit lg:rounded-2xl">
+      <nav className="group fixed inset-x-0 bottom-0 z-30 mx-auto max-w-full border-t border-white/10 bg-white/5 shadow-xl shadow-black/40 backdrop-blur transition-all duration-300 lg:max-w-fit lg:rounded-2xl hover:scale-105">
         <div className="mx-auto flex max-w-fit items-center gap-4 px-4 py-3 text-slate-200">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               aria-label={item.label}
-              className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-transform duration-200 hover:scale-110"
+              className="group/nav-item relative flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-transform duration-200 hover:scale-110"
             >
-              <span className="absolute inset-0 rounded-full bg-white/10 opacity-0 transition duration-200 group-hover:opacity-100" aria-hidden />
+              <span
+                className="absolute inset-0 rounded-full bg-white/10 opacity-0 transition duration-200 group-hover/nav-item:opacity-100"
+                aria-hidden
+              />
               <svg
                 width="24"
                 height="24"

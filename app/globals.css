@@ -16,6 +16,16 @@ html {
   scroll-behavior: smooth;
 }
 
+::selection {
+  background-color: #fbbf24;
+  color: #0f172a;
+}
+
+::-moz-selection {
+  background-color: #fbbf24;
+  color: #0f172a;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
