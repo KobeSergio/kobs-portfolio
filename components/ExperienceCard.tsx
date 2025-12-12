@@ -1,8 +1,20 @@
 export type Experience = {
   role: string;
   company: string;
+  companyLogo: string;
+  location: string;
   time: string;
-  summary: string;
+  summary: React.ReactNode;
+  contributions: Contributions[];
+};
+
+type Contributions = {
+  images: string[];
+  product: string;
+  impact: string;
+  description: React.ReactNode;
+  tech: string[];
+  link: string;
 };
 
 export default function ExperienceCard({ exp }: { exp: Experience }) {
@@ -17,4 +29,3 @@ export default function ExperienceCard({ exp }: { exp: Experience }) {
     </article>
   );
 }
-

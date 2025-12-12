@@ -267,13 +267,13 @@ export default function About({
               OPEN TO WORK
             </span>
           </div>
-          {skills.length > 0 && (
+          {/* {skills.length > 0 && (
             <div className="flex flex-wrap gap-2">
               {skills.map((skill) => (
                 <Pill key={skill}>{skill}</Pill>
               ))}
             </div>
-          )}
+          )} */}
           <p className="text-base leading-7 sm:text-lg sm:leading-8 text-slate-200">
             Fullstack Web3 Developer with a builder&apos;s mindset and a track
             record of leading teams to ship ambitious NFT products. As the chief
@@ -285,7 +285,7 @@ export default function About({
             hands-on and deepen my understanding of systems and architecture,
             while continuing to create intuitive, high-impact Web3 products.
           </p>
-          <div className="w-full mt-6">
+          <div className="w-full my-2">
             <p className="block text-sm text-slate-400 font-medium mb-2">
               Copies left
             </p>

@@ -1,6 +1,5 @@
-import ExperienceCard, { Experience } from "@/components/ExperienceCard";
-import ProjectCard, { Project } from "@/components/ProjectCard";
-import SectionLabel from "@/components/SectionLabel";
+import { experiences } from "@/constants/Experiences";
+
 import Link from "next/link";
 import Headline from "@/components/page-sections/Headline";
 import About from "@/components/page-sections/About";
@@ -8,30 +7,6 @@ import Projects from "@/components/page-sections/Projects";
 import Contact from "@/components/page-sections/Contact";
 
 export default function Home() {
-  const projects: Project[] = [
-    {
-      title: "On-chain Fund Manager",
-      description:
-        "Portfolio dashboard for DeFi strategies with live vault metrics, risk flags, and investor onboarding.",
-      tech: ["Next.js", "TypeScript", "Tailwind", "wagmi"],
-      link: "https://github.com/",
-    },
-    {
-      title: "Creator Drops",
-      description:
-        "No-code toolkit that lets artists launch ERC-721 collections, automate allowlists, and track mint health.",
-      tech: ["Solidity", "Hardhat", "Next.js", "Charting"],
-      link: "https://github.com/",
-    },
-    {
-      title: "Realtime Trading Terminal",
-      description:
-        "Low-latency interface for perpetuals with depth charts, order routing, and custom alerts.",
-      tech: ["React", "WebSockets", "Node.js", "Redis"],
-      link: "https://github.com/",
-    },
-  ];
-
   const skills = [
     "TypeScript",
     "Next.js",
@@ -52,23 +27,6 @@ export default function Home() {
     { label: "Products shipped", value: "7+" },
     { label: "Teams led", value: "13 cross-functional devs" },
     { label: "Education", value: "BS Computer Science" },
-  ];
-
-  const experiences: Experience[] = [
-    {
-      role: "Senior Full Stack Engineer",
-      company: "Freelance",
-      time: "2022 — Present",
-      summary:
-        "Shipping high-availability web3 products: payments, NFT drops, staking dashboards, and analytics.",
-    },
-    {
-      role: "Lead Web3 Engineer",
-      company: "Studio K",
-      time: "2020 — 2022",
-      summary:
-        "Built creator tools, token-gated experiences, and contract libraries used by thousands of holders.",
-    },
   ];
 
   const navItems = [
@@ -192,10 +150,7 @@ export default function Home() {
   ];
 
   return (
-    <div
-      id="top"
-      className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-50"
-    >
+    <div id="top" className="relative min-h-screen bg-slate-950 text-slate-50">
       <div
         className="absolute inset-0
         bg-[radial-gradient(circle_at_20%_20%,rgba(251,191,36,0.10),transparent_30%),radial-gradient(circle_at_80%_10%,rgba(248,180,0,0.06),transparent_20%),radial-gradient(circle_at_50%_80%,rgba(251,146,60,0.05),transparent_15%)]
@@ -208,10 +163,9 @@ export default function Home() {
 
         <About skills={skills} stats={stats} />
 
-        <Projects projects={projects} />
+        <Projects experiences={experiences} />
 
         {/* <Experience experiences={experiences} /> */}
-
         <Contact />
       </main>
 
