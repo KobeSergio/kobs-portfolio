@@ -3,12 +3,13 @@ import { useState } from "react";
 import Image from "next/image";
 import Pill from "../Pill";
 import Tilt from "react-parallax-tilt";
+import { skills } from "@/constants/site";
 
 export default function About({
   skills,
   stats,
 }: {
-  skills: string[];
+  skills: skills;
   stats: { label: string; value: string }[];
 }) {
   const previewImages = [
@@ -91,20 +92,18 @@ export default function About({
           </div>
           <hr className="border-white/10 my-4" />
           <div className="text-slate-200 text-lg leading-8 space-y-3">
-            <div className=" grid grid-cols-2 gap-3 text-slate-100">
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-4 h-full flex flex-col justify-between"
-                >
-                  <p className="text-xs md:text-sm text-slate-300">
-                    {stat.label}
-                  </p>
-                  <p className="text-sm md:text-lg font-bold text-slate-50">
-                    {stat.value}
-                  </p>
-                </div>
-              ))}
+            <div className="flex flex-col gap-4 pt-2">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-300">
+                <span className="h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_12px_rgba(52,211,153,0.7)]" />
+                Tech Stack
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {skills.map((skill, idx) => (
+                  <Pill key={idx} size="xs" color="white">
+                    {skill.icon} {skill.label}
+                  </Pill>
+                ))}
+              </div>
             </div>
           </div>
         </div>
