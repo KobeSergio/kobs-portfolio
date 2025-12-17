@@ -3,7 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Pill from "./Pill";
 
-import { Project } from "@/constants/Projects";
+import { Project } from "@/constants/site/Projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const [mediaIndex, setMediaIndex] = useState(0);

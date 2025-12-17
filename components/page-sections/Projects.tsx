@@ -1,7 +1,7 @@
 import ProjectCard from "../ProjectCard";
 import SectionLabel from "../SectionLabel";
 
-import { Project } from "@/constants/Projects";
+import { Project } from "@/constants/site/Projects";
 export default function Projects({ projects }: { projects: Project[] }) {
   const hasProjects = projects && projects.length > 0;
 

@@ -3,7 +3,13 @@ import { useState } from "react";
 import Image from "next/image";
 import Pill from "../Pill";
 import Tilt from "react-parallax-tilt";
-import { skills } from "@/constants/site";
+import { skills } from "@/constants/site/site";
+import CustomConnectAndMintButton from "@/components/web3-components/CustomConnectAndMintButton";
+import { useReadContract } from "wagmi";
+import {
+  resumeAbi,
+  resumeAddress,
+} from "@/constants/smart-contract/resumeContract";
 
 export default function About({
   skills,
@@ -27,6 +33,22 @@ export default function About({
     setActiveIndex((prev) =>
       prev === 0 ? previewImages.length - 1 : prev - 1
     );
+
+  const { data: totalSupply, isLoading: isLoadingTotalSupply } =
+    useReadContract({
+      abi: resumeAbi,
+      address: resumeAddress,
+      functionName: "totalSupply",
+    });
+
+  const maxSupply = 444;
+  const mintedCount = totalSupply ? Number(totalSupply) : 0;
+  const safeMinted = Number.isFinite(mintedCount) ? mintedCount : 0;
+  const copiesLeft = Math.max(0, maxSupply - safeMinted);
+  const progress = Math.min(
+    100,
+    Math.max(0, (safeMinted / maxSupply) * 100 || 0)
+  );
 
   return (
     <section
@@ -290,32 +312,17 @@ export default function About({
             </p>
             <div className="w-full bg-slate-700 rounded-full h-4 overflow-hidden">
               <div
-                className="bg-amber-400 h-4 rounded-full transition-all duration-300 w-2/3"
+                className="bg-amber-400 h-4 rounded-full transition-all duration-300"
+                style={{ width: `${progress}%` }}
                 role="presentation"
               />
             </div>
             <div className="text-right text-xs text-slate-300 mt-1">
-              67 left
+              {isLoadingTotalSupply ? "Loading..." : `${copiesLeft} left`}
             </div>
           </div>
-          <div className="flex gap-4 mt-6 w-full">
-            <button
-              type="button"
-              className="flex-1 bg-amber-400 text-slate-900 font-bold py-3 px-5 sm:px-6 rounded-lg shadow-md hover:bg-amber-300 transition text-base sm:text-lg min-w-0"
-              onClick={() => {
-                // Placeholder mint action
-                alert("Mint action triggered!");
-              }}
-            >
-              Mint my resume
-            </button>
-            <a
-              href="mailto:kobesergio@gmail.com?subject=Contact%20from%20Portfolio"
-              className="flex-1 bg-slate-800 border border-slate-600 text-slate-200 font-bold py-3 px-5 sm:px-6 rounded-lg shadow-md hover:bg-slate-700 transition flex items-center justify-center text-base sm:text-lg min-w-0"
-            >
-              Or view it here
-            </a>
-          </div>
+
+          <CustomConnectAndMintButton />
         </div>
       </div>
     </section>

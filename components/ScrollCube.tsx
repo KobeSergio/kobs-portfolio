@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 type CubeConf = {
   size: number;
@@ -104,20 +104,26 @@ export default function ScrollCubes() {
   const cubeRefs = useRef<(HTMLDivElement | null)[]>([]);
   const scaleRef = useRef(1);
   const boostRef = useRef(1);
+  const targetBoostRef = useRef(1);
+  const timeRef = useRef(0);
+  const lastFrameRef = useRef<number | null>(null);
   const [, setScale] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
 
-  const getActiveCubes = () =>
-    isMobile ? cubes.filter((cube) => !cube.hideOnMobile) : cubes;
+  const getActiveCubes = useCallback(
+    () => (isMobile ? cubes.filter((cube) => !cube.hideOnMobile) : cubes),
+    [isMobile]
+  );
 
   useEffect(() => {
     let frameId: number;
-    const start = performance.now();
+    timeRef.current = 0;
+    lastFrameRef.current = performance.now();
 
     const handleScroll = () => {
       const scrollY = window.scrollY || 0;
       // boost tops out to avoid absurd speeds
-      boostRef.current = 1 + Math.min(scrollY / 800, 2);
+      targetBoostRef.current = 1 + Math.min(scrollY / 800, 2);
     };
 
     const syncScale = () => {
@@ -132,12 +138,29 @@ export default function ScrollCubes() {
     };
 
     const render = (now: number) => {
-      const t = (now - start) / 1000; // seconds
+      if (document.visibilityState === "hidden") {
+        lastFrameRef.current = now;
+        frameId = requestAnimationFrame(render);
+        return;
+      }
+
+      const last = lastFrameRef.current ?? now;
+      const delta = Math.min((now - last) / 1000, 0.05); // clamp to avoid jumps after tab switch
+      timeRef.current += delta;
+      lastFrameRef.current = now;
+
+      // Smooth boost to avoid abrupt jumps after tab switches or long scrolls
+      const lerp = 0.08;
+      boostRef.current =
+        boostRef.current + (targetBoostRef.current - boostRef.current) * lerp;
+
       const activeCubes = getActiveCubes();
       activeCubes.forEach((conf, idx) => {
         const el = cubeRefs.current[idx];
         if (!el) return;
-        const angle = t * 70 * conf.rotationScale * boostRef.current;
+        const baseSpeed = 90 * conf.rotationScale * boostRef.current;
+        const cappedSpeed = Math.max(-80, Math.min(80, baseSpeed));
+        const angle = timeRef.current * cappedSpeed;
         el.style.transform = [
           "translateZ(0)",
           "rotateX(-22deg)",
@@ -155,12 +178,20 @@ export default function ScrollCubes() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", syncScale);
+    const handleVisibility = () => {
+      lastFrameRef.current = performance.now();
+      timeRef.current = 0;
+      boostRef.current = 1;
+      targetBoostRef.current = 1;
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
     return () => {
       cancelAnimationFrame(frameId);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", syncScale);
+      document.removeEventListener("visibilitychange", handleVisibility);
     };
-  }, [isMobile]);
+  }, [getActiveCubes]);
 
   const faceBase = {
     position: "absolute" as const,

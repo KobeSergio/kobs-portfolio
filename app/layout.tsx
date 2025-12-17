@@ -3,6 +3,9 @@ import { Nunito_Sans, Nunito } from "next/font/google";
 import "./globals.css";
 import "lenis/dist/lenis.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import WagmiWrapper from "@/providers/WagmiProvider";
+import { headers } from "next/headers"; // added
+import { ToastProvider } from "@/providers/Toasts";
 
 export const metadata: Metadata = {
   title: "Kobe Sergio | Full Stack Web3 Developer",
@@ -20,17 +23,24 @@ const nunitoMono = Nunito({
   subsets: ["latin"],
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headersObj = await headers();
+  const cookies = headersObj.get("cookie");
+
   return (
     <html lang="en">
       <body
         className={`${nunitoSans.className} ${nunitoMono.className} antialiased`}
       >
-        <SmoothScroll>{children}</SmoothScroll>
+        <WagmiWrapper cookies={cookies}>
+          <ToastProvider>
+            <SmoothScroll>{children}</SmoothScroll>
+          </ToastProvider>
+        </WagmiWrapper>
       </body>
     </html>
   );
