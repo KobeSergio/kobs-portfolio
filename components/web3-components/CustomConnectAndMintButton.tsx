@@ -6,12 +6,12 @@ import {
 } from "@/constants/smart-contract/resumeContract";
 import { useAppKit, useAppKitAccount } from "@reown/appkit/react";
 import { parseEther } from "viem";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useReadContract, useWriteContract } from "wagmi";
 import {
   waitForTransactionReceipt,
   type WriteContractReturnType,
-} from "@wagmi/core";
+} from "wagmi/actions";
 
 import { useToast } from "@/providers/Toasts";
 import SuccessMintModal, { type MintMetadata } from "./SuccessMintModal";
