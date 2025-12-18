@@ -30,9 +30,9 @@ export default function GithubContributionGraph() {
   }, [width, defaultBlockSize, defaultBlockMargin]);
 
   return (
-    <div className="flex flex-col gap-2 justify-center w-full md:mx-auto mx-4 px-8 scroll-mt-24">
+    <div className="flex flex-col gap-2 justify-center w-fit md:mx-auto mx-4 px-8 scroll-mt-24">
       <SectionLabel label="Github Contribution Graph" />
-      <div className="max-w-[80vw] lg:max-w-[90vw] xl:max-w-[100vw] mx-auto overflow-scroll py-6 overflow-x-auto">
+      <div className="max-w-[80vw] lg:max-w-[90vw] xl:max-w-[100vw] mx-auto overflow-scroll py-6 overflow-x-auto no-scrollbar">
         <GitHubCalendar
           colorScheme="dark"
           username="kobesergio"

@@ -1,4 +1,24 @@
-import { Experience } from "@/components/ExperienceCard";
+export type Experience = {
+  role: string;
+  company: string;
+  companyLogo: string;
+  location: string;
+  time: string;
+  summary: React.ReactNode;
+  contributions: Contributions[];
+};
+
+type Contributions = {
+  images: string[];
+  product: string;
+  impact: string;
+  description: React.ReactNode;
+  tech: string[];
+  link: string;
+};
+
+const readableCopy =
+  "[&_*]:!text-[13px] sm:[&_*]:!text-sm md:[&_*]:!text-base [&_*]:!leading-6 sm:[&_*]:!leading-7 [&_*]:text-slate-200";
 
 export const experiences: Experience[] = [
   {
@@ -9,10 +29,10 @@ export const experiences: Experience[] = [
     time: "Oct 2023 - Dec 2025",
     summary: (
       <div className="space-y-4">
-        <p className="text-sm text-slate-200">
-          As CTO, I architected and led the development of the{" "}
+        <p className={`${readableCopy} text-slate-200`}>
+          As CTO, I built and architected the development of{" "}
           <span className="font-semibold text-slate-50">
-            Kingdomly V2 ecosystem
+            Kingdomly&apos;s V2 ecosystem
           </span>
           , owning both product direction and technical execution.
         </p>
@@ -20,17 +40,21 @@ export const experiences: Experience[] = [
         <div className="grid gap-6 md:grid-cols-[1.5fr,1fr] md:items-start">
           {/* LEFT – responsibilities */}
           <div className="space-y-3">
-            <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-300/80">
+            <h4
+              className={`${readableCopy} font-semibold uppercase tracking-[0.18em] text-amber-300/80`}
+            >
               What I Led
             </h4>
-            <ul className="list-disc list-outside space-y-2 text-sm text-slate-200 pl-5">
+            <ul
+              className={`list-disc list-outside space-y-2 text-slate-200 pl-5 ${readableCopy}`}
+            >
               <li>
-                Built a{" "}
+                Built a multi-chain{" "}
                 <span className="font-semibold text-slate-50">
                   permissionless NFT launchpad
-                </span>{" "}
-                with multi-chain marketplace, bridge, and staking platform
-                empowering creators to launch and scale projects{" "}
+                </span>
+                , marketplace, bridge, and staking platform empowering creators
+                to launch and scale projects{" "}
                 <span className="font-semibold text-slate-50">
                   without writing code
                 </span>
@@ -57,16 +81,17 @@ export const experiences: Experience[] = [
         images: ["/assets/creator-demo.webm"],
         product: "Kingdomly Creator + Mint",
         description: (
-          <div className="space-y-2">
-            <p className="text-slate-200">
-              I led the architecture and development of Kingdomly&apos;s no-code
-              creator and mint suite, building an generative art engine, IPFS
-              uploader, mint gates, mint phases, mint forms, and admin dashboard
-              that empowered creators to launch and scale NFT projects without
-              writing code.
+          <div className={`space-y-2 ${readableCopy}`}>
+            <p>
+              I basically started everything from scratch and eventually led the
+              architecture and development of Kingdomly&apos;s no-code creator
+              and mint suite, building a generative art engine, IPFS uploader,
+              mint gates, mint phases, mint forms, and an all-in-one admin
+              dashboard that enabled creators to manage their project post and
+              pre-mint drops.
             </p>
 
-            <ul className="list-disc list-outside space-y-1 text-slate-200 pl-5">
+            <ul className="list-disc list-outside space-y-1 pl-5">
               <li>
                 Built a full <b>generative art engine</b> supporting layers,
                 traits, rarity, rules, and 1/1 logic.
@@ -102,11 +127,10 @@ export const experiences: Experience[] = [
           "Viem",
           "ERC721A/AC",
           "Solidity",
-          "React",
+          "IPFS",
           "Node.js",
           "PostgreSQL",
           "Prisma",
-          "Docker",
           "WebSockets",
           "AWS",
           "Vercel",
@@ -121,44 +145,45 @@ export const experiences: Experience[] = [
         ],
         product: "Kingdomly Marketplace",
         description: (
-          <div className="space-y-2">
-            <p className="text-slate-200">
-              Designed and engineered Kingdomly&apos;s cross-chain NFT
-              marketplace—a seamless platform enabling users to discover, buy,
-              and sell NFTs across supported EVM networks, including launchpad
-              collections and third-party projects.
+          <div className={`space-y-2 ${readableCopy}`}>
+            <p>
+              Led the design and development of Kingdomly’s cross-chain NFT
+              marketplace, delivering a seamless experience for discovering,
+              minting, and trading NFTs across supported EVM networks, covering
+              both launchpad drops and third-party collections.
             </p>
-            <ul className="list-disc list-outside space-y-1 text-slate-200 pl-5">
+            <ul className="list-disc list-outside space-y-1 pl-5">
               <li>
-                Built an <b>integrated orderbook</b> and transaction system
-                supporting instant minting, secondary sales, and multi-chain
-                listings.
+                Shipped an initial marketplace version using the{" "}
+                <b>Reservoir SDK</b>, launched on Berachain day one and gaining
+                strong early traction by extending mint drops into active
+                secondary trading during the bera hype.
               </li>
               <li>
-                Developed smart contracts for secure and gas-efficient listing,
-                bidding, and royalty payouts, alongside robust ERC721AC/EIP2981
-                compliance.
+                Architected and led the second marketplace iteration built on
+                <b> Seaport and LimitBreak’s Payment Processor</b>, guiding the
+                team in developing a custom indexer, orderbooks, and multi-chain
+                transaction handling.
+              </li>
+              <li>
+                Designed the overall system architecture, unblocked developers
+                on ovreall protocol and indexing challenges, and ensured secure,
+                gas-efficient listings, offers, and royalty enforcing with
+                ERC721AC and EIP-2981 compliance.
               </li>
             </ul>
           </div>
         ),
-        impact: "Shipped product to alpha version",
+        impact:
+          "Shipped marketplace v2 to alpha version, v1 garnered over $50k in revenue",
         tech: [
           "Next.js",
-          "React",
-          "Solidity",
           "TypeScript",
-          "Viem",
-          "ERC721AC",
-          "Seaport",
-          "Payment Processor (LimitBreak)",
-          "PostgreSQL",
-          "Prisma",
-          "RabbitMQ",
-          "Redis",
-          "The Graph / Envio / Reservoir",
-          "Docker",
-          "AWS",
+          "Tailwind",
+          "Solidity",
+          "Ethers.js",
+          "ONFTA / ONFT",
+          "NoSQL / Firebase",
           "Vercel",
         ],
         link: "https://kingdomly.com/marketplace",
@@ -168,15 +193,15 @@ export const experiences: Experience[] = [
         images: ["/assets/bridge-demo.webm"],
         product: "Kingdomly Bridge",
         description: (
-          <div className="space-y-2">
-            <p className="text-slate-200">
+          <div className={`space-y-2 ${readableCopy}`}>
+            <p>
               Designed and built Kingdomly&apos;s ONFT-powered NFT bridge,
               enabling seamless cross-chain transfers across major EVM networks
               and providing creators a permissionless way to make their NFTs
               bridgeable.
             </p>
 
-            <ul className="list-disc list-outside space-y-1 text-slate-200 pl-5">
+            <ul className="list-disc list-outside space-y-1 pl-5">
               <li>
                 Implemented LayerZero ONFT messaging among multiple chains to
                 progress with NFT bridging.
@@ -221,14 +246,14 @@ export const experiences: Experience[] = [
         images: ["/assets/staking-demo.webm"],
         product: "Kingdomly Staking",
         description: (
-          <div className="space-y-2">
-            <p className="text-slate-200">
+          <div className={`space-y-2 ${readableCopy}`}>
+            <p>
               Designed and built Kingdomly&apos;s permissionless NFT staking
               platform, enabling any creator to deploy their own audited staking
               pools and reward their holders without writing code.
             </p>
 
-            <ul className="list-disc list-outside space-y-1 text-slate-200 pl-5">
+            <ul className="list-disc list-outside space-y-1 pl-5">
               <li>
                 Engineered the smart contract architecture—audited by{" "}
                 <b>Hashlock</b>—that powers secure and flexible NFT staking
@@ -256,14 +281,9 @@ export const experiences: Experience[] = [
           "TypeScript",
           "Tailwind",
           "Viem",
-          "ERC721A/AC",
           "Solidity",
-          "React",
+          "NoSQL / Firebase",
           "Node.js",
-          "PostgreSQL",
-          "Prisma",
-          "Docker",
-          "AWS",
           "Vercel",
         ],
         link: "https://kingdomly.com/staking",
@@ -274,15 +294,15 @@ export const experiences: Experience[] = [
         images: ["/assets/kingdomly-docs.png"],
         product: "Kingdomly Docs",
         description: (
-          <div className="space-y-2">
-            <p className="text-slate-200">
+          <div className={`space-y-2 ${readableCopy}`}>
+            <p>
               Built Kingdomly&apos;s full documentation ecosystem using Mintlify
               and MDX, dramatically improving onboarding, reducing support load,
               and enabling creators to self-serve across our entire product
               suite.
             </p>
 
-            <ul className="list-disc list-outside space-y-1 text-slate-200 pl-5">
+            <ul className="list-disc list-outside space-y-1 pl-5">
               <li>
                 Structured and authored end-to-end documentation covering
                 Creator, Mint, Marketplace, Staking, and Bridge products.

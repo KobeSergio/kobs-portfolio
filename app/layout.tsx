@@ -36,11 +36,11 @@ export default async function RootLayout({
       <body
         className={`${nunitoSans.className} ${nunitoMono.className} antialiased`}
       >
-        <WagmiWrapper cookies={cookies}>
-          <ToastProvider>
-            <SmoothScroll>{children}</SmoothScroll>
-          </ToastProvider>
-        </WagmiWrapper>
+        <SmoothScroll>
+          <WagmiWrapper cookies={cookies}>
+            <ToastProvider>{children}</ToastProvider>
+          </WagmiWrapper>
+        </SmoothScroll>
       </body>
     </html>
   );

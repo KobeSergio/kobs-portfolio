@@ -19,12 +19,9 @@ export default function About({
   stats: { label: string; value: string }[];
 }) {
   const previewImages = [
-    "/assets/headshot.png",
-    "/assets/card_img.png",
-    "/assets/card_img.png",
-    "/assets/headshot.png",
-    "/assets/headshot.png",
-    "/assets/card_img.png",
+    "/assets/nft-image.png",
+    "/assets/carousel-2.png",
+    "/assets/carousel-1.png",
   ];
   const [activeIndex, setActiveIndex] = useState(0);
   const handleNext = () =>
@@ -297,14 +294,15 @@ export default function About({
           )} */}
           <p className="text-base leading-7 sm:text-lg sm:leading-8 text-slate-200">
             Fullstack Web3 Developer with a builder&apos;s mindset and a track
-            record of leading teams to ship ambitious NFT products. As the chief
+            record of leading teams to ship ambitious dApps. As the chief
             technical architect of a no-code NFT launchpad, I began as the sole
             developer and later moved into a broader leadership role supporting
             both our engineering team and the creators building on our platform.
             I built an ecosystem for NFTs that covers minting, marketplaces,
             bridging, and staking. I&apos;m now looking to get back to coding
             hands-on and deepen my understanding of systems and architecture,
-            while continuing to create intuitive, high-impact Web3 products.
+            while continuing to create intuitive, high-impact Web3/Web2
+            products.
           </p>
           <div className="w-full my-2">
             <p className="block text-sm text-slate-400 font-medium mb-2">

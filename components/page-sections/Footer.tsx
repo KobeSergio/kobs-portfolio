@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="relative h-fit -mt-24 overflow-hidden text-slate-50/95">
+    <footer className="relative h-fit -mt-24 overflow-hidden text-slate-50/95 hidden md:block">
       <div className="pointer-events-none overflow-hidden select-none">
         {/* Tablet and up: full name with adjusted scale */}
         <p

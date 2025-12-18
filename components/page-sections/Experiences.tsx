@@ -1,8 +1,7 @@
 "use client";
 
 import SectionLabel from "../SectionLabel";
-import { Experience } from "../ExperienceCard";
-import GithubContributionGraph from "../GithubContributionGraph";
+import { Experience } from "@/constants/site/Experiences";
 import { useState } from "react";
 import Image from "next/image";
 export default function Experiences({
@@ -39,20 +38,20 @@ export default function Experiences({
               >
                 <div className="flex h-full flex-col gap-4">
                   <div className="flex flex-col gap-1">
-                    <h3 className="text-lg md:text-xl font-semibold text-slate-50 leading-tight">
+                    <h3 className="text-base sm:text-lg md:text-xl font-semibold text-slate-50 leading-tight">
                       {experience.role}
                     </h3>
-                    <span className="text-xs uppercase tracking-wide text-slate-200">
+                    <span className="text-[11px] sm:text-xs md:text-sm uppercase tracking-wide text-slate-200">
                       {experience.time}
                     </span>
-                    <div className="flex flex-wrap items-center gap-2 text-xs md:text-sm text-slate-300">
-                      <span className="font-medium text-amber-100">
+                    <div className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs md:text-sm text-slate-300">
+                      <span className="font-medium text-amber-100 text-sm sm:text-base md:text-lg">
                         {experience.company}
                       </span>
                       <span className="hidden md:inline-block text-slate-400">
                         •
                       </span>
-                      <span className="text-slate-400">
+                      <span className="text-slate-400 text-[11px] text-sm sm:text-base md:text-lg">
                         {experience.location}
                       </span>
                     </div>

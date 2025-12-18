@@ -22,7 +22,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="group rounded-3xl border border-white/10 bg-white/5 p-5 shadow-lg shadow-black/30 transition hover:-translate-y-1 hover:border-amber-200/50 hover:shadow-amber-300/30">
       <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:gap-6">
-        <div className="flex-1 space-y-4">
+        <div className="flex-1 space-y-4 w-full lg:w-1/2">
           <div className="text-sm leading-6 text-slate-300">
             {project.description}
           </div>
@@ -35,8 +35,8 @@ export default function ProjectCard({ project }: { project: Project }) {
           </a>
         </div>
 
-        <div className="flex w-full flex-col gap-3 lg:w-[40%] xl:w-[35%] lg:self-stretch">
-          <div className="relative flex-1 min-h-[220px] overflow-hidden rounded-2xl border border-white/10 bg-slate-900">
+        <div className="flex w-full flex-col gap-3 lg:w-1/2">
+          <div className="relative flex-1 overflow-hidden rounded-2xl border border-white/10 bg-slate-900">
             {current ? (
               <div className="relative aspect-video w-full">
                 <Image

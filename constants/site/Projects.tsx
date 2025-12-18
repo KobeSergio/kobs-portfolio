@@ -8,6 +8,9 @@ export type Project = {
   statuses: string[];
 };
 
+const readableCopy =
+  "[&_*]:!text-[13px] sm:[&_*]:!text-sm md:[&_*]:!text-base [&_*]:!leading-6 sm:[&_*]:!leading-7";
+
 export const projects: Project[] = [
   //PRC Inspection and Monitoring System
   {
@@ -16,7 +19,7 @@ export const projects: Project[] = [
       "Designed and developed an automated Inspection & Monitoring system for the Professional Regulation Commission (PRC) in collaboration with the Board of Nutrition and Dietetics (BOND). This was my thesis project, built to replace the manual, fragmented workflows used to inspect and evaluate compliance among HEIs and hospitals nationwide.",
     statuses: ["Production ready", "Pending Pilot Test"],
     description: (
-      <div className="space-y-2">
+      <div className={`space-y-2 ${readableCopy}`}>
         <ul className="list-disc list-inside space-y-1 text-slate-300">
           <li>
             Built a <b>multi-tenant web platform</b> supporting five user roles
@@ -102,12 +105,12 @@ export const projects: Project[] = [
       "Built Tenelos, a complete tennis ELO rating and match analytics system. I handled everything from complex data transformation to developing the fullstack platform that powers player rankings, statistics, and match predictions.",
     statuses: ["Production deployed", "Freelance Project"],
     description: (
-      <div className="space-y-2">
+      <div className={`space-y-2 ${readableCopy}`}>
         <ul className="list-disc list-inside space-y-1 text-slate-300">
           <li>
             Processed and cleaned large volumes of inconsistent Excel match
-            records using <b>Python ETL scripts</b>, turning raw tennis data into
-            a structured, usable dataset.
+            records using <b>Python ETL scripts</b>, turning raw tennis data
+            into a structured, usable dataset.
           </li>
 
           <li>
@@ -151,7 +154,11 @@ export const projects: Project[] = [
         </ul>
       </div>
     ),
-    images: ["/assets/tenelos-previews/landing.png", "/assets/tenelos-previews/records.png", "/assets/tenelos-previews/charts.png"],
+    images: [
+      "/assets/tenelos-previews/landing.png",
+      "/assets/tenelos-previews/records.png",
+      "/assets/tenelos-previews/charts.png",
+    ],
     tech: [
       "MERN Stack",
       "Tailwind",
