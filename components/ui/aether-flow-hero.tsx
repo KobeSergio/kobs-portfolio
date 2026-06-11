@@ -199,7 +199,7 @@ const AetherFlowHero = () => {
           animate="visible"
           className="max-w-2xl mx-auto text-base md:text-lg text-gray-400 mb-10 leading-7"
         >
-          I build and launch fast, secure, and human-first dApps. From contract architecture
+          I build and launch fast, secure, and human-first dApps. From system architecture, smart contracts, 
           to frontend polish, I bridge product thinking with intuitive engineering so your
           users trust every click.
         </motion.p>

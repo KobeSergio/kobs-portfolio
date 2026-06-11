@@ -14,6 +14,10 @@ import {
   BookOpen,
   Terminal,
   Layers,
+  ShieldCheck,
+  Gauge,
+  FlaskConical,
+  Coins,
 } from "lucide-react";
 
 const PRODUCT_ICONS: Record<string, React.ElementType> = {
@@ -25,6 +29,12 @@ const PRODUCT_ICONS: Record<string, React.ElementType> = {
   docs: BookOpen,
   devops: Terminal,
   internship: Terminal,
+  sanction: ShieldCheck,
+  directory: ShieldCheck,
+  rate: Gauge,
+  test: FlaskConical,
+  stablecoin: Coins,
+  rwa: Coins,
 };
 
 function getProductIcon(product: string): React.ElementType {
@@ -34,6 +44,7 @@ function getProductIcon(product: string): React.ElementType {
   }
   return Layers;
 }
+
 
 export default function Experiences({
   experiences,
@@ -114,7 +125,7 @@ export default function Experiences({
                 return (
                   <div
                     key={contributionIndex}
-                    className={`grid gap-x-8 gap-y-4 items-start md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] pb-6 ${
+                    className={`grid gap-x-8 gap-y-4 items-start ${mediaItems.length > 0 ? "md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]" : ""} pb-6 ${
                       contributionIndex > 0
                         ? "border-t border-slate-800/50 pt-6"
                         : "pt-1"
@@ -169,7 +180,8 @@ export default function Experiences({
                       ) : null}
                     </div>
 
-                    {/* Right: media */}
+                    {/* Right: media (only when images exist) */}
+                    {mediaItems.length > 0 && (
                     <div className="relative overflow-hidden rounded-xl border border-slate-800/80 bg-slate-950 group/media">
                       {isVideo ? (
                         <video
@@ -181,7 +193,7 @@ export default function Experiences({
                           playsInline
                           controls
                         />
-                      ) : media ? (
+                      ) : (
                         <div className="relative aspect-video w-full overflow-hidden">
                           <Image
                             src={media}
@@ -192,8 +204,6 @@ export default function Experiences({
                             priority
                           />
                         </div>
-                      ) : (
-                        <div className="aspect-video w-full bg-slate-900" />
                       )}
 
                       {hasCarousel && (
@@ -227,6 +237,7 @@ export default function Experiences({
                         </>
                       )}
                     </div>
+                    )}
                   </div>
                 );
               })}

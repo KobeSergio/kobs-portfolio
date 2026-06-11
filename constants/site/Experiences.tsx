@@ -21,6 +21,105 @@ type Contributions = {
 
 export const experiences: Experience[] = [
   {
+    role: "Blockchain Developer",
+    company: "VISEO",
+    companyLogo: "",
+    location: "Remote",
+    time: "Jan 2026 — Jun 2026",
+    summary:
+      "Built and deployed smart contracts for Hong Kong's first licensed stablecoin platform at Anchorpoint Financial Limited. Covered the full lifecycle — architecture, implementation, testing, and handoff.",
+    contributions: [
+      {
+        images: [],
+        product: "Sanction & Directory Compliance",
+        description: (
+          <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
+            <li>
+              Engineered the{" "}
+              <b className="font-semibold text-slate-200">
+                sanction enforcement contract
+              </b>{" "}
+              for Anchorpoint Financial&apos;s stablecoin — blocking issuance
+              and redemption for any wallet matching a live on-chain sanctions
+              directory, satisfying HK licensing requirements for Hong Kong&apos;s
+              first regulated stablecoin provider.
+            </li>
+            <li>
+              Designed and deployed a{" "}
+              <b className="font-semibold text-slate-200">
+                platform and user directory contract system
+              </b>{" "}
+              that serves as the single source of truth for permissioned access
+              across Anchorpoint&apos;s stablecoin and RWA token operations.
+            </li>
+          </ul>
+        ),
+        impact:
+          "Regulatory-grade on-chain compliance for HK's first licensed stablecoin provider",
+        tech: ["Solidity", "Hardhat", "TypeScript", "Chai", "Mocha"],
+        link: "",
+      },
+      {
+        images: [],
+        product: "On-chain Rate Limiting",
+        description: (
+          <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
+            <li>
+              Implemented a{" "}
+              <b className="font-semibold text-slate-200">
+                custom on-chain rate-limiting module
+              </b>{" "}
+              for Anchorpoint&apos;s stablecoin contracts — enforcing
+              per-address call quotas to prevent abuse of minting and
+              redemption flows on a live regulated platform.
+            </li>
+            <li>
+              Designed an{" "}
+              <b className="font-semibold text-slate-200">
+                elevated policy layer
+              </b>{" "}
+              that routes flagged mint and redemption requests through a
+              secondary review — adding a human-in-the-loop gate before
+              high-risk transactions are settled on-chain.
+            </li>
+          </ul>
+        ),
+        impact:
+          "Hardened mint & redemption flows against abuse · RWA-ready token infrastructure",
+        tech: ["Solidity", "Hardhat", "TypeScript", "wagmi", "viem", "Ethereum"],
+        link: "",
+      },
+      {
+        images: [],
+        product: "Smart Contract Test Suite",
+        description: (
+          <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
+            <li>
+              Authored the unit test suite for Anchorpoint&apos;s stablecoin
+              and RWA platform using Hardhat, Chai, and Mocha — achieving{" "}
+              <b className="font-semibold text-slate-200">
+                70% coverage across 50+ smart contracts
+              </b>{" "}
+              before client handoff.
+            </li>
+            <li>
+              Integrated{" "}
+              <b className="font-semibold text-slate-200">
+                automated testing pipelines
+              </b>{" "}
+              into the QA workflow — wiring Hardhat test runs into CI so
+              contract regressions were caught automatically on every push.
+            </li>
+          </ul>
+        ),
+        impact: "70% unit test coverage across 50+ smart contracts",
+        tech: ["Hardhat", "Forge", "Chai", "Mocha", "TypeScript"],
+        link: "",
+      },
+    ],
+  },
+
+  {
     role: "Chief Technology Officer",
     company: "Kingdomly",
     location: "Remote",
@@ -50,10 +149,21 @@ export const experiences: Experience[] = [
               scheduling, quotas, toggles, and live mint management.
             </li>
             <li>
-              Integrated a full{" "}
-              <b className="font-semibold text-slate-200">multi-wallet stack</b>{" "}
-              — MetaMask, WalletConnect, Coinbase Wallet, and Porto — with
-              wagmi + viem adapters and EIP-7702 session key support.
+              Generated{" "}
+              <b className="font-semibold text-slate-200">
+                auto-provisioned mint pages
+              </b>{" "}
+              per project — individually load-tested to handle traffic spikes,
+              peaking at{" "}
+              <b className="font-semibold text-slate-200">60K visitors in a single minute</b>.
+            </li>
+            <li>
+              Shipped{" "}
+              <b className="font-semibold text-slate-200">
+                gas-free mints on Sophon Chain
+              </b>{" "}
+              via paymaster integration and account abstraction — letting users
+              mint without holding SOPH for gas.
             </li>
           </ul>
         ),
