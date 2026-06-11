@@ -1,35 +1,30 @@
 import { SiDiscord, SiGmail, SiLinkedin } from "react-icons/si";
-import SectionLabel from "../SectionLabel";
 
 export default function Contact() {
   return (
     <section
       id="contact"
-      className="scroll-mt-24 space-y-6 md:mx-auto mx-4 px-8"
+      className="scroll-mt-24 space-y-6 w-full max-w-6xl mx-auto px-4 md:px-8"
     >
-      <SectionLabel label="Contact" />
       <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="rounded-3xl border border-emerald-200/20 bg-white/5 p-6 shadow-lg shadow-black/30">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-emerald-300">
-            Let us build together
-          </p>
-          <h3 className="mt-2 text-2xl font-semibold text-slate-50 md:text-3xl">
+        <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-6">
+          <h3 className="text-2xl font-bold text-slate-50 md:text-3xl tracking-tight">
             Ready for your next product or MVP
           </h3>
-          <p className="mt-3 text-sm leading-6 text-slate-300 md:text-base">
+          <p className="mt-3 text-sm leading-6 text-slate-400 md:text-base">
             I ship end to end across design systems, frontend, backend, and
             smart contracts. I enjoy working closely with founders and teams to
             move from concept to launch fast.
           </p>
 
-          <div className="mt-4 flex flex-wrap gap-2 text-xs text-slate-200">
-            <span className="rounded-full border border-emerald-200/40 bg-emerald-300/15 px-3 py-1">
+          <div className="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
+            <span className="rounded-full border border-slate-700 bg-slate-800/60 px-3 py-1">
               Fullstack Development
             </span>
-            <span className="rounded-full border border-emerald-200/40 bg-emerald-300/15 px-3 py-1">
+            <span className="rounded-full border border-slate-700 bg-slate-800/60 px-3 py-1">
               Web3
             </span>
-            <span className="rounded-full border border-emerald-200/40 bg-emerald-300/15 px-3 py-1">
+            <span className="rounded-full border border-slate-700 bg-slate-800/60 px-3 py-1">
               Product Leadership
             </span>
           </div>
@@ -37,7 +32,7 @@ export default function Contact() {
           <div className="mt-6 flex flex-wrap gap-3 w-full">
             <a
               href="mailto:ckasergio@gmail.com"
-              className="flex-1 min-w-[170px] md:min-w-0 inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 hover:border-emerald-200/40 hover:bg-emerald-300/15 px-4 py-3 text-sm font-semibold text-slate-100 shadow-none transition hover:translate-y-[-1px] hover:shadow-[0_0_22px_rgba(16,185,129,0.45)]"
+              className="flex-1 min-w-[170px] md:min-w-0 inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-800/60 hover:border-amber-400/40 hover:bg-amber-400/8 px-4 py-3 text-sm font-semibold text-slate-100 transition hover:-translate-y-px hover:shadow-[0_0_20px_rgba(251,191,36,0.15)]"
             >
               <SiGmail /> Email me
             </a>
@@ -45,7 +40,7 @@ export default function Contact() {
               href="https://www.linkedin.com/in/kobesergio"
               target="_blank"
               rel="noreferrer"
-              className="flex-1 min-w-[170px] md:min-w-0 inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 hover:border-emerald-200/40 hover:bg-emerald-300/15 px-4 py-3 text-sm font-semibold text-slate-100 shadow-none transition hover:translate-y-[-1px] hover:shadow-[0_0_22px_rgba(16,185,129,0.45)]"
+              className="flex-1 min-w-[170px] md:min-w-0 inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-800/60 hover:border-amber-400/40 hover:bg-amber-400/8 px-4 py-3 text-sm font-semibold text-slate-100 transition hover:-translate-y-px hover:shadow-[0_0_20px_rgba(251,191,36,0.15)]"
             >
               <SiLinkedin /> LinkedIn
             </a>
@@ -53,19 +48,19 @@ export default function Contact() {
               href="https://discord.com/users/622772696870158347"
               target="_blank"
               rel="noreferrer"
-              className="flex-1 min-w-[170px] md:min-w-0 inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 hover:border-emerald-200/40 hover:bg-emerald-300/15 px-4 py-3 text-sm font-semibold text-slate-100 shadow-none transition hover:translate-y-[-1px] hover:shadow-[0_0_22px_rgba(16,185,129,0.45)]"
+              className="flex-1 min-w-[170px] md:min-w-0 inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-800/60 hover:border-amber-400/40 hover:bg-amber-400/8 px-4 py-3 text-sm font-semibold text-slate-100 transition hover:-translate-y-px hover:shadow-[0_0_20px_rgba(251,191,36,0.15)]"
             >
               <SiDiscord /> Discord
             </a>
           </div>
         </div>
 
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/30">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-amber-200">
-            <span className="h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_12px_rgba(251,191,36,0.7)]" />
-            Quick stats
+        <div className="flex flex-col gap-3 rounded-2xl border border-slate-800 bg-slate-900/50 p-6">
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]" />
+            <p className="text-xs font-mono uppercase tracking-[0.18em] text-slate-500">Quick stats</p>
           </div>
-          <div className="mt-4 grid grid-cols-2 gap-3 text-slate-100">
+          <div className="grid grid-cols-2 gap-3 text-slate-100">
             {[
               { label: "Timezone", value: "UTC+8 (PH)" },
               { label: "Languages", value: "EN, Tagalog" },
@@ -74,17 +69,17 @@ export default function Contact() {
             ].map((item) => (
               <div
                 key={item.label}
-                className="rounded-2xl border border-white/10 bg-white/5 p-4"
+                className="rounded-xl border border-slate-800 bg-slate-950/60 p-4"
               >
-                <p className="text-xs text-slate-300">{item.label}</p>
-                <p className="text-sm font-semibold text-slate-50">
+                <p className="text-xs text-slate-500">{item.label}</p>
+                <p className="text-sm font-semibold text-slate-100 mt-0.5">
                   {item.value}
                 </p>
               </div>
             ))}
           </div>
-          <div className="mt-4 rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm leading-6 text-slate-200">
-            Prefer async? Drop a note with context and links, and I will reply
+          <div className="rounded-xl border border-slate-800 bg-slate-950/60 p-4 text-sm leading-6 text-slate-400">
+            Prefer async? Drop a note with context and links, and I&apos;ll reply
             with next steps and availability.
           </div>
         </div>

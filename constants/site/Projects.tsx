@@ -1,3 +1,5 @@
+import React from "react";
+
 export type Project = {
   title: string;
   headline: string;
@@ -8,70 +10,38 @@ export type Project = {
   statuses: string[];
 };
 
-const readableCopy =
-  "[&_*]:!text-[13px] sm:[&_*]:!text-sm md:[&_*]:!text-base [&_*]:!leading-6 sm:[&_*]:!leading-7";
-
 export const projects: Project[] = [
-  //PRC Inspection and Monitoring System
   {
     title: "PRC Inspection and Monitoring System",
     headline:
-      "Designed and developed an automated Inspection & Monitoring system for the Professional Regulation Commission (PRC) in collaboration with the Board of Nutrition and Dietetics (BOND). This was my thesis project, built to replace the manual, fragmented workflows used to inspect and evaluate compliance among HEIs and hospitals nationwide.",
+      "Automated compliance inspection platform for the Professional Regulation Commission — replacing manual, paper-based workflows used to evaluate HEIs and hospitals nationwide.",
     statuses: ["Production ready", "Pending Pilot Test"],
     description: (
-      <div className={`space-y-2 ${readableCopy}`}>
-        <ul className="list-disc list-inside space-y-1 text-slate-300">
-          <li>
-            Built a <b>multi-tenant web platform</b> supporting five user roles
-            — PRC Board Members, ACD, Regional Offices, Oversight Commissioners,
-            and HEIs/Hospitals — each with separate portals.
-          </li>
-          <li>
-            Developed a robust <b>compliance monitoring workflow</b> tailored
-            for PRC BOND&apos;s needs, replacing the accreditation-focused
-            legacy system with one optimized for inspection cycles.
-          </li>
-          <li>
-            Implemented tools for <b>real-time inspection tracking</b>, document
-            submissions, findings, recommendations, and nationwide compliance
-            coverage.
-          </li>
-          <li>
-            Improved operational efficiency by enabling board members to
-            complete their three-year inspection cycle across all regions more
-            effectively.
-          </li>
-          <li>
-            Provided direct access to <b>stakeholders and board members</b>{" "}
-            throughout development, ensuring the system aligned with real-world
-            workflows and department needs.
-          </li>
-        </ul>
-
-        <p className="text-slate-300 pt-2">
-          The system includes five separate deployments, each with role-specific
-          features:
-        </p>
-
-        <ul className="list-disc list-inside space-y-1 text-slate-300">
-          <li>
-            <b>Client</b>: prc-iam-client.vercel.app
-          </li>
-          <li>
-            <b>PRC Board Members / Secretaries</b>: prc-iam-prb.vercel.app
-          </li>
-          <li>
-            <b>Accreditation Compliance Department (ACD)</b>:
-            prc-iam-acd.vercel.app
-          </li>
-          <li>
-            <b>Regional Office (RO)</b>: prc-iam-ro.vercel.app
-          </li>
-          <li>
-            <b>Oversight Commissioner (OC)</b>: prc-iam-oc.vercel.app
-          </li>
-        </ul>
-      </div>
+      <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-300">
+        <li>
+          Built a{" "}
+          <b className="font-semibold text-slate-100">multi-tenant platform</b>{" "}
+          supporting 5 user roles — PRC Board Members, ACD, Regional Offices,
+          Oversight Commissioners, and HEIs/Hospitals — each with separate
+          portals.
+        </li>
+        <li>
+          Developed a{" "}
+          <b className="font-semibold text-slate-100">
+            compliance monitoring workflow
+          </b>{" "}
+          purpose-built for PRC BOND&apos;s inspection cycles, replacing the
+          legacy accreditation system.
+        </li>
+        <li>
+          Delivered{" "}
+          <b className="font-semibold text-slate-100">
+            real-time inspection tracking
+          </b>
+          , document submissions, findings, recommendations, and nationwide
+          compliance coverage.
+        </li>
+      </ul>
     ),
     images: [
       "/assets/prc-previews/login.avif",
@@ -83,90 +53,53 @@ export const projects: Project[] = [
     ],
     tech: [
       "Next.js",
-      "React",
       "TypeScript",
       "Tailwind",
       "Node.js",
-      "NoSQL (Firebase)",
+      "Firebase",
       "NextAuth",
       "SMTP",
       "Vercel",
-      "GitBook",
-      "Problem Solving",
-      "Client Communication",
     ],
     link: "https://prc-inspection-and-monitoring.gitbook.io/product-docs",
   },
 
-  //Tenelos - Tennis ELO rating system
   {
     title: "Tenelos — Tennis ELO Rating System",
     headline:
-      "Built Tenelos, a complete tennis ELO rating and match analytics system. I handled everything from complex data transformation to developing the fullstack platform that powers player rankings, statistics, and match predictions.",
+      "Full-stack tennis ELO rating platform — from Python ETL pipelines cleaning raw match data to a production site powering player rankings, analytics, and match predictions.",
     statuses: ["Production deployed", "Freelance Project"],
     description: (
-      <div className={`space-y-2 ${readableCopy}`}>
-        <ul className="list-disc list-inside space-y-1 text-slate-300">
-          <li>
-            Processed and cleaned large volumes of inconsistent Excel match
-            records using <b>Python ETL scripts</b>, turning raw tennis data
-            into a structured, usable dataset.
-          </li>
-
-          <li>
-            Worked closely with the client to <b>prototype</b> the system —
-            iterating on wireframes, ranking logic, and UX through multiple
-            feedback cycles.
-          </li>
-
-          <li>
-            Developed a complete <b>player analytics experience</b> including
-            profiles, head-to-head records, match histories, and performance
-            summaries.
-          </li>
-
-          <li>
-            Implemented <b>ELO-based player rankings</b> with dynamic updates
-            after each recorded match.
-          </li>
-
-          <li>
-            Added <b>data visualizations</b> using Chart.js to display player
-            performance trends, win/loss charts, H2H statistics, and ranking
-            changes.
-          </li>
-
-          <li>
-            Built a full <b>admin interface</b> for managing players, match
-            data, ranking updates, and overall site configuration.
-          </li>
-
-          <li>
-            Improved platform visibility by implementing{" "}
-            <b>SEO optimizations</b> and enabling <b>web crawling</b> for public
-            rankings, player profiles, and match records.
-          </li>
-
-          <li>
-            Delivered a polished <b>fullstack platform</b> with authentication,
-            dashboards, automated data ingestion, and production deployment.
-          </li>
-        </ul>
-      </div>
+      <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-300">
+        <li>
+          Processed large volumes of inconsistent Excel records using{" "}
+          <b className="font-semibold text-slate-100">Python ETL scripts</b> —
+          turning raw tennis data into a clean, structured dataset.
+        </li>
+        <li>
+          Built a complete{" "}
+          <b className="font-semibold text-slate-100">player analytics experience</b>{" "}
+          — profiles, head-to-head records, match histories, and ELO-based dynamic
+          rankings.
+        </li>
+        <li>
+          Implemented{" "}
+          <b className="font-semibold text-slate-100">Chart.js visualizations</b>{" "}
+          for performance trends, win/loss charts, H2H stats, and ranking changes.
+        </li>
+        <li>
+          Delivered a fullstack platform with{" "}
+          <b className="font-semibold text-slate-100">admin interface</b>, auth,
+          automated data ingestion, and SEO optimization.
+        </li>
+      </ul>
     ),
     images: [
       "/assets/tenelos-previews/landing.png",
       "/assets/tenelos-previews/records.png",
       "/assets/tenelos-previews/charts.png",
     ],
-    tech: [
-      "MERN Stack",
-      "Tailwind",
-      "MongoDB",
-      "Python",
-      "Data Analysis",
-      "ETL Pipelines",
-    ],
+    tech: ["MERN Stack", "Tailwind", "MongoDB", "Python", "ETL Pipelines"],
     link: "https://tenelos.com",
   },
 ];

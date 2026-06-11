@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import Pill from "./Pill";
-
+import { ArrowUpRight } from "lucide-react";
 import { Project } from "@/constants/site/Projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
@@ -20,78 +19,90 @@ export default function ProjectCard({ project }: { project: Project }) {
   };
 
   return (
-    <article className="group rounded-3xl border border-white/10 bg-white/5 p-5 shadow-lg shadow-black/30 transition hover:-translate-y-1 hover:border-amber-200/50 hover:shadow-amber-300/30">
-      <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:gap-6">
-        <div className="flex-1 space-y-4 w-full lg:w-1/2">
-          <div className="text-sm leading-6 text-slate-300">
+    <article className="group">
+      <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:gap-8">
+
+        {/* Left: description, tech, link */}
+        <div className="flex-1 space-y-4">
+          <div className="text-sm leading-6 text-slate-400">
             {project.description}
           </div>
+
+          {project.tech.length ? (
+            <div className="flex flex-wrap gap-1.5">
+              {project.tech.map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-md border border-slate-800 bg-slate-900/60 px-2 py-0.5 text-xs text-slate-400 transition-colors hover:border-amber-400/30 hover:text-amber-200/80"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          ) : null}
+
           <a
             href={project.link}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-amber-200 transition group-hover:translate-x-0.5"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-300 hover:text-amber-200 transition-colors group/link"
           >
             View build
-            <span aria-hidden>→</span>
+            <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
           </a>
         </div>
 
-        <div className="flex w-full flex-col gap-3 lg:w-1/2">
-          <div className="relative flex-1 overflow-hidden rounded-2xl border border-white/10 bg-slate-900">
-            {current ? (
-              <div className="relative aspect-video w-full">
-                <Image
-                  src={current}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1280px) 420px, (min-width: 768px) 320px, 100vw"
-                  priority
-                />
-              </div>
-            ) : (
-              <div className="aspect-video w-full rounded-2xl bg-linear-to-br from-slate-900/80 via-slate-900 to-slate-950" />
-            )}
+        {/* Right: image carousel */}
+        <div className="relative w-full overflow-hidden rounded-xl border border-slate-800/80 bg-slate-950 lg:w-1/2 group/img">
+          {current ? (
+            <div className="relative aspect-video w-full overflow-hidden">
+              <Image
+                src={current}
+                alt={project.title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover/img:scale-[1.04]"
+                sizes="(min-width: 1280px) 480px, (min-width: 768px) 360px, 100vw"
+                priority
+              />
+              {/* subtle amber sheen on hover */}
+              <div className="absolute inset-0 bg-amber-400/0 group-hover/img:bg-amber-400/[0.04] transition-colors duration-500 pointer-events-none" />
+            </div>
+          ) : (
+            <div className="aspect-video w-full bg-slate-900" />
+          )}
 
-            {hasCarousel ? (
-              <>
-                <div className="pointer-events-none absolute inset-0 flex items-center justify-between px-3">
-                  <button
-                    type="button"
-                    onClick={() => goTo("prev")}
-                    className="pointer-events-auto rounded-full bg-black/40 p-2 text-slate-100 shadow-md shadow-black/40 backdrop-blur transition hover:bg-black/55"
-                    aria-label="Previous preview"
-                  >
-                    ‹
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => goTo("next")}
-                    className="pointer-events-auto rounded-full bg-black/40 p-2 text-slate-100 shadow-md shadow-black/40 backdrop-blur transition hover:bg-black/55"
-                    aria-label="Next preview"
-                  >
-                    ›
-                  </button>
-                </div>
-                <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2">
-                  {mediaItems.map((_, idx) => (
-                    <span
-                      key={`${project.title}-dot-${idx}`}
-                      className={`h-2 w-2 rounded-full border border-white/40 transition ${
-                        idx === mediaIndex ? "bg-white" : "bg-white/20"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </>
-            ) : null}
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {project.tech.map((tech) => (
-              <Pill key={tech} size="xs">
-                {tech}
-              </Pill>
-            ))}
-          </div>
+          {hasCarousel ? (
+            <>
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-between px-3">
+                <button
+                  type="button"
+                  onClick={() => goTo("prev")}
+                  className="pointer-events-auto rounded-full bg-black/40 p-2 text-slate-100 backdrop-blur transition hover:bg-black/60"
+                  aria-label="Previous preview"
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  onClick={() => goTo("next")}
+                  className="pointer-events-auto rounded-full bg-black/40 p-2 text-slate-100 backdrop-blur transition hover:bg-black/60"
+                  aria-label="Next preview"
+                >
+                  ›
+                </button>
+              </div>
+              <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2">
+                {mediaItems.map((_, idx) => (
+                  <span
+                    key={`${project.title}-dot-${idx}`}
+                    className={`h-1.5 w-1.5 rounded-full transition ${
+                      idx === mediaIndex ? "bg-white" : "bg-white/30"
+                    }`}
+                  />
+                ))}
+              </div>
+            </>
+          ) : null}
         </div>
       </div>
     </article>
