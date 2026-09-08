@@ -7,11 +7,28 @@ export type Experience = {
   location: string;
   time: string;
   summary: React.ReactNode;
+  links?: ExperienceLink[];
+  onchain?: OnchainContract[];
   contributions: Contributions[];
+};
+
+export type ExperienceLinkIcon = "globe" | "opensea" | "chart";
+
+export type ExperienceLink = {
+  label: string;
+  href: string;
+  icon?: ExperienceLinkIcon;
+};
+
+export type OnchainContract = {
+  label: string;
+  address: string;
+  href: string;
 };
 
 type Contributions = {
   images: string[];
+  poster?: string;
   product: string;
   impact: string;
   description: React.ReactNode;
@@ -20,6 +37,181 @@ type Contributions = {
 };
 
 export const experiences: Experience[] = [
+  {
+    role: "Freelance Fullstack Web3 Developer",
+    company: "The Suits",
+    companyLogo: "/assets/suits/suits-logo.png",
+    location: "Remote · Robinhood Chain",
+    time: "Aug 2026 — Present",
+    summary:
+      "Sole engineer on The Suits, a 3,000-piece NFT collection on Robinhood Chain. I built the mint site and the contracts, then a weekly $SUIT “paycheck” that pays holders from a merkle drop, then the token and its Uniswap v4 launch. Spec, code, tests and the launch-day ops, start to finish.",
+    links: [
+      { label: "Live site", href: "https://www.putthesuiton.xyz", icon: "globe" },
+      {
+        label: "OpenSea",
+        href: "https://opensea.io/collection/the-suits-nft",
+        icon: "opensea",
+      },
+      {
+        label: "Dexscreener chart",
+        href: "https://dexscreener.com/robinhood/0xd98b860a51a5da17fd2e83124db9981a85060224fc8b9240e5466edb86d64c16",
+        icon: "chart",
+      },
+    ],
+    onchain: [
+      {
+        label: "TheSuits NFT",
+        address: "0x05C2174aa494BBDf72AEeab0cA3C10216D33B297",
+        href: "https://robinscan.io/address/0x05C2174aa494BBDf72AEeab0cA3C10216D33B297",
+      },
+      {
+        label: "SuitPaycheck",
+        address: "0xb127bE00e0Cd39a3cE14591F74b7f86c87D054a6",
+        href: "https://robinscan.io/address/0xb127bE00e0Cd39a3cE14591F74b7f86c87D054a6",
+      },
+      {
+        label: "$SUIT token",
+        address: "0x87A78590D563F0EFC62192239af46707FFF74386",
+        href: "https://robinscan.io/address/0x87A78590D563F0EFC62192239af46707FFF74386",
+      },
+    ],
+    contributions: [
+      {
+        images: ["/assets/suits/suits-mint-demo.webm"],
+        poster: "/assets/suits/02-mint-page-live.png",
+        product: "The Suits Mint",
+        description: (
+          <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
+            <li>
+              The{" "}
+              <b className="font-semibold text-slate-200">ERC-721C mint contract</b>{" "}
+              runs phased allowlist windows with per-wallet caps, keeps a
+              50-piece airdrop reserve, and enforces royalties through the
+              transfer validator.
+            </li>
+            <li>
+              The <b className="font-semibold text-slate-200">mint site</b>{" "}
+              opens on a closet door, tracks supply and windows live, and ends
+              on a <b className="font-semibold text-slate-200">reveal card</b>{" "}
+              with each suit&apos;s rank, tier and traits.
+            </li>
+            <li>
+              Handled the{" "}
+              <b className="font-semibold text-slate-200">
+                art and metadata upload to IPFS
+              </b>
+              , all 3,000 images pinned and paired with their metadata.
+            </li>
+            <li>
+              Managed the{" "}
+              <b className="font-semibold text-slate-200">whole mint</b>: NFT
+              holder snapshots, allowlist upload, mint setup, phase scheduling,
+              and the live changes on launch day.
+            </li>
+          </ul>
+        ),
+        impact:
+          "3,000 minted · sold out ~2 h after opening · 691 holders · $36K+ secondary volume",
+        tech: [
+          "Next.js",
+          "TypeScript",
+          "Solidity",
+          "ERC-721C",
+          "Foundry",
+          "wagmi / viem",
+          "IPFS (Filebase)",
+          "Playwright",
+          "Vercel",
+        ],
+        link: "",
+      },
+      {
+        images: ["/assets/suits/suits-claim-demo.webm"],
+        poster: "/assets/suits/04-claim-page-live.png",
+        product: "$SUIT Paycheck",
+        description: (
+          <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
+            <li>
+              <b className="font-semibold text-slate-200">SuitPaycheck</b> is
+              the weekly $SUIT airdrop for Suits NFT holders, claimed from a
+              merkle drop. Each week holders get 24 hours to claim their cut;
+              whatever goes unclaimed is burned, so supply only ever goes down.
+            </li>
+            <li>
+              Built the{" "}
+              <b className="font-semibold text-slate-200">
+                holder snapshot script
+              </b>
+              : it pulls every Suits owner, then uses the OpenSea API to drop
+              any NFT currently listed, so listed suits don&apos;t get paid.
+            </li>
+            <li>
+              The <b className="font-semibold text-slate-200">Payday page</b>{" "}
+              counts down to the drop, shows each suit&apos;s cut, and claims
+              every open week in one transaction.
+            </li>
+          </ul>
+        ),
+        impact:
+          "300M $SUIT program · 657 wallets paid in week 1 · 40% claimed in the first hour",
+        tech: [
+          "Solidity",
+          "OpenZeppelin",
+          "Foundry",
+          "Node.js",
+          "Merkle trees",
+          "OpenSea API",
+          "Next.js",
+          "wagmi",
+          "Playwright",
+        ],
+        link: "",
+      },
+      {
+        images: [
+          "/assets/suits/11-dexscreener-suit-pltr.png",
+          "/assets/suits/12-uniswap-suit.png",
+          "/assets/suits/14-sourcify-paycheck-verified.png",
+          "/assets/suits/16-launch-call-sheet.png",
+        ],
+        product: "$SUIT Token + Uniswap v4 Launch",
+        description: (
+          <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
+            <li>
+              <b className="font-semibold text-slate-200">$SUIT</b> is a plain
+              ERC-20: 1B minted once, 700M to the client&apos;s ops wallet, 300M
+              to the paycheck. Burnable, no owner, no tax.
+            </li>
+            <li>
+              <b className="font-semibold text-slate-200">Launch scripts</b>{" "}
+              for deploy, verify, wire-to-paycheck, fund and sanity checks,
+              each guarded so it won&apos;t run twice or against the wrong
+              token.
+            </li>
+            <li>
+              Ran the{" "}
+              <b className="font-semibold text-slate-200">Uniswap v4 launch</b>{" "}
+              live with the client: pool against tokenised PLTR, starting-price
+              maths, LP-NFT custody, every command on a call sheet.
+            </li>
+          </ul>
+        ),
+        impact:
+          "1B $SUIT · Uniswap v4 pool live 7 Sep 2026 · 3,100 trades from 728 traders in the first 24 h",
+        tech: [
+          "Solidity",
+          "Foundry",
+          "Uniswap v4",
+          "Dexscreener",
+          "Blockscout / Sourcify",
+          "Bash",
+          "Node.js",
+        ],
+        link: "",
+      },
+    ],
+  },
+
   {
     role: "Blockchain Developer",
     company: "VISEO",
@@ -123,7 +315,7 @@ export const experiences: Experience[] = [
     role: "Chief Technology Officer",
     company: "Kingdomly",
     location: "Remote",
-    companyLogo: "/assets/kingdomly.png",
+    companyLogo: "",
     time: "Oct 2023 - Dec 2025",
     summary:
       "Architected Kingdomly's V2 ecosystem from scratch — owning all technical decisions from smart contract design to frontend infrastructure. Scaled and led a 13-person engineering team, shipping 5 production products across multiple EVM chains.",
@@ -336,7 +528,7 @@ export const experiences: Experience[] = [
   {
     role: "DevOps Engineer Intern",
     company: "Stratpoint",
-    companyLogo: "/assets/stratpoint.png",
+    companyLogo: "",
     location: "Mandaluyong City, Philippines",
     time: "Jul 2023 — Oct 2023",
     summary:
