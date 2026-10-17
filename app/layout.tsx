@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Nunito_Sans, Nunito } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import "lenis/dist/lenis.css";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -10,16 +10,11 @@ import { ToastProvider } from "@/providers/Toasts";
 export const metadata: Metadata = {
   title: "Kobe Sergio | Full Stack Web3 Developer",
   description:
-    "Hi welcome to my portfolio website. I'm a full stack web3 developer with a passion for building dApps.",
+    "Fullstack Web3 developer with 5 years of shipping products end to end. Lately, I pair AI with spec-driven development to deliver my day-to-day work more efficiently.",
 };
 
 const nunitoSans = Nunito_Sans({
   variable: "--font-nunito-sans",
-  subsets: ["latin"],
-});
-
-const nunitoMono = Nunito({
-  variable: "--font-nunito-mono",
   subsets: ["latin"],
 });
 
@@ -34,7 +29,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${nunitoSans.className} ${nunitoMono.className} antialiased`}
+        className={`${nunitoSans.variable} ${nunitoSans.className} antialiased`}
       >
         <SmoothScroll>
           <WagmiWrapper cookies={cookies}>

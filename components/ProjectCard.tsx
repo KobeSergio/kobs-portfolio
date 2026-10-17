@@ -22,30 +22,24 @@ export default function ProjectCard({ project }: { project: Project }) {
     <article className="group">
       <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:gap-8">
 
-        {/* Left: description, tech, link */}
-        <div className="flex-1 space-y-4">
-          <div className="text-sm leading-6 text-slate-400">
+        {/* Left: stack, details, link */}
+        <div className="flex-1 space-y-3">
+          {project.tech.length ? (
+            <p className="text-xs leading-5 text-slate-400">
+              <span className="sr-only">Stack: </span>
+              {project.tech.join(" · ")}
+            </p>
+          ) : null}
+
+          <div className="text-sm leading-relaxed text-slate-400">
             {project.description}
           </div>
-
-          {project.tech.length ? (
-            <div className="flex flex-wrap gap-1.5">
-              {project.tech.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-md border border-slate-800 bg-slate-900/60 px-2 py-0.5 text-xs text-slate-400 transition-colors hover:border-amber-400/30 hover:text-amber-200/80"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          ) : null}
 
           <a
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-300 hover:text-amber-200 transition-colors group/link"
+            className="flex w-fit items-center gap-1.5 text-sm font-semibold text-amber-300 hover:text-amber-200 transition-colors group/link"
           >
             View build
             <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />

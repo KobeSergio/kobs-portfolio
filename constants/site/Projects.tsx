@@ -14,7 +14,7 @@ export const projects: Project[] = [
   {
     title: "PRC Inspection and Monitoring System",
     headline:
-      "Automated compliance inspection platform for the Professional Regulation Commission — replacing manual, paper-based workflows used to evaluate HEIs and hospitals nationwide.",
+      "Replaces paper-based inspections of schools and hospitals nationwide",
     statuses: ["Production ready", "Pending Pilot Test"],
     description: (
       <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-300">
@@ -67,7 +67,7 @@ export const projects: Project[] = [
   {
     title: "Tenelos — Tennis ELO Rating System",
     headline:
-      "Full-stack tennis ELO rating platform — from Python ETL pipelines cleaning raw match data to a production site powering player rankings, analytics, and match predictions.",
+      "Player rankings, analytics and match predictions, built from raw match data",
     statuses: ["Production deployed", "Freelance Project"],
     description: (
       <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-300">

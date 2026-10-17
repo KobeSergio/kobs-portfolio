@@ -199,9 +199,9 @@ const AetherFlowHero = () => {
           animate="visible"
           className="max-w-2xl mx-auto text-base md:text-lg text-gray-400 mb-10 leading-7"
         >
-          I build and launch fast, secure, and human-first dApps. From system architecture, smart contracts, 
-          to frontend polish, I bridge product thinking with intuitive engineering so your
-          users trust every click.
+          Fullstack Web3 developer with 5 years of shipping products end to
+          end. Lately, I pair AI with spec-driven development to deliver my
+          day-to-day work more efficiently.
         </motion.p>
 
         <motion.div

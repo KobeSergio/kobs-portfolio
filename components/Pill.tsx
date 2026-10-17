@@ -14,7 +14,7 @@ export default function Pill({
 }: PillProps) {
   const sizing =
     size === "xs"
-      ? "px-2 py-1 text-[11px] sm:text-xs md:text-sm"
+      ? "px-2 py-1 text-xs md:text-sm"
       : "px-3 py-1.5 text-sm sm:text-base";
   const colorClasses: Record<NonNullable<PillProps["color"]>, string> = {
     white: "border-white/10 bg-white/5 text-slate-100",

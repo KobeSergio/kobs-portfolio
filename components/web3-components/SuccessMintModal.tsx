@@ -75,7 +75,7 @@ export default function SuccessMintModal({
             <span className="h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_10px_rgba(252,211,77,0.8)]" />
             Mint successful
             {tokenLabel && (
-              <span className="rounded-full bg-white/10 px-2 py-0.5 text-[11px] font-semibold text-slate-200">
+              <span className="rounded-full bg-white/10 px-2 py-0.5 text-xs font-semibold text-slate-200">
                 {tokenLabel}
               </span>
             )}

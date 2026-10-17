@@ -3,8 +3,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #020618;
+  --foreground: #ededed;
   --font-bbh-bogle: "BBH Bogle", sans-serif;
   --font-anton: "Anton", sans-serif;
 }
@@ -14,6 +14,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-nunito-sans);
   --font-mono: var(--font-nunito-sans);
+  --font-display: var(--font-anton);
 }
 
 html {

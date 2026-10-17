@@ -11,13 +11,7 @@ import {
   resumeAddress,
 } from "@/constants/smart-contract/resumeContract";
 
-export default function About({
-  skills,
-  stats,
-}: {
-  skills: skills;
-  stats: { label: string; value: string }[];
-}) {
+export default function About({ skills }: { skills: skills }) {
   const previewImages = [
     "/assets/carousel-2.png",
     "/assets/nft-image.png",
@@ -30,7 +24,11 @@ export default function About({
       prev === 0 ? previewImages.length - 1 : prev - 1
     );
 
-  const { data: totalSupply, isLoading: isLoadingTotalSupply } =
+  const {
+    data: totalSupply,
+    isLoading: isLoadingTotalSupply,
+    isError: isTotalSupplyError,
+  } =
     useReadContract({
       abi: resumeAbi,
       address: resumeAddress,
@@ -109,8 +107,7 @@ export default function About({
           <hr className="border-white/10 my-4" />
 
           <div className="space-y-3">
-            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-300">
-              <span className="h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_12px_rgba(52,211,153,0.7)]" />
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">
               Tech Stack
             </div>
             <div className="flex flex-wrap gap-2">
@@ -125,24 +122,7 @@ export default function About({
 
         {/* Text column */}
         <div className="flex flex-col justify-center space-y-5 w-full md:w-[60%]">
-          <div className="flex items-center gap-3 justify-between">
-            <p className="text-sm font-bold uppercase tracking-[0.12em] text-amber-200 flex items-center">
-              About Me
-              <span className="inline-flex items-center justify-center ml-2 align-middle">
-                <svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  strokeWidth="0"
-                  viewBox="0 0 16 16"
-                  className="text-amber-200 h-4 w-4 shrink-0"
-                  height="14"
-                  width="14"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"></path>
-                </svg>
-              </span>
-            </p>
+          <div className="flex items-center gap-3">
             <div className="flex items-center gap-3">
               <a
                 href="https://www.linkedin.com/in/kobesergio"
@@ -212,17 +192,10 @@ export default function About({
           </div>
 
           <p className="text-base leading-7 text-slate-300">
-            Fullstack Web3 Developer with a builder&apos;s mindset and a track
-            record of leading teams to ship ambitious dApps. As the chief
-            technical architect of a no-code NFT launchpad, I began as the sole
-            developer and later moved into a broader leadership role supporting
-            both our engineering team and the creators building on our platform.
-            Most recently, I contributed to the blockchain infrastructure of one
-            of Hong Kong&apos;s first licensed stablecoin providers, designing
-            and maintaining production Solidity contracts focused on scalability
-            and security. I&apos;m now focused on building the next generation
-            of Web3 products — leveraging AI to create faster, smarter, and more
-            intuitive experiences on-chain.
+            I started as the sole developer of a no-code NFT launchpad and grew
+            into its CTO, leading the engineering team and the creators who
+            built on it. Now I build Web3 products that use AI to feel faster
+            and simpler on-chain.
           </p>
 
           {/* NFT mint card with amber glow */}
@@ -230,13 +203,19 @@ export default function About({
             <p className="text-sm font-semibold text-amber-200">
               Mint my Resume as an NFT
             </p>
+            <p className="text-sm leading-6 text-slate-300">
+              My resume lives on-chain as proof I ship dApps end to end. Mint a
+              free copy; you only cover the network fee.
+            </p>
             <div>
               <div className="flex justify-between text-xs text-slate-400 mb-1.5">
                 <span>Copies left</span>
                 <span>
                   {isLoadingTotalSupply
                     ? "Loading…"
-                    : `${copiesLeft} / ${maxSupply}`}
+                    : isTotalSupplyError || totalSupply === undefined
+                      ? `— / ${maxSupply}`
+                      : `${copiesLeft} / ${maxSupply}`}
                 </span>
               </div>
               <div className="w-full bg-slate-700/60 rounded-full h-2 overflow-hidden">

@@ -7,12 +7,12 @@ export default function Footer() {
       <div className="w-full max-w-6xl mx-auto px-4 md:px-8 py-5 flex items-center justify-between">
         <a
           href="mailto:ckasergio@gmail.com"
-          className="text-sm font-mono text-slate-500 hover:text-amber-300 transition-colors duration-200"
+          className="text-sm font-mono text-slate-400 hover:text-amber-300 transition-colors duration-200"
         >
           ckasergio@gmail.com
         </a>
 
-        <span className="hidden md:block text-[10px] font-mono uppercase tracking-wider text-slate-700">
+        <span className="hidden md:block text-xs font-mono uppercase tracking-wider text-slate-400">
           © {new Date().getFullYear()} Kobe Sergio
         </span>
 
@@ -21,7 +21,7 @@ export default function Footer() {
             href="https://github.com/KobeSergio"
             target="_blank" rel="noopener noreferrer"
             aria-label="GitHub"
-            className="text-slate-600 hover:text-amber-300 transition-colors duration-200"
+            className="text-slate-400 hover:text-amber-300 transition-colors duration-200"
           >
             <SiGithub className="h-4 w-4" />
           </a>
@@ -29,7 +29,7 @@ export default function Footer() {
             href="https://www.linkedin.com/in/kobesergio"
             target="_blank" rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="text-slate-600 hover:text-amber-300 transition-colors duration-200"
+            className="text-slate-400 hover:text-amber-300 transition-colors duration-200"
           >
             <SiLinkedin className="h-4 w-4" />
           </a>
@@ -37,7 +37,7 @@ export default function Footer() {
             href="https://discord.com/users/622772696870158347"
             target="_blank" rel="noopener noreferrer"
             aria-label="Discord"
-            className="text-slate-600 hover:text-amber-300 transition-colors duration-200"
+            className="text-slate-400 hover:text-amber-300 transition-colors duration-200"
           >
             <SiDiscord className="h-4 w-4" />
           </a>

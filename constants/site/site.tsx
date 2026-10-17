@@ -54,10 +54,10 @@ export const skills: skills = [
 ];
 
 export const stats = [
-  { label: "Years building", value: "4+" },
-  { label: "Products shipped", value: "7+" },
-  { label: "Teams led", value: "13 cross-functional devs" },
-  { label: "Education", value: "BS Computer Science" },
+  { label: "years building", value: "5+" },
+  { label: "products shipped", value: "7+" },
+  { label: "engineers led", value: "13" },
+  { label: "Kingdomly, 2023 — 2025", value: "CTO" },
 ];
 
 export const navItems: {

@@ -9,7 +9,9 @@ export type Experience = {
   summary: React.ReactNode;
   links?: ExperienceLink[];
   onchain?: OnchainContract[];
-  contributions: Contributions[];
+  contributions: Contribution[];
+  // Renders as a single row with details on demand.
+  compact?: boolean;
 };
 
 export type ExperienceLinkIcon = "globe" | "opensea" | "chart";
@@ -26,7 +28,7 @@ export type OnchainContract = {
   href: string;
 };
 
-type Contributions = {
+export type Contribution = {
   images: string[];
   poster?: string;
   product: string;
@@ -44,7 +46,7 @@ export const experiences: Experience[] = [
     location: "Remote · Robinhood Chain",
     time: "Aug 2026 — Present",
     summary:
-      "Sole engineer on The Suits, a 3,000-piece NFT collection on Robinhood Chain. I built the mint site and the contracts, then a weekly $SUIT “paycheck” that pays holders from a merkle drop, then the token and its Uniswap v4 launch. Spec, code, tests and the launch-day ops, start to finish.",
+      "Sole engineer on a 3,000-piece NFT collection, from spec to launch-day ops.",
     links: [
       { label: "Live site", href: "https://www.putthesuiton.xyz", icon: "globe" },
       {
@@ -86,8 +88,8 @@ export const experiences: Experience[] = [
               The{" "}
               <b className="font-semibold text-slate-200">ERC-721C mint contract</b>{" "}
               runs phased allowlist windows with per-wallet caps, keeps a
-              50-piece airdrop reserve, and enforces royalties through the
-              transfer validator.
+              50-piece airdrop reserve, and enforces creator royalties on every
+              resale.
             </li>
             <li>
               The <b className="font-semibold text-slate-200">mint site</b>{" "}
@@ -111,7 +113,7 @@ export const experiences: Experience[] = [
           </ul>
         ),
         impact:
-          "3,000 minted · sold out ~2 h after opening · 691 holders · $36K+ secondary volume",
+          "3,000 minted · sold out ~2 h after opening · 691 holders · $36K+ resale volume",
         tech: [
           "Next.js",
           "TypeScript",
@@ -133,8 +135,9 @@ export const experiences: Experience[] = [
           <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
             <li>
               <b className="font-semibold text-slate-200">SuitPaycheck</b> is
-              the weekly $SUIT airdrop for Suits NFT holders, claimed from a
-              merkle drop. Each week holders get 24 hours to claim their cut;
+              the weekly $SUIT payout for Suits NFT holders, verified on-chain
+              so only real holders can claim. Each week holders get 24 hours to
+              claim their cut;
               whatever goes unclaimed is burned, so supply only ever goes down.
             </li>
             <li>
@@ -153,7 +156,7 @@ export const experiences: Experience[] = [
           </ul>
         ),
         impact:
-          "300M $SUIT program · 657 wallets paid in week 1 · 40% claimed in the first hour",
+          "657 holders paid in week one · 40% claimed in the first hour · 300M $SUIT set aside for payouts",
         tech: [
           "Solidity",
           "OpenZeppelin",
@@ -191,13 +194,14 @@ export const experiences: Experience[] = [
             <li>
               Ran the{" "}
               <b className="font-semibold text-slate-200">Uniswap v4 launch</b>{" "}
-              live with the client: pool against tokenised PLTR, starting-price
-              maths, LP-NFT custody, every command on a call sheet.
+              live with the client: trading pair against tokenised Palantir
+              stock, starting-price maths, safe custody of the liquidity
+              position, every command on a call sheet.
             </li>
           </ul>
         ),
         impact:
-          "1B $SUIT · Uniswap v4 pool live 7 Sep 2026 · 3,100 trades from 728 traders in the first 24 h",
+          "3,100 trades from 728 traders in the first 24 h · live on Uniswap 7 Sep 2026 · 1B $SUIT supply",
         tech: [
           "Solidity",
           "Foundry",
@@ -219,7 +223,7 @@ export const experiences: Experience[] = [
     location: "Remote",
     time: "Jan 2026 — Jun 2026",
     summary:
-      "Built and deployed smart contracts for Hong Kong's first licensed stablecoin platform at Anchorpoint Financial Limited. Covered the full lifecycle — architecture, implementation, testing, and handoff.",
+      "Smart contracts for Hong Kong's first licensed stablecoin, at Anchorpoint Financial.",
     contributions: [
       {
         images: [],
@@ -233,8 +237,7 @@ export const experiences: Experience[] = [
               </b>{" "}
               for Anchorpoint Financial&apos;s stablecoin — blocking issuance
               and redemption for any wallet matching a live on-chain sanctions
-              directory, satisfying HK licensing requirements for Hong Kong&apos;s
-              first regulated stablecoin provider.
+              directory, meeting Hong Kong licensing requirements.
             </li>
             <li>
               Designed and deployed a{" "}
@@ -242,12 +245,13 @@ export const experiences: Experience[] = [
                 platform and user directory contract system
               </b>{" "}
               that serves as the single source of truth for permissioned access
-              across Anchorpoint&apos;s stablecoin and RWA token operations.
+              across Anchorpoint&apos;s stablecoin and tokenised-asset
+              operations.
             </li>
           </ul>
         ),
         impact:
-          "Regulatory-grade on-chain compliance for HK's first licensed stablecoin provider",
+          "Sanctioned wallets blocked from issuing or redeeming, enforced on-chain",
         tech: ["Solidity", "Hardhat", "TypeScript", "Chai", "Mocha"],
         link: "",
       },
@@ -277,7 +281,7 @@ export const experiences: Experience[] = [
           </ul>
         ),
         impact:
-          "Hardened mint & redemption flows against abuse · RWA-ready token infrastructure",
+          "Abuse capped per wallet, with human review on high-risk transactions · ready for tokenised real-world assets",
         tech: ["Solidity", "Hardhat", "TypeScript", "wagmi", "viem", "Ethereum"],
         link: "",
       },
@@ -288,7 +292,7 @@ export const experiences: Experience[] = [
           <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
             <li>
               Authored the unit test suite for Anchorpoint&apos;s stablecoin
-              and RWA platform using Hardhat, Chai, and Mocha — achieving{" "}
+              and tokenised-asset platform using Hardhat, Chai, and Mocha — achieving{" "}
               <b className="font-semibold text-slate-200">
                 70% coverage across 50+ smart contracts
               </b>{" "}
@@ -316,9 +320,9 @@ export const experiences: Experience[] = [
     company: "Kingdomly",
     location: "Remote",
     companyLogo: "",
-    time: "Oct 2023 - Dec 2025",
+    time: "Oct 2023 — Dec 2025",
     summary:
-      "Architected Kingdomly's V2 ecosystem from scratch — owning all technical decisions from smart contract design to frontend infrastructure. Scaled and led a 13-person engineering team, shipping 5 production products across multiple EVM chains.",
+      "Architected V2 from scratch and led a 13-person engineering team.",
     contributions: [
       {
         images: ["/assets/creator-demo.webm"],
@@ -354,12 +358,11 @@ export const experiences: Experience[] = [
               <b className="font-semibold text-slate-200">
                 gas-free mints on Sophon Chain
               </b>{" "}
-              via paymaster integration and account abstraction — letting users
-              mint without holding SOPH for gas.
+              — users mint without holding SOPH to pay network fees.
             </li>
           </ul>
         ),
-        impact: "50K+ unique wallets · 144K+ mint transactions · 7K NFT projects",
+        impact: "50K+ unique wallets · 144K+ mints · 7K NFT projects launched",
         tech: [
           "Next.js",
           "TypeScript",
@@ -369,6 +372,53 @@ export const experiences: Experience[] = [
           "PostgreSQL",
           "AWS",
           "Vercel",
+        ],
+        link: "",
+      },
+      {
+        images: ["/assets/bridge-demo.webm"],
+        product: "Kingdomly Bridge",
+        description: (
+          <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
+            <li>
+              Shipped cross-chain NFT transfers across{" "}
+              <b className="font-semibold text-slate-200">
+                Ethereum, Arbitrum, Optimism, Zora, Base, and Bera
+              </b>{" "}
+              via LayerZero cross-chain messaging.
+            </li>
+            <li>
+              Built a{" "}
+              <b className="font-semibold text-slate-200">
+                permissionless bridge setup interface
+              </b>{" "}
+              — any project can enable cross-chain bridging without custom
+              contracts.
+            </li>
+            <li>
+              Delivered custom partner integrations including{" "}
+              <b className="font-semibold text-slate-200">Honey Jar&apos;s</b>{" "}
+              multi-chain bridge into the Bera ecosystem.
+            </li>
+            <li>
+              Handled{" "}
+              <b className="font-semibold text-slate-200">
+                LayerZero message verification, refund logic, and gas estimation
+              </b>{" "}
+              — ensuring transfers landed reliably with no double-bridge incidents.
+            </li>
+          </ul>
+        ),
+        impact: "100K+ NFTs moved between chains · $250K+ revenue",
+        tech: [
+          "Next.js",
+          "TypeScript",
+          "Solidity",
+          "LayerZero",
+          "Viem",
+          "PostgreSQL",
+          "Docker",
+          "AWS",
         ],
         link: "",
       },
@@ -394,9 +444,10 @@ export const experiences: Experience[] = [
               — custom indexer, orderbooks, and multi-chain transaction handling.
             </li>
             <li>
-              Ensured gas-efficient listings and royalty enforcement with{" "}
+              Kept listings cheap to post and creators paid on every resale,
+              using the{" "}
               <b className="font-semibold text-slate-200">ERC721AC + EIP-2981</b>{" "}
-              compliance.
+              royalty standards.
             </li>
             <li>
               Shipped{" "}
@@ -407,7 +458,7 @@ export const experiences: Experience[] = [
             </li>
           </ul>
         ),
-        impact: "v1 garnered $50K+ in trading revenue",
+        impact: "$50K+ trading revenue from v1",
         tech: [
           "Next.js",
           "TypeScript",
@@ -416,53 +467,6 @@ export const experiences: Experience[] = [
           "Seaport",
           "Subgraph / Indexer",
           "Vercel",
-        ],
-        link: "",
-      },
-      {
-        images: ["/assets/bridge-demo.webm"],
-        product: "Kingdomly Bridge",
-        description: (
-          <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
-            <li>
-              Shipped cross-chain NFT transfers across{" "}
-              <b className="font-semibold text-slate-200">
-                Ethereum, Arbitrum, Optimism, Zora, Base, and Bera
-              </b>{" "}
-              via LayerZero ONFT messaging.
-            </li>
-            <li>
-              Built a{" "}
-              <b className="font-semibold text-slate-200">
-                permissionless bridge setup interface
-              </b>{" "}
-              — any project can enable cross-chain bridging without custom
-              contracts.
-            </li>
-            <li>
-              Delivered custom partner integrations including{" "}
-              <b className="font-semibold text-slate-200">Honey Jar&apos;s</b>{" "}
-              multi-chain bridge into the Bera ecosystem.
-            </li>
-            <li>
-              Handled{" "}
-              <b className="font-semibold text-slate-200">
-                LayerZero message verification, refund logic, and gas estimation
-              </b>{" "}
-              — ensuring transfers landed reliably with no double-bridge incidents.
-            </li>
-          </ul>
-        ),
-        impact: "100K+ NFT transfers · $250K+ revenue generated",
-        tech: [
-          "Next.js",
-          "TypeScript",
-          "Solidity",
-          "LayerZero",
-          "Viem",
-          "PostgreSQL",
-          "Docker",
-          "AWS",
         ],
         link: "",
       },
@@ -494,7 +498,7 @@ export const experiences: Experience[] = [
             </li>
           </ul>
         ),
-        impact: "6 pools deployed, including 1 protocol-level staking pool",
+        impact: "6 staking pools launched · including 1 protocol-level pool",
         tech: ["Next.js", "TypeScript", "Solidity", "Viem", "Firebase", "Vercel"],
         link: "",
       },
@@ -518,7 +522,7 @@ export const experiences: Experience[] = [
             </li>
           </ul>
         ),
-        impact: "Reduced onboarding & support overhead by 50%",
+        impact: "50% less onboarding & support overhead",
         tech: ["Mintlify", "MDX"],
         link: "",
       },
@@ -530,9 +534,10 @@ export const experiences: Experience[] = [
     company: "Stratpoint",
     companyLogo: "",
     location: "Mandaluyong City, Philippines",
+    compact: true,
     time: "Jul 2023 — Oct 2023",
     summary:
-      "Joined as the first DevOps intern to skip the cloud fundamentals track — finished the internal curriculum in a week and immediately contributed to live infrastructure. Built containerized deployments, observability pipelines, and automated alerting used by the engineering team.",
+      "First DevOps intern to skip the cloud fundamentals track, on live infrastructure within a week.",
     contributions: [
       {
         images: ["/assets/stratpoint-page.png"],
@@ -558,7 +563,7 @@ export const experiences: Experience[] = [
           </ul>
         ),
         impact:
-          "Improved deployment reliability and shortened incident response loops.",
+          "More reliable deploys and faster incident response",
         tech: ["Docker", "Kubernetes", "Grafana", "Jenkins", "Telegram Bot API"],
         link: "",
       },

@@ -30,13 +30,13 @@ export default function Projects({ projects }: { projects: Project[] }) {
                   idx > 0 ? "border-t border-slate-800/50" : ""
                 }`}
               >
-                <div className="space-y-2 mb-5">
+                <div className="space-y-1.5 mb-4">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between md:gap-6 gap-2">
                     <div className="flex items-center gap-2.5 min-w-0">
                       {ProjectIcon ? (
-                        <ProjectIcon className="h-5 w-5 text-amber-400/60 flex-shrink-0" />
+                        <ProjectIcon className="h-4 w-4 text-amber-400/60 flex-shrink-0" />
                       ) : null}
-                      <h3 className="text-2xl md:text-3xl font-bold text-slate-50 tracking-tight">
+                      <h3 className="text-lg font-semibold text-slate-100 leading-snug">
                         {project.title}
                       </h3>
                     </div>
@@ -51,7 +51,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
                       ))}
                     </div>
                   </div>
-                  <p className="text-sm leading-6 text-slate-400 md:text-base max-w-2xl">
+                  <p className="text-sm font-semibold leading-relaxed text-emerald-300 max-w-2xl text-pretty">
                     {project.headline}
                   </p>
                 </div>
@@ -61,7 +61,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
           })}
         </div>
       ) : (
-        <p className="text-sm leading-6 text-slate-500 py-8 border-t border-slate-800/50">
+        <p className="text-sm leading-6 text-slate-400 py-8 border-t border-slate-800/50">
           Projects are on the way. Check back soon for fresh builds and demos.
         </p>
       )}

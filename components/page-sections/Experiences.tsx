@@ -1,24 +1,13 @@
 "use client";
 
 import SectionLabel from "../SectionLabel";
-import { Experience } from "@/constants/site/Experiences";
+import { Contribution, Experience } from "@/constants/site/Experiences";
 import { useState } from "react";
+import { useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import {
-  TrendingUp,
   ArrowUpRight,
-  Wand2,
-  ShoppingBag,
-  ArrowLeftRight,
-  Lock,
-  BookOpen,
-  Terminal,
-  Layers,
-  ShieldCheck,
-  Gauge,
-  FlaskConical,
-  Coins,
-  HandCoins,
+  ChevronDown,
   Globe,
   ChartCandlestick,
 } from "lucide-react";
@@ -36,39 +25,14 @@ function OpenSeaIcon({ className }: { className?: string }) {
   );
 }
 
+// Roles show their strongest contributions up front; the rest sit one click away.
+const VISIBLE_CONTRIBUTIONS = 2;
+
 const LINK_ICONS: Record<string, React.ElementType> = {
   globe: Globe,
   opensea: OpenSeaIcon,
   chart: ChartCandlestick,
 };
-
-const PRODUCT_ICONS: Record<string, React.ElementType> = {
-  creator: Wand2,
-  mint: Wand2,
-  marketplace: ShoppingBag,
-  bridge: ArrowLeftRight,
-  staking: Lock,
-  docs: BookOpen,
-  devops: Terminal,
-  internship: Terminal,
-  sanction: ShieldCheck,
-  directory: ShieldCheck,
-  rate: Gauge,
-  test: FlaskConical,
-  stablecoin: Coins,
-  rwa: Coins,
-  paycheck: HandCoins,
-  token: Coins,
-};
-
-function getProductIcon(product: string): React.ElementType {
-  const lower = product.toLowerCase();
-  for (const [key, Icon] of Object.entries(PRODUCT_ICONS)) {
-    if (lower.includes(key)) return Icon;
-  }
-  return Layers;
-}
-
 
 export default function Experiences({
   experiences,
@@ -76,6 +40,155 @@ export default function Experiences({
   experiences: Experience[];
 }) {
   const [mediaIndexByStep, setMediaIndexByStep] = useState<Record<string, number>>({});
+  const prefersReducedMotion = useReducedMotion();
+
+  const renderContribution = (
+    experience: Experience,
+    index: number,
+    contribution: Contribution,
+    contributionIndex: number
+  ) => {
+        const stepKey = `${index}-${contributionIndex}`;
+        const mediaItems = contribution?.images ?? [];
+        const currentMediaIndex = mediaIndexByStep[stepKey] ?? 0;
+        const media = mediaItems[currentMediaIndex];
+        const isVideo =
+          typeof media === "string" &&
+          (media.endsWith(".webm") || media.endsWith(".mp4"));
+        const hasCarousel = mediaItems.length > 1;
+
+        const goTo = (dir: "prev" | "next") => {
+          if (!hasCarousel) return;
+          const total = mediaItems.length;
+          setMediaIndexByStep((prev) => {
+            const current = prev[stepKey] ?? 0;
+            const nextIndex =
+              dir === "next"
+                ? (current + 1) % total
+                : (current - 1 + total) % total;
+            return { ...prev, [stepKey]: nextIndex };
+          });
+        };
+
+        return (
+          <div
+            key={contributionIndex}
+            className={`grid gap-x-8 gap-y-4 items-start ${mediaItems.length > 0 ? "md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]" : ""} pb-6 ${
+              contributionIndex > 0
+                ? "border-t border-slate-800/50 pt-6"
+                : "pt-1"
+            }`}
+          >
+            {/* Left: product, its outcome, stack, details on demand */}
+            <div className="space-y-3">
+              <div className="space-y-1.5">
+                <h4 className="text-lg font-semibold leading-snug text-slate-50">
+                  {contribution?.product ?? experience.role}
+                </h4>
+                {contribution?.impact ? (
+                  <p className="text-sm font-semibold leading-relaxed tabular-nums text-emerald-300 text-pretty">
+                    {contribution.impact}
+                  </p>
+                ) : null}
+              </div>
+
+              {contribution?.tech?.length ? (
+                <p className="text-xs leading-5 text-slate-400">
+                  <span className="sr-only">Stack: </span>
+                  {contribution.tech.join(" · ")}
+                </p>
+              ) : null}
+
+              {contribution?.description ? (
+                <details className="group/details">
+                  <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-md text-xs font-semibold text-amber-300 transition-colors hover:text-amber-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300 [&::-webkit-details-marker]:hidden">
+                    How I built it
+                    <ChevronDown
+                      aria-hidden="true"
+                      className="h-3.5 w-3.5 transition-transform duration-200 ease-out group-open/details:rotate-180"
+                    />
+                  </summary>
+                  <div className="pt-3 text-sm leading-relaxed text-slate-400">
+                    {contribution.description}
+                  </div>
+                </details>
+              ) : null}
+
+              {contribution?.link ? (
+                <a
+                  href={contribution.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-300 hover:text-amber-200 transition-colors group/link"
+                >
+                  View build
+                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                </a>
+              ) : null}
+            </div>
+
+            {/* Right: media (only when images exist) */}
+            {mediaItems.length > 0 && (
+            <div className="relative overflow-hidden rounded-xl border border-slate-800/80 bg-slate-950 group/media">
+              {isVideo ? (
+                <video
+                  src={media}
+                  poster={contribution?.poster}
+                  className="aspect-video w-full object-cover"
+                  autoPlay={!prefersReducedMotion}
+                  muted
+                  loop
+                  playsInline
+                  controls
+                />
+              ) : (
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <Image
+                    src={media}
+                    alt={contribution?.product ?? experience.role}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover/media:scale-[1.04]"
+                    sizes="(min-width: 1024px) 420px, 100vw"
+                    priority
+                  />
+                </div>
+              )}
+
+              {hasCarousel && (
+                <>
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-between px-3">
+                    <button
+                      type="button"
+                      onClick={() => goTo("prev")}
+                      className="pointer-events-auto rounded-full bg-black/40 p-2 text-slate-100 backdrop-blur transition hover:bg-black/60 cursor-pointer"
+                      aria-label="Previous media"
+                    >‹</button>
+                    <button
+                      type="button"
+                      onClick={() => goTo("next")}
+                      className="pointer-events-auto rounded-full bg-black/40 p-2 text-slate-100 backdrop-blur transition hover:bg-black/60 cursor-pointer"
+                      aria-label="Next media"
+                    >›</button>
+                  </div>
+                  <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
+                    {mediaItems.map((_, dotIndex) => (
+                      <span
+                        key={`${contributionIndex}-dot-${dotIndex}`}
+                        className={`h-1.5 w-1.5 rounded-full transition ${
+                          dotIndex === currentMediaIndex
+                            ? "bg-white"
+                            : "bg-white/30"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+            )}
+          </div>
+        );
+  };
 
   return (
     <section
@@ -86,6 +199,65 @@ export default function Experiences({
 
       {experiences.map((experience, index) => {
         const initial = experience.company[0];
+        const hidden = experience.contributions.slice(VISIBLE_CONTRIBUTIONS);
+
+        if (experience.compact) {
+          const [contribution] = experience.contributions;
+          return (
+            <div
+              key={index}
+              className="grid gap-x-6 gap-y-3 md:grid-cols-[210px_minmax(0,1fr)] md:items-center bg-slate-900/25 rounded-2xl p-5 md:px-6 border border-slate-800/40"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-amber-400/10 border border-amber-400/25 flex items-center justify-center text-amber-300 font-bold text-sm select-none flex-shrink-0">
+                  {initial}
+                </div>
+                <div>
+                  <p className="text-xs font-mono uppercase tracking-[0.1em] whitespace-nowrap text-slate-400 leading-none mb-1">
+                    {experience.time}
+                  </p>
+                  <h3 className="text-lg font-bold text-amber-300 leading-tight">
+                    {experience.company}
+                  </h3>
+                </div>
+              </div>
+
+              <p className="text-sm leading-6 text-slate-300">
+                <span className="font-semibold text-slate-50">{experience.role}</span>
+                <span className="text-slate-500" aria-hidden="true"> · </span>
+                {experience.summary}
+              </p>
+
+              {contribution?.description ? (
+                <details className="group/details md:col-start-2">
+                  <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-md text-xs font-semibold text-amber-300 transition-colors hover:text-amber-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300 [&::-webkit-details-marker]:hidden">
+                    How I built it
+                    <ChevronDown
+                      aria-hidden="true"
+                      className="h-3.5 w-3.5 transition-transform duration-200 ease-out group-open/details:rotate-180"
+                    />
+                  </summary>
+                  <div className="space-y-2 pt-3">
+                    {contribution.impact ? (
+                      <p className="text-sm font-semibold text-emerald-300">
+                        {contribution.impact}
+                      </p>
+                    ) : null}
+                    <div className="text-sm leading-relaxed text-slate-400">
+                      {contribution.description}
+                    </div>
+                    {contribution.tech?.length ? (
+                      <p className="text-xs leading-5 text-slate-400">
+                        <span className="sr-only">Stack: </span>
+                        {contribution.tech.join(" · ")}
+                      </p>
+                    ) : null}
+                  </div>
+                </details>
+              ) : null}
+            </div>
+          );
+        }
 
         return (
           <div
@@ -112,7 +284,7 @@ export default function Experiences({
                     </div>
                   )}
                   <div>
-                    <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-slate-500 leading-none mb-0.5">
+                    <p className="text-xs font-mono uppercase tracking-[0.1em] whitespace-nowrap text-slate-400 leading-none mb-1">
                       {experience.time}
                     </p>
                     <h3 className="text-lg font-bold text-amber-300 leading-tight">
@@ -122,11 +294,11 @@ export default function Experiences({
                 </div>
 
                 <div>
-                  <p className="text-[11px] text-slate-500">{experience.location}</p>
-                  <p className="text-sm font-semibold text-slate-200 mt-0.5">{experience.role}</p>
+                  <p className="text-base font-semibold leading-snug text-slate-50">{experience.role}</p>
+                  <p className="text-xs text-slate-400 mt-1">{experience.location}</p>
                 </div>
 
-                <p className="text-xs leading-5 text-slate-500">{experience.summary}</p>
+                <p className="text-sm leading-6 text-slate-300">{experience.summary}</p>
 
                 {experience.links?.length ? (
                   <div className="flex flex-wrap gap-2 pt-1">
@@ -162,7 +334,7 @@ export default function Experiences({
 
                 {experience.onchain?.length ? (
                   <div className="space-y-1.5 border-t border-slate-800/50 pt-3">
-                    <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-slate-600 leading-none">
+                    <p className="text-xs font-mono uppercase tracking-[0.14em] text-slate-400 leading-none">
                       On-chain
                     </p>
                     <ul className="space-y-1">
@@ -173,7 +345,7 @@ export default function Experiences({
                             target="_blank"
                             rel="noopener noreferrer"
                             title={`${contract.address} on Robinscan`}
-                            className="group/addr flex items-center justify-between gap-2 text-[11px] font-mono text-slate-400 transition-colors hover:text-amber-300"
+                            className="group/addr flex items-center justify-between gap-2 text-xs font-mono text-slate-300 transition-colors hover:text-amber-300"
                           >
                             <span className="truncate">{contract.label}</span>
                             <span className="flex flex-shrink-0 items-center gap-1 underline decoration-slate-700 underline-offset-2 group-hover/addr:decoration-amber-400/60">
@@ -191,150 +363,34 @@ export default function Experiences({
 
             {/* Contribution feed */}
             <div className="w-full md:flex-1 flex flex-col">
-              {experience.contributions?.map((contribution, contributionIndex) => {
-                const stepKey = `${index}-${contributionIndex}`;
-                const mediaItems = contribution?.images ?? [];
-                const currentMediaIndex = mediaIndexByStep[stepKey] ?? 0;
-                const media = mediaItems[currentMediaIndex];
-                const isVideo =
-                  typeof media === "string" &&
-                  (media.endsWith(".webm") || media.endsWith(".mp4"));
-                const hasCarousel = mediaItems.length > 1;
-                const ProductIcon = getProductIcon(contribution?.product ?? "");
+              {experience.contributions
+                .slice(0, VISIBLE_CONTRIBUTIONS)
+                .map((contribution, contributionIndex) =>
+                  renderContribution(experience, index, contribution, contributionIndex)
+                )}
 
-                const goTo = (dir: "prev" | "next") => {
-                  if (!hasCarousel) return;
-                  const total = mediaItems.length;
-                  setMediaIndexByStep((prev) => {
-                    const current = prev[stepKey] ?? 0;
-                    const nextIndex =
-                      dir === "next"
-                        ? (current + 1) % total
-                        : (current - 1 + total) % total;
-                    return { ...prev, [stepKey]: nextIndex };
-                  });
-                };
-
-                return (
-                  <div
-                    key={contributionIndex}
-                    className={`grid gap-x-8 gap-y-4 items-start ${mediaItems.length > 0 ? "md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]" : ""} pb-6 ${
-                      contributionIndex > 0
-                        ? "border-t border-slate-800/50 pt-6"
-                        : "pt-1"
-                    }`}
-                  >
-                    {/* Left: text content */}
-                    <div className="space-y-3">
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <ProductIcon className="h-4 w-4 text-amber-400/60 flex-shrink-0" />
-                          <h4 className="text-base font-semibold text-slate-50">
-                            {contribution?.product ?? experience.role}
-                          </h4>
-                        </div>
-
-                        {contribution?.impact ? (
-                          <p className="mt-1.5 flex items-center gap-1.5 text-xs font-semibold text-emerald-400">
-                            <TrendingUp className="h-3 w-3 flex-shrink-0" />
-                            {contribution.impact}
-                          </p>
-                        ) : null}
-                      </div>
-
-                      <div className="text-sm leading-relaxed text-slate-400">
-                        {contribution?.description ??
-                          "Shipping roadmaps end to end and keeping teams unblocked."}
-                      </div>
-
-                      {contribution?.tech?.length ? (
-                        <div className="flex flex-wrap gap-1.5">
-                          {contribution.tech.map((tech) => (
-                            <span
-                              key={tech}
-                              className="rounded-md border border-slate-800 bg-slate-900/60 px-2 py-0.5 text-xs text-slate-400"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      ) : null}
-
-                      {contribution?.link ? (
-                        <a
-                          href={contribution.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-300 hover:text-amber-200 transition-colors group/link"
-                        >
-                          View build
-                          <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-                        </a>
-                      ) : null}
-                    </div>
-
-                    {/* Right: media (only when images exist) */}
-                    {mediaItems.length > 0 && (
-                    <div className="relative overflow-hidden rounded-xl border border-slate-800/80 bg-slate-950 group/media">
-                      {isVideo ? (
-                        <video
-                          src={media}
-                          poster={contribution?.poster}
-                          className="aspect-video w-full object-cover"
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                          controls
-                        />
-                      ) : (
-                        <div className="relative aspect-video w-full overflow-hidden">
-                          <Image
-                            src={media}
-                            alt={contribution?.product ?? experience.role}
-                            fill
-                            className="object-cover transition-transform duration-500 group-hover/media:scale-[1.04]"
-                            sizes="(min-width: 1024px) 420px, 100vw"
-                            priority
-                          />
-                        </div>
-                      )}
-
-                      {hasCarousel && (
-                        <>
-                          <div className="pointer-events-none absolute inset-0 flex items-center justify-between px-3">
-                            <button
-                              type="button"
-                              onClick={() => goTo("prev")}
-                              className="pointer-events-auto rounded-full bg-black/40 p-2 text-slate-100 backdrop-blur transition hover:bg-black/60 cursor-pointer"
-                              aria-label="Previous media"
-                            >‹</button>
-                            <button
-                              type="button"
-                              onClick={() => goTo("next")}
-                              className="pointer-events-auto rounded-full bg-black/40 p-2 text-slate-100 backdrop-blur transition hover:bg-black/60 cursor-pointer"
-                              aria-label="Next media"
-                            >›</button>
-                          </div>
-                          <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
-                            {mediaItems.map((_, dotIndex) => (
-                              <span
-                                key={`${contributionIndex}-dot-${dotIndex}`}
-                                className={`h-1.5 w-1.5 rounded-full transition ${
-                                  dotIndex === currentMediaIndex
-                                    ? "bg-white"
-                                    : "bg-white/30"
-                                }`}
-                              />
-                            ))}
-                          </div>
-                        </>
-                      )}
-                    </div>
-                    )}
-                  </div>
-                );
-              })}
+              {hidden.length ? (
+                <details className="group/more border-t border-slate-800/50">
+                  <summary className="flex cursor-pointer list-none items-center gap-1.5 rounded-md py-4 text-sm font-semibold text-amber-300 transition-colors hover:text-amber-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300 [&::-webkit-details-marker]:hidden">
+                    <span className="group-open/more:hidden">
+                      {hidden.length} more at {experience.company}
+                    </span>
+                    <span className="hidden group-open/more:inline">Show fewer</span>
+                    <ChevronDown
+                      aria-hidden="true"
+                      className="h-4 w-4 transition-transform duration-200 ease-out group-open/more:rotate-180"
+                    />
+                  </summary>
+                  {hidden.map((contribution, hiddenIndex) =>
+                    renderContribution(
+                      experience,
+                      index,
+                      contribution,
+                      VISIBLE_CONTRIBUTIONS + hiddenIndex
+                    )
+                  )}
+                </details>
+              ) : null}
             </div>
           </div>
         );

@@ -39,7 +39,7 @@ export default function GithubContributionGraph() {
 
   return (
     <div className="flex flex-col gap-4 justify-center w-full max-w-6xl mx-auto px-4 md:px-8 scroll-mt-24">
-      <p className="text-xs font-mono uppercase tracking-[0.2em] text-slate-500">GitHub Activity</p>
+      <p className="text-xs font-mono uppercase tracking-[0.2em] text-slate-400">GitHub Activity</p>
       <div ref={wrapperRef} className="w-full overflow-x-auto no-scrollbar py-6">
         {containerWidth !== null && (
           <GitHubCalendar
