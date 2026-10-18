@@ -55,9 +55,9 @@ export const skills: skills = [
 
 export const stats = [
   { label: "years building", value: "5+" },
-  { label: "products shipped", value: "7+" },
+  { label: "products shipped", value: "10+" },
   { label: "engineers led", value: "13" },
-  { label: "Kingdomly, 2023 — 2025", value: "CTO" },
+  { label: "clients served at Kingdomly", value: "25+" },
 ];
 
 export const navItems: {

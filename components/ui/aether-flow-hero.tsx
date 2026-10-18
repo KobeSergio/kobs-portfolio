@@ -200,8 +200,8 @@ const AetherFlowHero = () => {
           className="max-w-2xl mx-auto text-base md:text-lg text-gray-400 mb-10 leading-7"
         >
           Fullstack Web3 developer with 5 years of shipping products end to
-          end. Lately, I pair AI with spec-driven development to deliver my
-          day-to-day work more efficiently.
+          end. Utilizes AI with spec-driven development to deliver day-to-day
+          work more efficiently.
         </motion.p>
 
         <motion.div

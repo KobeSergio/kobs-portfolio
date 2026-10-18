@@ -362,7 +362,7 @@ export const experiences: Experience[] = [
             </li>
           </ul>
         ),
-        impact: "50K+ unique wallets · 144K+ mints · 7K NFT projects launched",
+        impact: "$8M+ volume traded · 50K+ unique wallets · 144K+ mints · 7K NFT projects launched",
         tech: [
           "Next.js",
           "TypeScript",

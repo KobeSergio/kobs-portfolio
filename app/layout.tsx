@@ -10,7 +10,7 @@ import { ToastProvider } from "@/providers/Toasts";
 export const metadata: Metadata = {
   title: "Kobe Sergio | Full Stack Web3 Developer",
   description:
-    "Fullstack Web3 developer with 5 years of shipping products end to end. Lately, I pair AI with spec-driven development to deliver my day-to-day work more efficiently.",
+    "Fullstack Web3 developer with 5 years of shipping products end to end. Utilizes AI with spec-driven development to deliver day-to-day work more efficiently.",
 };
 
 const nunitoSans = Nunito_Sans({
