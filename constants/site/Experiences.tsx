@@ -41,6 +41,198 @@ export type Contribution = {
 export const experiences: Experience[] = [
   {
     role: "Freelance Fullstack Web3 Developer",
+    company: "Solana Launch Builder",
+    companyLogo: "",
+    location: "Remote · Solana",
+    time: "Oct 2026 — Nov 2026",
+    summary:
+      "Four memecoin dApps for one client in under three weeks, all from one scaffold, on about $50 a month of infra. I owned each one solo: the pitch to the client, the build, the brand and the X launch.",
+    contributions: [
+      {
+        images: ["/assets/launch-builder/agentboard-demo.mp4"],
+        poster: "/assets/launch-builder/agentboard-poster.jpg",
+        product: "agentboard.fun",
+        description: (
+          <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
+            <li>
+              AI agents with{" "}
+              <b className="font-semibold text-slate-200">
+                their own Solana wallets
+              </b>
+              , sealed server-side, read the board and the news, then trade,
+              launch and post. Owners fund an agent and set its limits.
+            </li>
+            <li>
+              Each agent runs on{" "}
+              <b className="font-semibold text-slate-200">
+                Claude Haiku 4.5, Sonnet 5.5 or Opus 5.5
+              </b>{" "}
+              with strict tool use: buy, sell, launch, post, remember, rewrite
+              its own personality.
+            </li>
+            <li>
+              Claude only returns tool calls. Every order then passes the
+              owner&apos;s limits and a{" "}
+              <b className="font-semibold text-slate-200">
+                byte-level policy check
+              </b>{" "}
+              (pump.fun and PumpSwap only, the agent&apos;s own accounts only,
+              capped priority fees) before one signing module signs it, so a
+              prompt injection can&apos;t move funds.
+            </li>
+          </ul>
+        ),
+        impact:
+          "AI agents trading from their own Solana wallets · every order policy-checked before signing · model calls metered and settled in USDC",
+        tech: [
+          "Next.js 16",
+          "TypeScript",
+          "Anthropic SDK",
+          "Claude Haiku / Sonnet / Opus",
+          "Solana web3.js",
+          "pump.fun SDK",
+          "PumpPortal",
+          "Supabase",
+          "Vercel",
+        ],
+        link: "https://www.agentboard.fun",
+      },
+      {
+        images: ["/assets/launch-builder/sniffinu-demo.mp4"],
+        poster: "/assets/launch-builder/sniffinu-poster.jpg",
+        product: "sniffinu.fun",
+        description: (
+          <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
+            <li>
+              Paste a contract address and get{" "}
+              <b className="font-semibold text-slate-200">
+                12 on-chain rug checks
+              </b>
+              , each with its evidence and a link, plus a crawl of the
+              project&apos;s own site for $SNIFFINU holders. Notes, never a
+              verdict.
+            </li>
+            <li>
+              <b className="font-semibold text-slate-200">Claude Haiku 5.5</b>{" "}
+              writes the cited notes under a hard monthly cap. Past the cap, an
+              offline path has a Claude Code session write them from exported
+              fact sheets instead of the API.
+            </li>
+            <li>
+              The <b className="font-semibold text-slate-200">holder gate</b>{" "}
+              takes a signed message plus an on-chain balance read and nothing
+              else. A Vercel cron re-sniffs coins on a schedule, and every
+              figure on screen is live chain data.
+            </li>
+          </ul>
+        ),
+        impact:
+          "12 on-chain checks per sniff, every flag with its evidence · 973 tests · Claude notes under a hard monthly cap",
+        tech: [
+          "Next.js 16",
+          "TypeScript",
+          "Vitest",
+          "Anthropic SDK",
+          "Solana web3.js",
+          "DexScreener",
+          "Supabase",
+          "Vercel cron",
+          "Claude Code",
+        ],
+        link: "https://www.sniffinu.fun",
+      },
+      {
+        images: ["/assets/launch-builder/partnerpad-demo.mp4"],
+        poster: "/assets/launch-builder/partnerpad-poster.jpg",
+        product: "partnerpad.fun",
+        description: (
+          <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
+            <li>
+              Pick any coin already running on Solana.{" "}
+              <b className="font-semibold text-slate-200">Claude Haiku</b>{" "}
+              designs its partner (name, ticker, description and image prompt
+              as validated JSON) and{" "}
+              <b className="font-semibold text-slate-200">
+                fal.ai&apos;s nano-banana
+              </b>{" "}
+              edit model draws it from the original coin&apos;s own picture.
+            </li>
+            <li>
+              You launch the partner from your own wallet through{" "}
+              <b className="font-semibold text-slate-200">PumpPortal</b> and
+              trade both side by side, with live numbers from DexScreener and a
+              direct read of the pump.fun bonding curve.
+            </li>
+            <li>
+              <b className="font-semibold text-slate-200">Non-custodial</b> end
+              to end: launches and swaps are signed in the user&apos;s wallet,
+              and the submit route verifies a launched coin&apos;s IPFS metadata
+              image by content hash before it goes on the board.
+            </li>
+          </ul>
+        ),
+        impact:
+          "AI designs and draws a partner for any running Solana coin · launch and trade both side by side · signed in your own wallet",
+        tech: [
+          "Next.js 16",
+          "TypeScript",
+          "Anthropic SDK (Haiku)",
+          "fal.ai",
+          "Solana Wallet Adapter",
+          "PumpPortal",
+          "Jupiter",
+          "Filebase (IPFS)",
+          "Supabase",
+        ],
+        link: "https://www.partnerpad.fun",
+      },
+      {
+        images: ["/assets/launch-builder/cliplaunchpad-demo.mp4"],
+        poster: "/assets/launch-builder/cliplaunchpad-poster.jpg",
+        product: "cliplaunchpad.fun",
+        description: (
+          <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
+            <li>
+              Pick a meme from a clip, launch it on pump.fun from your own
+              wallet, trade it on the board. The first of the four pads.
+            </li>
+            <li>
+              The{" "}
+              <b className="font-semibold text-slate-200">shared scaffold</b>{" "}
+              every pad starts from: Next.js on Vercel, Supabase with per-pad
+              tables, Filebase for IPFS pins, Solana Wallet Adapter, PumpPortal
+              for launches, Jupiter for swaps, DexScreener plus bonding curve
+              reads for live numbers.
+            </li>
+            <li>
+              A <b className="font-semibold text-slate-200">preflight script</b>{" "}
+              rehearses a full launch against Solana without spending SOL.
+              Seeded the board with my own launches and ran the X launch, then
+              rolled the code forward as the next pad&apos;s base.
+            </li>
+          </ul>
+        ),
+        impact:
+          "First of the four · launch a coin from a clip in your own wallet · trade it on the board",
+        tech: [
+          "Next.js 16",
+          "TypeScript",
+          "Tailwind 4",
+          "Solana Wallet Adapter",
+          "PumpPortal",
+          "Jupiter",
+          "DexScreener",
+          "Supabase",
+          "Filebase (IPFS)",
+          "Vercel",
+        ],
+        link: "https://www.cliplaunchpad.fun",
+      },
+    ],
+  },
+
+  {
+    role: "Freelance Fullstack Web3 Developer",
     company: "The Suits",
     companyLogo: "/assets/suits/suits-logo.png",
     location: "Remote · Robinhood Chain",
