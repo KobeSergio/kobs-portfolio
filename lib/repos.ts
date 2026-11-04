@@ -3,6 +3,7 @@ import {
   type Experience,
   type OnchainContract,
 } from "@/constants/site/Experiences";
+import { projects, type Project } from "@/constants/site/Projects";
 
 // Tech labels differ across builds ("Next.js 16", "Viem", "Filebase (IPFS)").
 // The skill chips show one canonical name for each.
@@ -137,8 +138,34 @@ export function experienceRepo(experience: Experience): Repo {
 
 export const experienceRepos: Repo[] = experiences.map(experienceRepo);
 
+// A project is one README: its bullets, media and link live inline.
+export function projectRepo(project: Project): Repo {
+  return {
+    kind: "projects",
+    slug: project.slug,
+    name: project.title,
+    pills: project.statuses,
+    summary: project.headline,
+    links: project.link
+      ? [{ label: hostOf(project.link), href: project.link }]
+      : [],
+    contracts: [],
+    skills: normalizeSkills(project.tech),
+    builds: [],
+    readme: {
+      impact: "",
+      bullets: project.bullets,
+      tech: project.tech,
+      link: project.link,
+      images: project.images,
+    },
+  };
+}
+
+export const projectRepos: Repo[] = projects.map(projectRepo);
+
 export function getRepos(kind: RepoKind): Repo[] {
-  return kind === "experience" ? experienceRepos : [];
+  return kind === "experience" ? experienceRepos : projectRepos;
 }
 
 export function getRepo(kind: RepoKind, slug: string): Repo | undefined {
