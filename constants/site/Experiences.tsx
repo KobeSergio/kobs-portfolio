@@ -172,7 +172,7 @@ export const experiences: Experience[] = [
     company: "The Suits",
     companyLogo: "/assets/suits/suits-logo.png",
     location: "Remote · Robinhood Chain",
-    time: "Aug 2026 – Present",
+    time: "Aug 2026 – Oct 2026",
     summary:
       "Sole engineer on a 3,000-piece NFT collection, from spec to launch-day ops.",
     links: [

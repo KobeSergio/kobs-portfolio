@@ -4,43 +4,83 @@ import { useState, useRef, useEffect, useMemo } from "react";
 import { GitHubCalendar } from "react-github-calendar";
 
 const WEEKS = 53;
+// react-activity-calendar adds this to the widest weekday label.
+const LABEL_MARGIN = 8;
+const WEEKDAY_LABELS = ["Mon", "Wed", "Fri"];
+
+function fontSizeFor(width: number) {
+  if (width >= 900) return 14;
+  if (width >= 700) return 12;
+  if (width >= 450) return 11;
+  return 10;
+}
+
+// The gutter the calendar reserves for weekday labels: the widest shown
+// label measured the way the library measures it (an SVG text node in the
+// body font), plus its margin.
+function measureLabelOffset(fontSize: number) {
+  const namespace = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(namespace, "svg");
+  svg.style.position = "absolute";
+  svg.style.visibility = "hidden";
+  svg.style.fontFamily = window.getComputedStyle(document.body).fontFamily;
+  svg.style.fontSize = `${fontSize}px`;
+  const text = document.createElementNS(namespace, "text");
+  svg.appendChild(text);
+  document.body.appendChild(svg);
+  let widest = 0;
+  for (const label of WEEKDAY_LABELS) {
+    text.textContent = label;
+    widest = Math.max(widest, Math.ceil(text.getBBox().width));
+  }
+  document.body.removeChild(svg);
+  return widest + LABEL_MARGIN;
+}
 
 export default function GithubContributionGraph() {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const [containerWidth, setContainerWidth] = useState<number | null>(null);
+  const [layout, setLayout] = useState<{
+    width: number;
+    labelOffset: number;
+  } | null>(null);
 
   useEffect(() => {
     const el = wrapperRef.current;
     if (!el) return;
     const ro = new ResizeObserver(([entry]) => {
-      setContainerWidth(Math.floor(entry.contentRect.width));
+      const width = Math.floor(entry.contentRect.width);
+      const fontSize = fontSizeFor(width);
+      setLayout({ width, labelOffset: measureLabelOffset(fontSize) });
     });
     ro.observe(el);
     return () => ro.disconnect();
   }, []);
 
-  const isMobile = containerWidth !== null && containerWidth < 768;
-
-  const { blockSize, blockMargin, fontSize } = useMemo(() => {
-    if (!containerWidth) return { blockSize: 14, blockMargin: 5, fontSize: 14 };
-
-    if (containerWidth >= 1100) return { blockSize: 15, blockMargin: 5, fontSize: 14 };
-    if (containerWidth >= 900)  return { blockSize: 13, blockMargin: 4, fontSize: 13 };
-    if (containerWidth >= 700)  return { blockSize: 10, blockMargin: 3, fontSize: 12 };
-
-    // Mobile: labels hidden, so total width = (blockSize + blockMargin) * WEEKS - blockMargin
-    // Target total ≥ containerWidth so no gap.
-    const margin = containerWidth >= 450 ? 2 : 1;
-    const fs = containerWidth >= 600 ? 11 : containerWidth >= 450 ? 10 : 9;
-    // size such that (size + margin) * WEEKS ≥ containerWidth
-    const size = Math.max(3, Math.ceil(containerWidth / WEEKS) - margin);
-    return { blockSize: size, blockMargin: margin, fontSize: fs };
-  }, [containerWidth]);
+  // Block size and gap that make the calendar exactly as wide as its box:
+  // width = WEEKS * (blockSize + blockMargin) - blockMargin + labelOffset.
+  const sizing = useMemo(() => {
+    if (!layout) return null;
+    const { width } = layout;
+    const showWeekdayLabels = width >= 768;
+    const labelOffset = showWeekdayLabels ? layout.labelOffset : 0;
+    const pitch = (width - labelOffset) / WEEKS;
+    const blockMargin = pitch >= 15 ? 4 : pitch >= 11 ? 3 : pitch >= 8 ? 2 : 1;
+    const blockSize = Math.max(
+      3,
+      Math.round(((width - labelOffset + blockMargin) / WEEKS - blockMargin) * 100) / 100
+    );
+    return {
+      blockSize,
+      blockMargin,
+      fontSize: fontSizeFor(width),
+      showWeekdayLabels,
+    };
+  }, [layout]);
 
   return (
     <div className="w-full">
       <div ref={wrapperRef} className="w-full overflow-x-auto no-scrollbar">
-        {containerWidth !== null && (
+        {sizing ? (
           <GitHubCalendar
             colorScheme="dark"
             username="kobesergio"
@@ -48,12 +88,12 @@ export default function GithubContributionGraph() {
               light: ["#fbbf24", "#facc15", "#f59e42", "#f8b400", "#fcd34d"],
               dark: ["#292524", "#d1a22b", "#fbbf24", "#facc15", "#fde68a"],
             }}
-            blockSize={blockSize}
-            blockMargin={blockMargin}
-            fontSize={fontSize}
-            showWeekdayLabels={!isMobile}
+            blockSize={sizing.blockSize}
+            blockMargin={sizing.blockMargin}
+            fontSize={sizing.fontSize}
+            showWeekdayLabels={sizing.showWeekdayLabels}
           />
-        )}
+        ) : null}
       </div>
     </div>
   );
