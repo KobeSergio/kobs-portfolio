@@ -8,6 +8,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { CheckCircleIcon, CloseIcon } from "@/components/site/Icons";
 
 type ToastVariant = "success" | "error" | "info";
 
@@ -30,21 +31,10 @@ type ToastContextValue = {
 
 const ToastContext = createContext<ToastContextValue | null>(null);
 
-const variantStyles: Record<ToastVariant, string> = {
-  success:
-    "border border-emerald-400/30 bg-emerald-500/15 text-emerald-50 " +
-    "shadow-lg shadow-emerald-500/20 backdrop-blur-md " +
-    "ring-1 ring-emerald-400/20",
-
-  error:
-    "border border-rose-400/30 bg-rose-500/15 text-rose-50 " +
-    "shadow-lg shadow-rose-500/25 backdrop-blur-md " +
-    "ring-1 ring-rose-400/25",
-
-  info:
-    "border border-white/15 bg-slate-900/70 text-slate-50 " +
-    "shadow-xl shadow-amber-400/10 backdrop-blur-md " +
-    "ring-1 ring-white/10",
+const variantBorder: Record<ToastVariant, string> = {
+  success: "border-[rgba(63,185,80,0.45)]",
+  error: "border-[rgba(248,81,73,0.5)]",
+  info: "border-border",
 };
 
 const defaultDuration = 4_000;
@@ -102,6 +92,7 @@ export function useToast() {
   return ctx;
 }
 
+// Pinned 16px from the bottom-right corner.
 function ToastViewport({
   toasts,
   onDismiss,
@@ -110,13 +101,40 @@ function ToastViewport({
   onDismiss: (id: string) => void;
 }) {
   return (
-    <div className="pointer-events-none fixed inset-0 z-9999 flex flex-col items-end gap-3 px-4 py-6 sm:items-end sm:px-6 sm:py-8">
-      <div className="flex w-full flex-col items-end gap-3 sm:max-w-sm">
-        {toasts.map((toast) => (
-          <ToastCard key={toast.id} toast={toast} onDismiss={onDismiss} />
-        ))}
-      </div>
+    <div className="pointer-events-none fixed bottom-4 right-4 z-9999 flex w-[340px] max-w-[calc(100%-32px)] flex-col gap-3">
+      {toasts.map((toast) => (
+        <ToastCard key={toast.id} toast={toast} onDismiss={onDismiss} />
+      ))}
     </div>
+  );
+}
+
+function ToastIcon({ variant }: { variant: ToastVariant }) {
+  if (variant === "success") {
+    return (
+      <CheckCircleIcon
+        size={18}
+        stroke="#3fb950"
+        className="mt-px shrink-0"
+      />
+    );
+  }
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke={variant === "error" ? "#f85149" : "#9198a1"}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className="mt-px shrink-0"
+    >
+      <circle cx="8" cy="8" r="6.25" />
+      <path d="M8 4.75v4M8 11.25v.01" />
+    </svg>
   );
 }
 
@@ -128,107 +146,36 @@ function ToastCard({
   onDismiss: (id: string) => void;
 }) {
   const { id, title, description, variant = "info", action } = toast;
-  const style = variantStyles[variant] ?? variantStyles.info;
-  const icon = {
-    success: (
-      <svg
-        aria-hidden
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="text-emerald-300"
-      >
-        <path d="M20 6 9 17l-5-5" />
-      </svg>
-    ),
-    error: (
-      <svg
-        aria-hidden
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="text-rose-300"
-      >
-        <path d="M18 6 6 18" />
-        <path d="m6 6 12 12" />
-      </svg>
-    ),
-    info: (
-      <svg
-        aria-hidden
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="text-amber-300"
-      >
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 16v-4" />
-        <path d="M12 8h.01" />
-      </svg>
-    ),
-  }[variant];
 
   return (
     <div
-      className={`pointer-events-auto w-full rounded-xl border px-4 py-3 shadow-lg shadow-black/40 ${style}`}
+      role={variant === "error" ? "alert" : "status"}
+      className={`pointer-events-auto flex items-start gap-3 rounded-[10px] border bg-surface py-3.5 pl-4 pr-3 shadow-[0_8px_24px_rgba(1,4,9,0.6)] ${variantBorder[variant]}`}
     >
-      <div className="flex items-start gap-3">
-        <span className="mt-0.5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/5">
-          {icon}
-        </span>
-        <div className="flex-1 space-y-1">
-          {title && <p className="text-sm font-semibold">{title}</p>}
-          {description && (
-            <p className="text-xs leading-5 text-slate-200/80">{description}</p>
-          )}
-        </div>
-        <button
-          type="button"
-          aria-label="Dismiss toast"
-          onClick={() => onDismiss(id)}
-          className="rounded-md p-1 text-slate-200 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-slate-900"
-        >
-          <svg
-            aria-hidden
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-current"
+      <ToastIcon variant={variant} />
+      <div className="min-w-0 flex-1">
+        {title ? <p className="font-semibold text-fg">{title}</p> : null}
+        {description ? (
+          <p className="mt-0.5 text-[13px] text-fg-muted">{description}</p>
+        ) : null}
+        {action ? (
+          <button
+            type="button"
+            onClick={action.onClick}
+            className="mt-2 inline-flex min-h-7 items-center rounded-md border bg-btn px-2.5 text-xs font-semibold text-fg"
           >
-            <path d="M18 6 6 18" />
-            <path d="m6 6 12 12" />
-          </svg>
-        </button>
+            {action.label}
+          </button>
+        ) : null}
       </div>
-      {action && (
-        <button
-          type="button"
-          onClick={action.onClick}
-          className="mt-2 inline-flex items-center justify-center rounded-md bg-white/10 px-3 py-1 text-xs font-semibold text-slate-50 transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-slate-900"
-        >
-          {action.label}
-        </button>
-      )}
+      <button
+        type="button"
+        aria-label="Dismiss notification"
+        onClick={() => onDismiss(id)}
+        className="-my-1 flex size-7 shrink-0 items-center justify-center rounded-md text-fg-muted"
+      >
+        <CloseIcon size={14} stroke="currentColor" />
+      </button>
     </div>
   );
 }

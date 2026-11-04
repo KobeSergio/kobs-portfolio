@@ -16,6 +16,30 @@ import {
 import { useToast } from "@/providers/Toasts";
 import SuccessMintModal, { type MintMetadata } from "./SuccessMintModal";
 import { config } from "@/providers/WagmiConfig";
+import { resumeIpfsUrl } from "@/constants/site/resume";
+import { ChevronDownIcon } from "@/components/site/Icons";
+import { cn } from "@/lib/utils";
+
+const primaryButton =
+  "flex min-h-[52px] flex-1 items-center justify-center gap-2 bg-accent px-6 text-base font-bold text-bg";
+
+function Spinner() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      aria-hidden="true"
+      className="motion-safe:animate-spin"
+    >
+      <path d="M8 2a6 6 0 1 0 6 6" />
+    </svg>
+  );
+}
 
 export default function CustomConnectAndMintButton() {
   const { open } = useAppKit();
@@ -35,8 +59,7 @@ export default function CustomConnectAndMintButton() {
     args: [address ?? "0x0000000000000000000000000000000000000000"],
   });
 
-  const resumeExternalUrl =
-    "https://gateway.pinata.cloud/ipfs/bafkreihno3jnzh4ekdjiz43wybw3e6nlorao77qvk3yvwt65aj4oem7eki";
+  const resumeExternalUrl = resumeIpfsUrl;
 
   const fallbackImageUrl = "/assets/nft-image.png";
   const explorerUrl = `https://arbiscan.io/nft/0x09dcde5f7382abcb150064b820c63cdd586b2293/`;
@@ -59,10 +82,7 @@ export default function CustomConnectAndMintButton() {
 
     if (isHolder) {
       //Open resume in new tab
-      window.open(
-        `https://gateway.pinata.cloud/ipfs/bafkreihno3jnzh4ekdjiz43wybw3e6nlorao77qvk3yvwt65aj4oem7eki`,
-        "_blank"
-      );
+      window.open(resumeExternalUrl, "_blank");
       return;
     }
 
@@ -121,72 +141,52 @@ export default function CustomConnectAndMintButton() {
     );
   };
 
+  // "Mint Resume" / "Minting..." / "View Resume" joined to the wallet menu.
   const connectedContent = (
-    <div className="flex w-full flex-wrap gap-3 mt-6">
-      <div className="flex flex-1 min-w-0 items-stretch">
-        <button
-          type="button"
-          className="flex-1 bg-amber-400 text-slate-900 font-bold py-3 px-5 sm:px-6 rounded-l-lg shadow-md hover:bg-amber-300 transition text-base sm:text-lg min-w-0"
-          onClick={handleMint}
-          disabled={isMinting}
-        >
-          {isMinting ? "Minting..." : isHolder ? "View Resume" : "Mint Resume"}
-        </button>
-        <button
-          type="button"
-          onClick={handleOpenWallet}
-          aria-label="Open wallet menu"
-          className="inline-flex h-auto w-14 items-center justify-center rounded-r-lg border border-white/10 bg-slate-900/70 text-slate-100 shadow-md shadow-black/30 backdrop-blur transition hover:border-amber-300/60 hover:bg-slate-900/80 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-slate-950"
-        >
-          <svg
-            aria-hidden
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-slate-200"
-          >
-            <path d="M6 9l6 6 6-6" />
-          </svg>
-        </button>
-      </div>
-      {!isHolder && (
-        <a
-          href={resumeExternalUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 bg-slate-800 border border-slate-600 text-slate-200 font-bold py-3 px-5 sm:px-6 rounded-lg shadow-md hover:bg-slate-700 transition flex items-center justify-center text-base sm:text-lg min-w-0"
-        >
-          Or view it here
-        </a>
-      )}
-    </div>
-  );
-
-  const disconnectedContent = (
-    <div className="flex w-full flex-wrap gap-3 mt-6">
+    <span className="flex min-h-[52px]">
+      <button
+        type="button"
+        onClick={handleMint}
+        disabled={isMinting}
+        aria-busy={isMinting}
+        className={cn(
+          primaryButton,
+          "rounded-l-[10px]",
+          isMinting && "cursor-progress bg-accent/70"
+        )}
+      >
+        {isMinting ? (
+          <>
+            <Spinner />
+            Minting...
+          </>
+        ) : isHolder ? (
+          "View Resume"
+        ) : (
+          "Mint Resume"
+        )}
+      </button>
       <button
         type="button"
         onClick={handleOpenWallet}
-        className="flex-1 rounded-lg px-4 py-3 text-sm sm:text-base font-bold cursor-pointer bg-amber-400 text-slate-900 shadow-md shadow-amber-500/30 transition hover:bg-amber-300 disabled:cursor-not-allowed disabled:opacity-70 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-slate-950"
+        aria-label="Open wallet menu"
+        className="flex w-[52px] shrink-0 items-center justify-center rounded-r-[10px] border border-l-0 border-fg/16 bg-bg-inset/60 text-fg"
       >
-        {status === "connecting" || status === "reconnecting"
-          ? "Connecting..."
-          : "Connect Wallet"}
+        <ChevronDownIcon stroke="currentColor" />
       </button>
-      <a
-        href={resumeExternalUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 bg-slate-800 border border-slate-600 text-slate-200 font-bold py-3 px-5 sm:px-6 rounded-lg shadow-md hover:bg-slate-700 transition flex items-center justify-center text-base sm:text-lg min-w-0"
-      >
-        Or view it here
-      </a>
-    </div>
+    </span>
+  );
+
+  const disconnectedContent = (
+    <button
+      type="button"
+      onClick={handleOpenWallet}
+      className={cn(primaryButton, "w-full rounded-[10px]")}
+    >
+      {status === "connecting" || status === "reconnecting"
+        ? "Connecting..."
+        : "Connect Wallet"}
+    </button>
   );
 
   return (

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+import { ArrowUpRightIcon, CloseIcon } from "@/components/site/Icons";
 
 export type MintMetadata = {
   name?: string;
@@ -42,128 +43,98 @@ export default function SuccessMintModal({
     return `#${tokenId}`;
   }, [tokenId]);
 
+  // explorerUrl already ends in "/", so join without adding another.
+  const nftUrl = useMemo(() => {
+    if (!explorerUrl) return undefined;
+    const base = explorerUrl.replace(/\/+$/, "");
+    return tokenId !== undefined && tokenId !== null && tokenId !== ""
+      ? `${base}/${tokenId}`
+      : base;
+  }, [explorerUrl, tokenId]);
+
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-9998 flex items-center justify-center bg-black/80 px-4 py-6 backdrop-blur-sm">
-      <div className="relative w-full max-w-md rounded-2xl border border-white/12 bg-neutral-900/90 p-5 shadow-2xl shadow-black/60 backdrop-blur">
-        <button
-          type="button"
-          aria-label="Close modal"
-          onClick={onClose}
-          className="absolute right-3 top-3 rounded-md p-2 text-slate-200 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-slate-900"
-        >
-          <svg
-            aria-hidden
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-current"
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mint successful"
+      className="fixed inset-0 z-9998 flex overflow-y-auto bg-bg-inset/80 p-[clamp(12px,4vw,24px)]"
+    >
+      <div className="m-auto w-full max-w-[420px]">
+        <div className="relative flex flex-col gap-4 rounded-xl border bg-surface p-5 font-mona shadow-[0_24px_64px_rgba(1,4,9,0.7)]">
+          <button
+            type="button"
+            aria-label="Close"
+            onClick={onClose}
+            className="absolute right-3 top-3 flex size-8 items-center justify-center rounded-md text-fg-muted"
           >
-            <path d="M18 6 6 18" />
-            <path d="m6 6 12 12" />
-          </svg>
-        </button>
+            <CloseIcon stroke="currentColor" />
+          </button>
 
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-2 text-xs uppercase font-bold text-amber-200">
-            <span className="h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_10px_rgba(252,211,77,0.8)]" />
-            Mint successful
-            {tokenLabel && (
-              <span className="rounded-full bg-white/10 px-2 py-0.5 text-xs font-semibold text-slate-200">
+          <div className="flex min-h-6 items-center gap-2 pr-10">
+            <span className="size-2 rounded-full bg-accent shadow-[0_0_10px_#fbbf24]" />
+            <span className="font-jetbrains text-xs font-semibold uppercase tracking-[0.08em] text-accent">
+              Mint successful
+            </span>
+            {tokenLabel ? (
+              <span className="rounded-full bg-counter px-2 font-jetbrains text-xs leading-5">
                 {tokenLabel}
               </span>
-            )}
+            ) : null}
           </div>
 
-          <div className="flex flex-col gap-4">
-            <div className="relative aspect-square w-full overflow-hidden rounded-xl border border-white/10 bg-white/5">
-              {imageUrl ? (
-                <>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={imageUrl}
-                    alt={title}
-                    className="h-full w-full object-cover"
-                  />
-                </>
-              ) : (
-                <div className="flex h-full w-full items-center justify-center text-slate-300 text-xs">
-                  Preview
-                </div>
-              )}
-              {isLoadingMetadata && (
-                <div className="absolute inset-0 flex items-center justify-center bg-slate-900/60 text-xs text-slate-200">
-                  Loading...
-                </div>
-              )}
-              ``
-            </div>
-            <div className="space-y-3">
-              <p className="text-xl font-semibold text-slate-50">
-                {title} # {tokenId}
-              </p>
-              <p className="text-sm text-slate-200/80 leading-6">
-                {description}
-              </p>
-              <div className="flex flex-col gap-2">
-                {explorerUrl && (
-                  <a
-                    href={explorerUrl + "/" + tokenId}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-white/10 px-4 py-2.5 text-sm font-semibold text-slate-50 shadow-md shadow-black/40 transition hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-slate-900"
-                  >
-                    View NFT
-                    <svg
-                      aria-hidden
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-slate-50"
-                    >
-                      <path d="M7 17 17 7" />
-                      <path d="M7 7h10v10" />
-                    </svg>
-                  </a>
-                )}
-                {resumeUrl && (
-                  <a
-                    href={resumeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-amber-400 px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-md shadow-amber-500/30 transition hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-slate-900"
-                  >
-                    View resume
-                    <svg
-                      aria-hidden
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-slate-900"
-                    >
-                      <path d="M7 17 17 7" />
-                      <path d="M7 7h10v10" />
-                    </svg>
-                  </a>
-                )}
+          <div className="relative aspect-square w-full overflow-hidden rounded-lg border bg-bg-inset">
+            {imageUrl ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={imageUrl}
+                alt={`${title} artwork`}
+                className="size-full object-cover"
+              />
+            ) : (
+              <div className="flex size-full items-center justify-center text-xs text-fg-muted">
+                Preview
               </div>
-            </div>
+            )}
+            {isLoadingMetadata ? (
+              <div className="absolute inset-0 flex items-center justify-center bg-bg-inset/60 text-xs text-fg">
+                Loading...
+              </div>
+            ) : null}
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <h2 className="text-[22px] font-bold leading-[1.2] tracking-[-0.01em] [font-stretch:112.5%]">
+              {title}
+              {tokenLabel ? ` ${tokenLabel}` : ""}
+            </h2>
+            <p className="text-pretty leading-[1.6] text-fg-muted">{description}</p>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            {nftUrl ? (
+              <a
+                href={nftUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex min-h-11 items-center justify-center gap-2 rounded-lg border bg-btn font-semibold text-fg"
+              >
+                View NFT
+                <ArrowUpRightIcon size={14} stroke="currentColor" strokeWidth="1.5" />
+              </a>
+            ) : null}
+            {resumeUrl ? (
+              <a
+                href={resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex min-h-11 items-center justify-center gap-2 rounded-lg bg-accent font-bold text-bg"
+              >
+                View resume
+                <ArrowUpRightIcon size={14} stroke="currentColor" />
+              </a>
+            ) : null}
           </div>
         </div>
       </div>
