@@ -35,7 +35,7 @@ export default function ResumeMint() {
     <div className="flex flex-col gap-3.5 rounded-[14px] border border-accent/35 bg-bg-inset/60 p-5">
       <div className="flex items-center gap-2.5">
         <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-accent/12">
-          <HexIcon stroke="#fbbf24" />
+          <HexIcon stroke="currentColor" className="text-accent" />
         </span>
         <h2 className="text-lg font-bold">{resumePage.mintCard.title}</h2>
       </div>

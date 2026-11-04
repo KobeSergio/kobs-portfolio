@@ -59,10 +59,10 @@ export default function SuccessMintModal({
       role="dialog"
       aria-modal="true"
       aria-label="Mint successful"
-      className="fixed inset-0 z-9998 flex overflow-y-auto bg-bg-inset/80 p-[clamp(12px,4vw,24px)]"
+      className="fixed inset-0 z-9998 flex overflow-y-auto bg-[var(--overlay)] p-[clamp(12px,4vw,24px)]"
     >
       <div className="m-auto w-full max-w-[420px]">
-        <div className="relative flex flex-col gap-4 rounded-xl border bg-surface p-5 font-mona shadow-[0_24px_64px_rgba(1,4,9,0.7)]">
+        <div className="relative flex flex-col gap-4 rounded-xl border bg-surface p-5 font-mona shadow-[var(--shadow-modal)]">
           <button
             type="button"
             aria-label="Close"
@@ -129,7 +129,7 @@ export default function SuccessMintModal({
                 href={resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex min-h-11 items-center justify-center gap-2 rounded-lg bg-accent font-bold text-bg"
+                className="flex min-h-11 items-center justify-center gap-2 rounded-lg bg-accent font-bold text-accent-fg"
               >
                 View resume
                 <ArrowUpRightIcon size={14} stroke="currentColor" />

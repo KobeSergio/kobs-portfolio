@@ -18,6 +18,8 @@
   --color-success-fg: #3fb950;
   --color-danger-fg: #f85149;
   --color-accent: #fbbf24;
+  /* Text on amber, the same in both themes. */
+  --color-accent-fg: #0d1117;
 
   --font-sans:
     -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica,
@@ -35,6 +37,37 @@
      must fall through to the system monospace for them. */
   --font-jetbrains:
     "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* Dark is the default. GitHub's light palette switches in on
+   <html data-theme="light">, which lib/themeScript.ts sets before paint. */
+:root {
+  color-scheme: dark;
+  --shadow-pop: 0 8px 24px rgba(1, 4, 9, 0.6);
+  --shadow-modal: 0 24px 64px rgba(1, 4, 9, 0.7);
+  --overlay: rgba(1, 4, 9, 0.8);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #ffffff;
+  --color-bg-inset: #f6f8fa;
+  --color-surface: #f6f8fa;
+  --color-btn: #eaeef2;
+  --color-border: #d1d9e0;
+  --color-counter: #dde3ea;
+  --color-fg: #1f2328;
+  --color-fg-muted: #59636e;
+  --color-fg-soft: #454c54;
+  --color-link: #0969da;
+  --color-topic-bg: #ddf4ff;
+  --color-topic-fg: #0969da;
+  --color-success: #1f883d;
+  --color-success-fg: #1a7f37;
+  --color-danger-fg: #d1242f;
+  --shadow-pop: 0 8px 24px rgba(31, 35, 40, 0.15);
+  --shadow-modal: 0 24px 64px rgba(31, 35, 40, 0.3);
+  --overlay: rgba(31, 35, 40, 0.5);
 }
 
 @layer base {
@@ -58,7 +91,33 @@
 
   ::selection {
     background-color: var(--color-accent);
-    color: var(--color-bg);
+    color: var(--color-accent-fg);
+  }
+}
+
+@layer components {
+  /* Resume page background layers and the art ring, theme-aware. */
+  .resume-dots {
+    background-image: radial-gradient(
+      color-mix(in srgb, var(--color-fg) 7%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 18px 18px;
+  }
+
+  .resume-fade {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-bg-inset) 15%, transparent) 0%,
+      color-mix(in srgb, var(--color-bg-inset) 80%, transparent) 50%,
+      var(--color-bg-inset) 100%
+    );
+  }
+
+  .resume-art {
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--color-fg) 14%, transparent),
+      0 40px 120px -24px rgba(251, 191, 36, 0.4);
   }
 }
 

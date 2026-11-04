@@ -60,7 +60,7 @@ export default function Media({
               type="button"
               onClick={() => go(-1)}
               aria-label="Previous media"
-              className="pointer-events-auto flex size-9 items-center justify-center rounded-full bg-black/50 text-xl leading-none text-fg backdrop-blur"
+              className="pointer-events-auto flex size-9 items-center justify-center rounded-full bg-black/50 text-xl leading-none text-white backdrop-blur"
             >
               ‹
             </button>
@@ -68,7 +68,7 @@ export default function Media({
               type="button"
               onClick={() => go(1)}
               aria-label="Next media"
-              className="pointer-events-auto flex size-9 items-center justify-center rounded-full bg-black/50 text-xl leading-none text-fg backdrop-blur"
+              className="pointer-events-auto flex size-9 items-center justify-center rounded-full bg-black/50 text-xl leading-none text-white backdrop-blur"
             >
               ›
             </button>

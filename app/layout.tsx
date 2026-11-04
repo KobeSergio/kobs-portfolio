@@ -8,6 +8,7 @@ import WagmiWrapper from "@/providers/WagmiProvider";
 import { ToastProvider } from "@/providers/Toasts";
 import SiteHeader from "@/components/site/SiteHeader";
 import { profile } from "@/constants/site/site";
+import { themeInitScript } from "@/lib/themeScript";
 
 export const metadata: Metadata = {
   title: {
@@ -44,9 +45,11 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${jetbrainsMono.variable} ${monaSans.variable}`}
     >
       <body className="antialiased">
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <SmoothScroll>
           <WagmiWrapper cookies={cookies}>
             <ToastProvider>

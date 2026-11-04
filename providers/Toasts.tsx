@@ -114,8 +114,8 @@ function ToastIcon({ variant }: { variant: ToastVariant }) {
     return (
       <CheckCircleIcon
         size={18}
-        stroke="#3fb950"
-        className="mt-px shrink-0"
+        stroke="currentColor"
+        className="mt-px shrink-0 text-success-fg"
       />
     );
   }
@@ -125,12 +125,16 @@ function ToastIcon({ variant }: { variant: ToastVariant }) {
       height="18"
       viewBox="0 0 16 16"
       fill="none"
-      stroke={variant === "error" ? "#f85149" : "#9198a1"}
+      stroke="currentColor"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      className="mt-px shrink-0"
+      className={
+        variant === "error"
+          ? "mt-px shrink-0 text-danger-fg"
+          : "mt-px shrink-0 text-fg-muted"
+      }
     >
       <circle cx="8" cy="8" r="6.25" />
       <path d="M8 4.75v4M8 11.25v.01" />
@@ -150,7 +154,7 @@ function ToastCard({
   return (
     <div
       role={variant === "error" ? "alert" : "status"}
-      className={`pointer-events-auto flex items-start gap-3 rounded-[10px] border bg-surface py-3.5 pl-4 pr-3 shadow-[0_8px_24px_rgba(1,4,9,0.6)] ${variantBorder[variant]}`}
+      className={`pointer-events-auto flex items-start gap-3 rounded-[10px] border bg-surface py-3.5 pl-4 pr-3 shadow-[var(--shadow-pop)] ${variantBorder[variant]}`}
     >
       <ToastIcon variant={variant} />
       <div className="min-w-0 flex-1">

@@ -77,12 +77,12 @@ export default function ProfileTabs({
               height="16"
               viewBox="0 0 16 16"
               fill="none"
-              stroke="#9198a1"
+              stroke="currentColor"
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
               aria-hidden="true"
-              className="mr-2 hidden shrink-0 min-[480px]:block"
+              className="mr-2 hidden shrink-0 text-fg-muted min-[480px]:block"
             >
               {tab.icon}
             </svg>

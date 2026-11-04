@@ -1,32 +1,29 @@
 import type { SVGProps } from "react";
+import { cn } from "@/lib/utils";
 
-// 16px stroke icons from the design reference. Color comes from `stroke`
-// (defaults to the muted text color) so each use can override it.
-function Icon({
-  children,
-  size = 16,
-  stroke = "#9198a1",
-  ...props
-}: SVGProps<SVGSVGElement> & { size?: number }) {
+type IconProps = SVGProps<SVGSVGElement> & { size?: number };
+
+// 16px stroke icons from the design reference. They draw in the muted text
+// color unless a `stroke` or a text color class says otherwise.
+function Icon({ children, size = 16, stroke, className, ...props }: IconProps) {
   return (
     <svg
       width={size}
       height={size}
       viewBox="0 0 16 16"
       fill="none"
-      stroke={stroke}
+      stroke={stroke ?? "currentColor"}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
+      className={cn(stroke ? undefined : "text-fg-muted", className)}
       {...props}
     >
       {children}
     </svg>
   );
 }
-
-type IconProps = SVGProps<SVGSVGElement> & { size?: number };
 
 export function FileIcon(props: IconProps) {
   return (
@@ -36,18 +33,18 @@ export function FileIcon(props: IconProps) {
   );
 }
 
-export function FolderIcon(props: IconProps) {
+export function FolderIcon({ size = 16, className }: IconProps) {
   return (
     <svg
-      width={props.size ?? 16}
-      height={props.size ?? 16}
+      width={size}
+      height={size}
       viewBox="0 0 16 16"
       aria-hidden="true"
-      className={props.className}
+      className={cn("text-fg-muted", className)}
     >
       <path
         d="M1.75 2.5h4.1l1.5 1.5h6.9c.41 0 .75.34.75.75v8.5c0 .41-.34.75-.75.75H1.75A.75.75 0 0 1 1 13.25V3.25c0-.41.34-.75.75-.75z"
-        fill="#9198a1"
+        fill="currentColor"
       />
     </svg>
   );

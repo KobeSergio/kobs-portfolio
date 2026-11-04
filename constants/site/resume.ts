@@ -3,12 +3,12 @@ import { resumeAddress } from "@/constants/smart-contract/resumeContract";
 // The resume on IPFS. The wallet button opens it for holders and Card A
 // links straight to it.
 export const resumeIpfsUrl =
-  "https://gateway.pinata.cloud/ipfs/bafkreihno3jnzh4ekdjiz43wybw3e6nlorao77qvk3yvwt65aj4oem7eki";
+  "https://gateway.pinata.cloud/ipfs/QmYhQMbn48BRFNjM1QvyKE3oTUCaCp37bX458KEqDWBhwg";
 
 export const resumeContract = {
   address: resumeAddress,
   short: `${resumeAddress.slice(0, 6)}…${resumeAddress.slice(-4)}`,
-  href: `https://arbiscan.io/nft/${resumeAddress.toLowerCase()}`,
+  href: `https://arbiscan.io/address/${resumeAddress.toLowerCase()}`,
 };
 
 export const MAX_SUPPLY = 444;

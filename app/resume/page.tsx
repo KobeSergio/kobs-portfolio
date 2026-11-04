@@ -25,11 +25,11 @@ export default function ResumePage() {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(rgba(240,246,252,0.07)_1px,transparent_1px)] bg-[size:18px_18px]"
+        className="resume-dots absolute inset-0"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,4,9,0.15)_0%,rgba(1,4,9,0.8)_50%,#010409_100%)]"
+        className="resume-fade absolute inset-0"
       />
 
       <section
@@ -45,10 +45,10 @@ export default function ResumePage() {
               height={520}
               priority
               sizes="(min-width: 640px) 520px, 100vw"
-              className="block aspect-square w-full rounded-[20px] object-cover shadow-[0_0_0_1px_rgba(240,246,252,0.14),0_40px_120px_-24px_rgba(251,191,36,0.4)]"
+              className="resume-art block aspect-square w-full rounded-[20px] object-cover"
             />
             <span className="absolute left-3.5 top-3.5 inline-flex items-center gap-2 rounded-full border border-fg/14 bg-bg-inset/72 px-3 py-1.5 font-jetbrains text-xs font-medium">
-              <HexIcon size={14} stroke="#fbbf24" />
+              <HexIcon size={14} stroke="currentColor" className="text-accent" />
               {resumePage.chip}
             </span>
           </div>
@@ -79,7 +79,7 @@ export default function ResumePage() {
           <div className="flex flex-col gap-3 rounded-[14px] border border-fg/16 bg-bg-inset/60 p-5">
             <div className="flex items-center gap-2.5">
               <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-fg/8">
-                <FileIcon stroke="#f0f6fc" />
+                <FileIcon stroke="currentColor" className="text-fg" />
               </span>
               <h2 className="text-lg font-bold">{resumePage.readCard.title}</h2>
             </div>

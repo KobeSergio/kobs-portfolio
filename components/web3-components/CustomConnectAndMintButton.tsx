@@ -21,7 +21,7 @@ import { ChevronDownIcon } from "@/components/site/Icons";
 import { cn } from "@/lib/utils";
 
 const primaryButton =
-  "flex min-h-[52px] flex-1 items-center justify-center gap-2 bg-accent px-6 text-base font-bold text-bg";
+  "flex min-h-[52px] flex-1 items-center justify-center gap-2 bg-accent px-6 text-base font-bold text-accent-fg";
 
 function Spinner() {
   return (

@@ -169,7 +169,7 @@ export default function FileContent({
         <span className="min-w-0 flex-[1_1_200px] truncate text-fg-muted">
           {message}
         </span>
-        <CheckIcon stroke="#3fb950" />
+        <CheckIcon stroke="currentColor" className="text-success-fg" />
         {repo.kind === "projects" ? (
           repo.pills.map((pill) => <OutlinePill key={pill}>{pill}</OutlinePill>)
         ) : (

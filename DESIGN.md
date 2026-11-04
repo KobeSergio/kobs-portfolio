@@ -186,6 +186,40 @@ Translucent variants use the token with an opacity modifier (`border-fg/16`,
 muted. Body copy on the Resume page uses `fg-soft` because it sits on blurred
 art.
 
+### Light mode
+
+Dark is the default. Setting `data-theme="light"` on `<html>` swaps the same
+tokens for GitHub's light palette, so no component knows which theme it is in:
+
+| Token | Light value |
+|---|---|
+| `bg` | `#ffffff` |
+| `bg-inset`, `surface` | `#f6f8fa` |
+| `btn` | `#eaeef2` |
+| `border` | `#d1d9e0` |
+| `counter` | `#dde3ea` |
+| `fg` | `#1f2328` |
+| `fg-muted` | `#59636e` |
+| `fg-soft` | `#454c54` |
+| `link`, `topic-fg` | `#0969da` |
+| `topic-bg` | `#ddf4ff` |
+| `success` | `#1f883d` |
+| `success-fg` | `#1a7f37` |
+| `danger-fg` | `#d1242f` |
+| `accent` | `#fbbf24`, unchanged |
+
+`accent-fg` (`#0d1117`) is the text color on amber in both themes. Shadows and
+the modal overlay come from `--shadow-pop`, `--shadow-modal` and `--overlay`,
+which the light theme softens. The GitHub calendar switches to a light ramp
+starting at `#ebedf0`.
+
+An inline script in `app/layout.tsx` (`lib/themeScript.ts`) applies the stored
+choice, else the system preference, before the first paint. The header toggle
+(`components/site/ThemeToggle.tsx`) writes the choice to `localStorage` under
+`theme`; `lib/theme.ts` keeps components in sync and follows system changes
+until a choice is stored. Icons draw in `currentColor`, so never hardcode a
+hex color in a component: use a token class.
+
 ## 3. Typography
 
 **UI:** the system stack at 14px with line-height 1.5, everywhere except the

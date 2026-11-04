@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useMemo } from "react";
 import { GitHubCalendar } from "react-github-calendar";
+import { useTheme } from "@/lib/theme";
 
 const WEEKS = 53;
 // react-activity-calendar adds this to the widest weekday label.
@@ -39,6 +40,7 @@ function measureLabelOffset(fontSize: number) {
 
 export default function GithubContributionGraph() {
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const theme = useTheme();
   const [layout, setLayout] = useState<{
     width: number;
     labelOffset: number;
@@ -82,10 +84,10 @@ export default function GithubContributionGraph() {
       <div ref={wrapperRef} className="w-full overflow-x-auto no-scrollbar">
         {sizing ? (
           <GitHubCalendar
-            colorScheme="dark"
+            colorScheme={theme}
             username="kobesergio"
             theme={{
-              light: ["#fbbf24", "#facc15", "#f59e42", "#f8b400", "#fcd34d"],
+              light: ["#ebedf0", "#fde68a", "#fcd34d", "#fbbf24", "#d97706"],
               dark: ["#292524", "#d1a22b", "#fbbf24", "#facc15", "#fde68a"],
             }}
             blockSize={sizing.blockSize}
