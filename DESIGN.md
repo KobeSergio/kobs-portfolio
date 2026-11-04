@@ -1,227 +1,343 @@
 ---
 name: Kobs Portfolio
-description: Fullstack Web3 developer portfolio — dark precision with a harvest amber pulse
+description: A GitHub-profile-style developer portfolio in GitHub's dark palette, with Kobe's amber kept as the one brand accent
 colors:
-  harvest-amber: "#fbbf24"
-  amber-soft: "#fde68a"
-  amber-muted: "#78350f"
-  emerald-status: "#34d399"
-  page-bg: "#020617"
-  surface: "#0f172a"
-  surface-raised: "#1e293b"
-  border-subtle: "#334155"
-  ink-muted: "#64748b"
-  ink-secondary: "#94a3b8"
-  ink-tertiary: "#cbd5e1"
-  ink-primary: "#f8fafc"
+  bg: "#0d1117"
+  bg-inset: "#010409"
+  surface: "#151b23"
+  btn: "#212830"
+  border: "#3d444d"
+  counter: "#2f3742"
+  fg: "#f0f6fc"
+  fg-muted: "#9198a1"
+  fg-soft: "#c9d1d9"
+  link: "#4493f8"
+  topic-bg: "#111d2e"
+  topic-fg: "#4493f8"
+  success: "#238636"
+  success-fg: "#3fb950"
+  danger-fg: "#f85149"
+  accent: "#fbbf24"
 typography:
-  display:
-    fontFamily: "Anton, Impact, sans-serif"
-    fontSize: "clamp(3rem, 8vw, 6rem)"
+  body:
+    fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, Noto Sans, Helvetica, Arial, sans-serif"
+    fontSize: "14px"
     fontWeight: 400
-    lineHeight: 0.95
-    letterSpacing: "-0.04em"
-  headline:
-    fontFamily: "Nunito Sans, system-ui, sans-serif"
-    fontSize: "clamp(1.5rem, 3vw, 1.875rem)"
-    fontWeight: 700
-    lineHeight: 1.2
-    letterSpacing: "-0.02em"
-  title:
-    fontFamily: "Nunito Sans, system-ui, sans-serif"
-    fontSize: "1.125rem"
+    lineHeight: 1.5
+  mono:
+    fontFamily: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+    fontSize: "12px to 13px"
+  name:
+    fontSize: "26px"
+    fontWeight: 600
+    lineHeight: 1.25
+  full-name:
+    fontSize: "20px"
+    fontWeight: 300
+    lineHeight: 1.3
+  readme-h1:
+    fontSize: "32px"
+    fontWeight: 600
+    lineHeight: 1.25
+  readme-h2:
+    fontSize: "24px"
+    fontWeight: 600
+    lineHeight: 1.25
+  readme-body:
+    fontSize: "16px"
+    lineHeight: 1.6
+  list-title:
+    fontSize: "20px"
     fontWeight: 600
     lineHeight: 1.4
-    letterSpacing: "normal"
-  body:
-    fontFamily: "Nunito Sans, system-ui, sans-serif"
-    fontSize: "0.875rem"
+  section-label:
+    fontSize: "16px"
     fontWeight: 400
-    lineHeight: 1.75
-    letterSpacing: "normal"
+  chip:
+    fontSize: "12px"
+    fontWeight: 500
+  display:
+    fontFamily: "Mona Sans (Resume page and mint modal only)"
+    fontSize: "clamp(36px, 9vw, 60px)"
+    fontWeight: 800
+    fontStretch: "112.5%"
+    letterSpacing: "-0.035em"
+    lineHeight: 0.98
   label:
-    fontFamily: "Nunito Sans, system-ui, sans-serif"
-    fontSize: "0.75rem"
-    fontWeight: 700
-    lineHeight: 1.4
-    letterSpacing: "0.12em"
+    fontFamily: "JetBrains Mono (Resume page, mint modal and the ASCII banner)"
+    fontSize: "12px"
+    letterSpacing: "0.08em"
 rounded:
-  full: "9999px"
-  "3xl": "24px"
-  "2xl": "16px"
-  xl: "12px"
-  md: "6px"
+  box: "6px"
+  pill: "9999px"
+  button: "6px"
+  resume-card: "14px"
+  resume-button: "10px"
+  art: "20px"
+  modal: "12px"
+  toast: "10px"
 spacing:
-  section: "6rem"
-  section-gap: "2.5rem"
-  card: "1.25rem"
-  card-sm: "1rem"
+  content-max: "1280px"
+  file-view-max: "1440px"
+  gutter: "16px on phones, 32px from sm"
+  gap: "24px"
+  sidebar: "296px from lg"
+  tree: "260px"
+  about: "260px to 296px"
 components:
   button-primary:
-    backgroundColor: "{colors.harvest-amber}"
-    textColor: "{colors.page-bg}"
-    rounded: "{rounded.full}"
-    padding: "12px 28px"
-  button-primary-hover:
-    backgroundColor: "{colors.amber-soft}"
-    textColor: "{colors.page-bg}"
-  button-ghost:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink-primary}"
-    rounded: "{rounded.full}"
-    padding: "12px 28px"
-  button-contact:
-    backgroundColor: "{colors.surface-raised}"
-    textColor: "{colors.ink-primary}"
-    rounded: "{rounded.xl}"
-    padding: "12px 16px"
-  button-contact-hover:
-    backgroundColor: "transparent"
-    textColor: "{colors.harvest-amber}"
-  card:
+    backgroundColor: "{colors.success}"
+    borderColor: "rgba(240,246,252,0.1)"
+    textColor: "#ffffff"
+    rounded: "{rounded.button}"
+    minHeight: "36px (44px for the CTA box)"
+  button-neutral:
+    backgroundColor: "{colors.btn}"
+    borderColor: "{colors.border}"
+    textColor: "{colors.fg}"
+    rounded: "{rounded.button}"
+  button-mint:
+    backgroundColor: "{colors.accent}"
+    textColor: "{colors.bg}"
+    rounded: "{rounded.resume-button}"
+    minHeight: "52px"
+  chip-topic:
+    backgroundColor: "{colors.topic-bg}"
+    textColor: "{colors.topic-fg}"
+    rounded: "{rounded.pill}"
+    padding: "0 10px"
+    lineHeight: "22px"
+  pill-outline:
+    borderColor: "{colors.border}"
+    textColor: "{colors.fg-muted}"
+    rounded: "{rounded.pill}"
+    padding: "0 7px"
+    lineHeight: "18px"
+  badge-count:
+    backgroundColor: "{colors.counter}"
+    textColor: "{colors.fg}"
+    rounded: "{rounded.pill}"
+    padding: "0 7px"
+    lineHeight: "18px"
+  box:
+    borderColor: "{colors.border}"
+    rounded: "{rounded.box}"
+    headerBackground: "{colors.surface}"
+  logo-tile:
     backgroundColor: "{colors.surface}"
-    textColor: "{colors.ink-secondary}"
-    rounded: "{rounded.2xl}"
-    padding: "{spacing.card}"
-  chip-tech:
-    backgroundColor: "{colors.surface-raised}"
-    textColor: "{colors.ink-tertiary}"
-    rounded: "{rounded.md}"
-    padding: "2px 8px"
-  badge-status:
-    backgroundColor: "{colors.amber-muted}"
-    textColor: "{colors.amber-soft}"
-    rounded: "{rounded.full}"
-    padding: "2px 10px"
+    borderColor: "{colors.border}"
+    size: "20px in cards, 28px in lists, 32px in About and Organizations"
 ---
 
 # Design System: Kobs Portfolio
 
 ## 1. Overview
 
-**Creative North Star: "The Signal Terminal"**
+**The idea: a GitHub profile.** The portfolio borrows the layout language every
+engineer already reads fluently. Overview is the profile page with a README,
+Experience and Projects are repository lists, and each company or project opens
+as a single-file view with a tree on the left, the file in the middle and an
+About panel on the right. The Resume page is the one immersive moment: a
+full-bleed mint page for the resume NFT.
 
-A high-precision instrument built to transmit. The portfolio is not a showcase — it is a proof-of-work broadcast on a dark medium. Every surface earns its bandwidth. Harvest amber is a diagnostic pulse: it appears when something demands the visitor's attention and is absent everywhere else. The darkness is not decorative; it is the environment where signals read clearly.
+Everything is GitHub's dark palette. Kobe's amber survives as the single brand
+accent and appears in exactly five places: the active tab underline, the mint
+button, the mint card border and art glow, the GitHub contribution colors, and
+text selection. Nothing else is amber.
 
-The visual grammar is disciplined and purposeful. Nunito Sans carries warmth without softness, staying readable at the small sizes that dense layouts demand. The particle canvas in the hero is the one moment of choreographed motion — everything after it is a steady signal, not a performance. Cards are defined by what's inside them, not by decorative chrome. Spacing varies for rhythm rather than repeating a single gap everywhere.
+The source of truth for structure and copy is `docs/redesign/HANDOFF.md`, with
+the canvas files beside it in `docs/redesign/design-reference/` and the target
+renders in `docs/redesign/screenshots/`. `PRODUCT.md` still holds for
+audience, voice and accessibility.
 
-This system explicitly rejects two failure modes from PRODUCT.md: the **cyberpunk Web3 aesthetic** (neon green, glitch effects, tribal crypto iconography) and the **generic developer portfolio template** (gray/white background, floating tech-logo cloud, identical card grid, no design POV). Neither failure is dramatic — both are failures of defaulting, of picking the first available answer instead of the right one.
+**Key characteristics:**
 
-**Key Characteristics:**
-- Dark-first: `page-bg` is the canvas; amber is the signal, not the theme
-- Harvest amber used at ≤15% of any given screen — rarity makes it land
-- Motion reserved for the opening sequence and intentional state feedback; no uniform scroll-reveal reflex
-- Cards defined by content hierarchy, not by decorative borders or shadows
-- Typography scale has genuine contrast: display at 6rem, body at 0.875rem — no flat scale
+- One palette, defined once as Tailwind theme tokens in `app/globals.css`.
+- Every border and divider is 1px `border`. Depth comes from borders and the
+  two darker surfaces, never from shadows, except on the Resume page.
+- Content is data. Every page renders from `constants/site/` through the
+  `Repo` view-model in `lib/repos.ts`. The pages add no copy of their own.
+- Every view has a route, so deep links and the back button work.
 
-## 2. Colors: The Amber-on-Dark System
+## 2. Colors
 
-Committed strategy. One saturated accent on a near-black ground. Amber is the only warm color on screen; it reads as signal because everything surrounding it is cool-neutral dark.
+| Token | Value | Use |
+|---|---|---|
+| `bg` | `#0d1117` | Page background |
+| `bg-inset` | `#010409` | Header, Resume page, modal overlay |
+| `surface` | `#151b23` | Box headers, CTA box, logo tiles, toasts, modal |
+| `btn` | `#212830` | Neutral buttons, the selected tree row |
+| `border` | `#3d444d` | Every 1px border and divider, the ASCII edge layer |
+| `counter` | `#2f3742` | Tab and "Builds" count badges, the modal token badge |
+| `fg` | `#f0f6fc` | Primary text, the ASCII fill layer |
+| `fg-muted` | `#9198a1` | Secondary text, icons, metadata |
+| `fg-soft` | `#c9d1d9` | Body copy on the Resume page |
+| `link` | `#4493f8` | Links, repo titles, the selected tree bar, addresses |
+| `topic-bg` / `topic-fg` | `#111d2e` / `#4493f8` | Skill and topic chips |
+| `success` | `#238636` | Green buttons ("Book a call", the CTA) |
+| `success-fg` | `#3fb950` | Status dots, check marks, "Live" links, success toast |
+| `danger-fg` | `#f85149` | Error toast |
+| `accent` | `#fbbf24` | Active tab underline, mint button, mint glow, selection |
 
-### Primary
-- **Harvest Amber** (#fbbf24): The one color that demands attention. Used on primary CTAs, the mint progress bar, active indicators, section underlines, and hover states where the interaction is meaningful. Never used as a background for large areas — its power comes from scarcity.
-- **Amber Soft** (#fde68a): The quieter register of Harvest Amber. Used for hover text, soft labels (the "About Me" kicker), and amber glow glints. Lower saturation than #fbbf24; never louder.
+Translucent variants use the token with an opacity modifier (`border-fg/16`,
+`bg-bg-inset/60`, `border-accent/35`) rather than new hex values.
 
-### Secondary
-- **Emerald Status** (#34d399): A single semantic accent for positive/live state only. Used on the "open to work" pulse dot and impact metrics in experience cards. Not a general-purpose green — it appears exclusively when something is active or measurably successful.
+**Contrast.** `fg-muted` on `bg` passes 4.5:1, so secondary text can stay
+muted. Body copy on the Resume page uses `fg-soft` because it sits on blurred
+art.
 
-### Neutral
-- **Page Background** (#020617): The absolute ground. Near-black with a faint cool-blue tint. The canvas particle clears to true `#000000` in the hero; the rest of the page returns here so sections have continuity.
-- **Surface** (#0f172a): Card backgrounds. Always at partial opacity (`/50`) against `page-bg` so the layer reads as elevated without a shadow.
-- **Surface Raised** (#1e293b): Borders, raised inner surfaces (tech tag backgrounds, nested card beds). The third tier of the neutral stack.
-- **Border Subtle** (#334155): Dividers, tag borders, and interactive borders at rest. Light enough to be invisible at distance, present enough to structure at reading distance.
-- **Ink Muted** (#64748b): Metadata labels, timestamps, monospace status text. Used where the information is present but subordinate.
-- **Ink Secondary** (#94a3b8): Body text, descriptions, secondary prose. The primary reading color for long-form content.
-- **Ink Tertiary** (#cbd5e1): Tech tag text, chip labels, mid-importance captions.
-- **Ink Primary** (#f8fafc): Headings and high-importance text. Near-white with just enough blue tint to avoid harsh glare on the dark background.
+## 3. Typography
 
-### Named Rules
-**The One Signal Rule.** Harvest amber appears on ≤15% of any given screen. Its rarity is the point. If amber is everywhere, it is nowhere — and the portfolio loses its diagnostic clarity.
+**UI:** the system stack at 14px with line-height 1.5, everywhere except the
+Resume page. The old Nunito Sans, Anton and BBH Bogle are gone.
 
-**The No-Glow Default Rule.** Amber glow shadows (`shadow-[0_0_24px_rgba(251,191,36,...)]`) are reserved for interactive states and the NFT mint card, which earns a permanent glow because it is the most interactive element on its section. At rest, card borders are `border-slate-800` without any warm glow. Adding ambient amber glow to every card is the cyberpunk reflex; don't.
+**Mono:** `ui-monospace, SFMono-Regular, Menlo, Consolas, monospace` for
+breadcrumbs, contract addresses and the inline `code` stack chips.
 
-## 3. Typography: Precision Without Cold
+**Resume page and mint modal only:** Mona Sans for display (700 to 800,
+`font-stretch: 112.5%`) and JetBrains Mono for labels and numbers. Both load
+with `next/font/google` in `app/layout.tsx` and are exposed as `font-mona` and
+`font-jetbrains`. JetBrains Mono also renders the ASCII banner on Overview; its
+token points at the loaded face name directly so the box-drawing glyphs fall
+through to the system monospace instead of the size-adjusted Arial fallback.
 
-**Display Font:** Anton (impact-condensed, Google Fonts) with Impact, sans-serif fallback
-**Body / UI Font:** Nunito Sans (humanist, rounded, warm-but-precise) with system-ui, sans-serif fallback
-**Label / Mono use:** Nunito (the rounded sibling, not a true monospace) for date labels and status text; its visual warmth prevents the sterile read that Space Mono or IBM Plex would bring
+**Scale:** name 26px/600, full name 20px/300, README h1 32px/600, README h2
+24px/600, README body 16px/1.6, list titles 20px/600, section labels 16px/400,
+chips 12px/500. Date ranges use en dashes (`Oct 2026 – Nov 2026`). Copy never
+uses em dashes.
 
-**Character:** Anton at large sizes carries authority and weight — the full-screen hero heading reads like a statement, not an introduction. Nunito Sans at small sizes keeps the dense card content readable without clinical coldness. They don't fight each other because they never share the same viewport region.
+## 4. Layout and Breakpoints
 
-### Hierarchy
-- **Display** (Anton 400, clamp(3rem, 8vw, 6rem), leading 0.95, tracking -0.04em): Hero headline only. One instance per page. Never below 3rem; the weight reads wrong at text scale.
-- **Headline** (Nunito Sans 700, clamp(1.5rem, 3vw, 1.875rem), leading 1.2, tracking -0.02em): Section headings (Experience, Projects, Contact). Use `text-wrap: balance` to prevent orphans across two lines.
-- **Title** (Nunito Sans 600, 1.125rem, leading 1.4): Card headings, contribution product names, sub-section labels. The bridge between headline and body.
-- **Body** (Nunito Sans 400, 0.875rem / 1rem, leading 1.75): All prose, descriptions, summaries. Maximum line length 65–70ch. On dark background, line-height stays at 1.75 — light type on dark reads as lighter-weight and needs more air.
-- **Label** (Nunito Sans 700, 0.75rem, tracking 0.12em, ALL CAPS): Status indicators, section kickers, metadata keys. Used sparingly — one or two per section, not above every heading.
-
-### Named Rules
-**The Anton Ceiling Rule.** Anton is used only in the full-screen hero heading. It is not a section heading font, not a card title font, not a kicker font. Its power is proportional to its exclusivity: one instance of extreme weight contrast per page.
-
-**The Kicker Restraint Rule.** Uppercase tracked labels ("About Me •", "Tech Stack") are voice when used once or twice with deliberate intent. They become AI scaffolding when every section opens with one. Each label must justify its existence; if removing it doesn't reduce clarity, remove it.
-
-## 4. Elevation: Tonal Depth with Selective Glow
-
-This system uses **tonal layering as primary depth** and **selective amber glow for interactive state**. There is no ambient box-shadow stack applied to resting cards. Depth is conveyed by the background opacity differential between page-bg (#020617), surface (#0f172a / 50%), and surface-raised (#1e293b / 60%).
-
-Black structural shadows (`shadow-black/40`) appear under large glass panels (the About image container) where an element needs to lift out of the page. These are heavy and sparing — not a default card treatment.
-
-### Shadow Vocabulary
-- **Structural lift** (`0 20px 25px -5px rgba(0,0,0,0.4), 0 8px 10px -6px rgba(0,0,0,0.4)`): Large composite panels (About card). Signals physical elevation, not interactive state.
-- **CTA pulse** (`0 10px 15px -3px rgba(251,191,36,0.3)`): Primary button's amber shadow. Tied to the amber identity; never used on neutral or ghost buttons.
-- **Mint glow** (`0 0 24px rgba(251,191,36,0.07)`): The NFT mint card. Permanent, ambient — this element is always special.
-- **Hover signal** (`0 0 20px rgba(251,191,36,0.15)`): Contact buttons on hover. Transient; indicates interactability.
-
-### Named Rules
-**The Flat-By-Default Rule.** Cards are flat at rest. `border-slate-800` defines their boundary; there is no resting shadow. On hover, the border shifts toward amber and the background slightly densifies — state change, not shadow stack.
+- Content is 1280px wide at most, file views 1440px. Side padding is
+  `clamp(16px, 4vw, 32px)` (`clamp(16px, 3vw, 24px)` on file views). Gaps are
+  24px.
+- The header is not sticky. The tabs hide their icons below 480px so all four
+  fit at 390px.
+- The profile sidebar is a 296px column from `lg` and stacks above the content
+  below it. The avatar is `min(296px, 28vw)`: full width in the column, beside
+  the name when stacked.
+- File views: three columns from `xl`, where About is `position: sticky;
+  top: 24px`. Between 980px and 1279px the tree stays left and About wraps
+  above the file content and stops sticking. Below 980px it is one column in
+  the order tree, About, content: the tree collapses into a "Browse" bar that
+  opens the full tree and closes after a pick, and About hides its skills and
+  builds behind a "Show skills and builds" toggle.
+- At 390px every route measures exactly 390px wide. Nothing scrolls sideways.
 
 ## 5. Components
 
-### Buttons
-The portfolio has three distinct button registers, each with a different weight in the hierarchy.
+### Shared
 
-- **Primary** (Harvest Amber fill): `bg-amber-400 text-slate-950 font-semibold rounded-full px-7 py-3 shadow-lg shadow-amber-400/30`. The hottest signal on any surface. One or two per section max. On hover: `-translate-y-0.5 shadow-amber-300/40`. CTA copy is direct ("Get to know me", not "Learn more about me").
-- **Ghost** (Transparent outline): `border border-white/15 text-slate-50 rounded-full px-7 py-3`. Paired with primary in the hero CTA row. On hover: `border-amber-200/60 text-amber-200`. Softer; secondary action.
-- **Contact** (Surface fill, amber hover): `rounded-xl border border-slate-700 bg-slate-800/60 px-4 py-3 text-sm font-semibold text-slate-100`. Used for Email/LinkedIn/Discord channel links. On hover: `border-amber-400/40 bg-amber-400/8 shadow-[0_0_20px_rgba(251,191,36,0.15)]`. The hover glow marks these as interactive without being as loud as the primary button.
+- **Header** (`components/site/SiteHeader.tsx`): the `k.` mark in white at
+  32px with "KobeSergio", and a green "Book a call" button with the lucide
+  `CalendarDays` icon. Below it the tabs (`ProfileTabs.tsx`): Overview,
+  Experience, Projects, Resume with 16px icons, count badges from the data
+  length, a 2px `accent` underline plus 600 weight and `aria-current="page"` on
+  the active tab. File views light up their list's tab.
+- **Profile sidebar** (`ProfileSidebar.tsx`): avatar, name, full name, the
+  "Open to work" pill, the bio (the site's meta description) and "Email me".
+  The full version on Overview adds the four stats as two lines, the details
+  list with brand icons, and the Organizations row of 32px logo tiles linking
+  to each company.
+- **Logo tile** (`CompanyLogo.tsx`): a company logo on a `surface` tile with a
+  `border` outline. Solana Launch Builder renders `SiSolana` in `fg`. Projects
+  show their first letter in a dashed tile.
+- **Chips** (`Chips.tsx`): topic chip, outline pill, count badge.
+- **Icons** (`Icons.tsx`): the 16px stroke icons from the design reference.
+  Brand icons come from `react-icons/si`.
+- **Footer** (`SiteFooter.tsx`, Overview only): the mark at 20px in
+  `fg-muted`, the copyright, and the email, GitHub, LinkedIn and Discord links.
 
-### Chips / Tags
-- **Tech tag**: `rounded-md border border-slate-700 bg-slate-800/60 px-2 py-0.5 text-xs text-slate-300`. Small, quiet, functional. Shows tech stack on project and experience cards. No hover state — informational only.
-- **Status badge**: `rounded-full bg-amber-400/20 px-2.5 py-0.5 text-amber-200 font-semibold text-xs`. Used for "OPEN TO WORK" and project status labels. Amber tint marks significance.
-- **Project status**: `rounded-full border border-amber-400/30 bg-amber-400/8 text-amber-300 px-3 py-1 text-xs font-medium`. Slightly more prominent than the tech tag; denotes the state of a shipped project.
+### Overview
 
-### Cards / Containers
-- **Standard card**: `rounded-2xl border border-slate-800 bg-slate-900/50 p-5`. The portfolio's workhorse container. On hover: `border-amber-400/30 hover:bg-slate-900/80`. The hover border shift is the only interactive signal — no shadow, no lift.
-- **Glass panel** (About section): `rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/40 backdrop-blur`. Heavier, more premium feel; used for the featured identity card only. Backdrop blur is purposeful here, not decorative.
-- **Amber highlight card** (NFT mint): `rounded-2xl border border-amber-400/25 bg-amber-400/5 p-4 shadow-[0_0_24px_rgba(251,191,36,0.07)]`. The only card with a permanent amber glow and amber border. Its specialness signals that this is the most interactive/significant element.
-- **Stats mini-card**: `rounded-xl border border-slate-800 bg-slate-950/60 p-4`. Nested inside larger cards. Compact, no hover.
+- **README box** (`components/overview/ReadmeBox.tsx`): the
+  `KobeSergio / README.md` breadcrumb, the ASCII banner as two stacked `<pre>`
+  layers (edge in `border`, fill in `fg`, `aria-hidden`, with an sr-only
+  "Hi, I'm Kobs" heading), the four bio paragraphs (the last in `fg-muted`)
+  and the tech stack chips with icons from `constants/site/site.tsx`.
+- **Experience cards**: the four newest companies, each a bordered card whose
+  slug link covers the whole card.
+- **GitHub activity**: `GithubContributionGraph` with the amber theme inside a
+  bordered box.
+- **CTA box**: "Ready for your next product or MVP" on `surface`, a full-width
+  green "Book a 30-min call" and the Email, LinkedIn and Discord buttons.
 
-### Navigation
-No persistent nav bar. Scrolled navigation uses `id`-anchor links (`#about`, `#projects`, `#contact`) from the hero CTA row. The page has a single linear scroll path; nav is the scroll itself. Footer links provide a secondary access point.
+### Lists and file views (`components/repo/`)
 
-### Signature Components
+- **Repo list row**: logo, slug link, pills, role, summary, up to ten skill
+  chips plus "+N more", the period and build count, and an expand toggle
+  ("Show N builds" / "Hide builds", or "Show details" when there are no build
+  files). "View more" sits on the right from `sm` and drops under the row as a
+  full-width button below it. Skills are the deduplicated union of every
+  build's tech, normalized by `NORM` in `lib/repos.ts`.
+- **File tree**: folders per company or project, `README.md` plus one
+  `<build>.md` per build. The selected file gets `btn`, a 3px `link` inset bar
+  and 600 weight. Rows are links.
+- **File content**: breadcrumb, a commit bar (avatar, handle, the build's
+  impact line or the role, a green check and the period; projects show the
+  headline with the statuses as pills), then the file box. READMEs show the
+  summary, an On-chain table when there are contracts, a Builds index, and
+  inline notes for work without build files. Builds show the impact line in
+  bold, the media at 16:9 with a 6px radius, "How I built it" bullets and a
+  Stack line of inline code chips.
+- **About panel**: logo, summary, link rows, role and period, skill chips and
+  a "Builds N" list with green "Live" links.
+- **Media**: a video with its poster (autoplay, muted, loop, off under reduced
+  motion), an image carousel when there are several images, nothing when the
+  list is empty.
 
-**Particle Canvas Hero**: Full-viewport canvas with amber particles (`rgba(251,191,36,0.85)`) that repel from mouse position and connect with proximity lines. Canvas clears to true black (#000000) each frame; the bottom edge fades via a `bg-gradient-to-b from-transparent to-slate-950` overlay so the transition into the page body is seamless. This component has no reduced-motion fallback — it needs one: a static amber gradient or a still particle field should render when `prefers-reduced-motion: reduce` is detected.
+### Resume (`app/resume/page.tsx`, `components/resume/`)
 
-**NFT Resume Mint**: An amber-glowing interactive card inside the About section with a live on-chain supply counter, progress bar, and wallet connect + mint flow. This component is the portfolio's differentiator. Copy must explain what it is to a non-crypto visitor on first read.
+Three background layers on `bg-inset`: the NFT art blurred (`blur(90px)
+saturate(1.4)`, 35% opacity, scaled 1.25), an 18px dot grid, and a vertical
+fade to solid `#010409`. The hero is two columns that wrap to one: the art
+(520px max, 20px radius, 1px light ring, amber glow) and the header, Card A
+("Just want to read my CV?", a white "View my CV" button to the IPFS resume)
+and Card B ("Or collect a copy on-chain", the live copies-left bar, the wallet
+button and the Arbiscan contract link). The FAQ is a six-item accordion with a
+"+" that rotates to "×"; the first item opens by default and one opens at a
+time.
 
-**GitHub Contribution Graph**: `react-github-calendar` with the amber color theme. Part of the proof-of-work section between Experience and Projects.
+**Wallet button states** (`CustomConnectAndMintButton.tsx`, logic untouched):
+"Connect Wallet" amber and full width; "Mint Resume" joined to a chevron that
+opens the account view; "Minting..." with a spinner at 70% amber; "View Resume"
+for holders.
 
-## 6. Do's and Don'ts
+**Success modal** (`SuccessMintModal.tsx`): 420px, centered, scrolls when
+taller than the viewport, "MINT SUCCESSFUL #id", the art, name, description,
+a neutral "View NFT" and an amber "View resume".
 
-### Do:
-- **Do** use Harvest Amber (#fbbf24) on the single most important interactive element per section — and only one.
-- **Do** vary card padding (1rem vs 1.25rem vs 1.5rem) based on content density; uniform padding flattens hierarchy.
-- **Do** include `@media (prefers-reduced-motion: reduce)` on every animation — the particle canvas, Framer Motion entrances, and Lenis scroll all require fallbacks.
-- **Do** run WCAG AA contrast checks on all body text: `ink-secondary` (#94a3b8) on `page-bg` (#020617) needs verification — that pairing can fall below 4.5:1 on some monitors.
-- **Do** keep section headings in `headline` weight (Nunito Sans 700, not Anton); Anton is the hero only.
-- **Do** write CTA copy as a direct action in the visitor's terms: "Get to know me", "Book a call", "Mint my resume", not "Learn more" or "Click here".
+**Toasts** (`providers/Toasts.tsx`): `surface` cards with a 10px radius pinned
+16px from the bottom-right, an icon, a dismiss ×, and a green
+(`rgba(63,185,80,.45)`) or red (`rgba(248,81,73,.5)`) border.
 
-### Don't:
-- **Don't** add a cyberpunk or Web3 tribal aesthetic — no neon green (#00ff00-family), glitch text effects, anime motion, or skull/degen iconography. The portfolio must read credibly to a non-crypto founder.
-- **Don't** build a generic developer portfolio template — no gray/white background, floating tech-logo hero cloud, or identical card grid with icon + heading + text repeated endlessly.
-- **Don't** use `background-clip: text` with a gradient fill on any element. This is an absolute ban. Emphasis is done with weight, size, or a solid Harvest Amber (`#fbbf24`) fill — never a gradient shimmer. The existing `golden-text-fill` class in globals.css violates this rule and should be removed.
-- **Don't** use a colored `border-left` or `border-right` greater than 1px as a decorative stripe on any card or list item. The current experience role card uses `border-l-2 border-amber-400/50` — this is the side-stripe pattern and should be replaced with a full border, background tint, or amber text alone.
-- **Don't** add amber glow to resting card borders. Glow is earned by interactive state or by the special mint card. Ambient glow on every card reads as cyberpunk decoration.
-- **Don't** add a small uppercase tracked kicker above every section heading. The "About Me" and "Tech Stack" labels in the About section are the outer limit; new sections should find other ways to introduce themselves.
-- **Don't** use the editorial-typographic aesthetic lane (display serif + italic drop caps + ruled separators + monochromatic restraint). This portfolio is technical and Web3-native, not editorial. That lane is currently saturated with AI-generated brand content.
-- **Don't** use gradient text of any kind — `background: linear-gradient(...); background-clip: text; color: transparent` is the exact failure mode. Use `color: #fbbf24` for amber emphasis.
+## 6. Motion and Accessibility
+
+- Motion is limited to chevron and "+" rotations, the copies-left bar, the
+  mint spinner and video autoplay. All of it sits behind `motion-safe:` or a
+  `prefers-reduced-motion` check, so reduced-motion visitors get static
+  chevrons and posters.
+- Every interactive element is a real `<a>` or `<button>`. Toggles set
+  `aria-expanded`, icon-only buttons have `aria-label`, the selected tree row
+  and active tab carry `aria-current="page"`, and the modal is a labelled
+  `role="dialog"`.
+- Focus rings are visible: a 2px `accent` outline on `:focus-visible`.
+- Lenis smooth scrolling stays on. It does not interfere with the sticky About
+  panel.
+
+## 7. Do's and Don'ts
+
+- **Do** add content in `constants/site/` only. Pages and components render
+  data; they do not carry copy.
+- **Do** keep amber to the five places listed above. If a new element needs
+  attention, use `link` blue or a green button first.
+- **Do** write bullets as strings with `**bold**` markers; `Bullets.tsx`
+  renders them.
+- **Do** keep date ranges on en dashes and copy free of em dashes
+  (`grep -n "—" constants/site/*.tsx` must stay empty).
+- **Don't** add shadows or glows outside the Resume page, the modal and the
+  toasts.
+- **Don't** use gradient text, side-stripe accents or amber card borders. The
+  only amber border is Card B on the Resume page.
+- **Don't** make the header sticky or add a second navigation.
+- **Don't** invent stats, sections, testimonials or links.
