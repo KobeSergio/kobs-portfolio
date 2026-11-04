@@ -30,8 +30,11 @@
   --font-mona:
     var(--font-mona-sans), -apple-system, BlinkMacSystemFont, "Segoe UI",
     Helvetica, Arial, sans-serif;
+  /* The @font-face name next/font registers, without its size-adjusted Arial
+     fallback: the latin subset has no box-drawing glyphs, so the ASCII banner
+     must fall through to the system monospace for them. */
   --font-jetbrains:
-    var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 @layer base {

@@ -19,6 +19,9 @@ export const metadata: Metadata = {
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
+  // The latin subset has no box-drawing glyphs. Without the size-adjusted
+  // Arial fallback, the ASCII banner falls through to the system monospace.
+  adjustFontFallback: false,
   variable: "--font-jetbrains-mono",
   display: "swap",
 });

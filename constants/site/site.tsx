@@ -86,3 +86,11 @@ export const profile = {
     href: "https://discord.com/users/622772696870158347",
   },
 };
+
+// The README bio on Overview, four paragraphs. The last one renders muted.
+export const bioParagraphs = [
+  "Fullstack Web and Blockchain Developer with experience building production Web3 systems end to end, using AI-assisted development workflows (Claude Code, spec-driven development) to accelerate delivery. Most recently working as a freelance fullstack Web3 developer for multiple clients in the Web3 space.",
+  "Before that I was a Blockchain Developer at VISEO, working with Anchorpoint (Hong Kong's first licensed stablecoin issuance provider) to design and implement Solidity smart contracts and on-chain infrastructure.",
+  "Prior to that, I spent several years as the Lead Developer / CTO at Kingdomly, where I led the technical development of a no-code NFT launchpad. I started as the sole fullstack engineer responsible for the entire build, then scaled the engineering team to 13 developers as the platform grew to serve thousands of users and generate significant trading volume.",
+  "Earlier in my career, I taught Laravel and web development at Kredo Manila and completed a DevOps Engineering internship at Stratpoint.",
+];
