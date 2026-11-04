@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mint successful</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,200..900&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 100%; max-width: 420px; box-sizing: border-box; background: #151b23; border: 1px solid #3d444d; border-radius: 12px; padding: 20px; box-shadow: 0 24px 64px rgba(1,4,9,0.7); color: #f0f6fc; font-family: 'Mona Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.5; display: flex; flex-direction: column; gap: 16px">
+  <button type="button" onClick="{{onClose}}" aria-label="Close" style="position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; background: none; border: 0; border-radius: 6px; color: #9198a1; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"></path></svg></button>
+
+  <div style="display: flex; align-items: center; gap: 8px; padding-right: 40px; min-height: 24px">
+    <span style="width: 8px; height: 8px; border-radius: 50%; background: {{accent}}; box-shadow: 0 0 10px {{accent}}"></span>
+    <span style="font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: {{accent}}">Mint successful</span>
+    <span style="font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; background: #2f3742; border-radius: 2em; padding: 0 8px; line-height: 20px">#{{tokenId}}</span>
+  </div>
+
+  <img src="/_blob/fd3e29ca2b2140209ab8664c2bb6dc3e" alt="Kobs NFT 2025 artwork" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; border: 1px solid #3d444d; display: block">
+
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <h2 style="margin: 0; font-size: 22px; font-weight: 700; font-stretch: 112.5%; letter-spacing: -0.01em; line-height: 1.2">Kobs NFT 2025 #{{tokenId}}</h2>
+    <p style="margin: 0; color: #9198a1; line-height: 1.6; text-wrap: pretty">A portfolio NFT by Kobs. This token represents my work as a full-stack engineer and product builder. The complete copy of my resume and professional background is embedded within this NFT as a verifiable on-chain portfolio reference.</p>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <a href="https://arbiscan.io/nft/0x09dcde5f7382abcb150064b820c63cdd586b2293" style="display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; background: #212830; border: 1px solid #3d444d; border-radius: 8px; color: #f0f6fc; font-weight: 600; text-decoration: none">
+      View NFT
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11 11 5M5.5 5H11v5.5"></path></svg>
+    </a>
+    <a href="https://gateway.pinata.cloud/ipfs/bafkreihno3jnzh4ekdjiz43wybw3e6nlorao77qvk3yvwt65aj4oem7eki" style="display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; background: {{accent}}; border-radius: 8px; color: #0d1117; font-weight: 700; text-decoration: none">
+      View resume
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11 11 5M5.5 5H11v5.5"></path></svg>
+    </a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"onClose":{"editor":null,"tsType":"() => void"},"tokenId":{"editor":null,"tsType":"string"},"accent":{"editor":"color","default":"#fbbf24","options":["#fbbf24","#f78166","#4493f8","#3fb950"]},"$preview":{"width":420,"height":740}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#fbbf24',
+      tokenId: this.props.tokenId ?? '[id]',
+      onClose: this.props.onClose || function () {}
+    };
+  }
+}
+</script>
+</body>
+</html>

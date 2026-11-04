@@ -1,12 +1,15 @@
 import React from "react";
 
 export type Experience = {
+  slug: string;
   role: string;
   company: string;
   companyLogo: string;
+  // Brand icon for a company with no logo file.
+  logoIcon?: "solana";
   location: string;
   time: string;
-  summary: React.ReactNode;
+  summary: string;
   links?: ExperienceLink[];
   onchain?: OnchainContract[];
   contributions: Contribution[];
@@ -29,6 +32,7 @@ export type OnchainContract = {
 };
 
 export type Contribution = {
+  slug: string;
   images: string[];
   poster?: string;
   product: string;
@@ -40,17 +44,20 @@ export type Contribution = {
 
 export const experiences: Experience[] = [
   {
+    slug: "solana-launch-builder",
     role: "Freelance Fullstack Web3 Developer",
     company: "Solana Launch Builder",
     companyLogo: "",
+    logoIcon: "solana",
     location: "Remote · Solana",
-    time: "Oct 2026 — Nov 2026",
+    time: "Oct 2026 – Nov 2026",
     summary:
       "Four memecoin dApps for one client in under three weeks, all from one scaffold, on about $50 a month of infra. I owned each one solo: the pitch to the client, the build, the brand and the X launch.",
     contributions: [
       {
         images: ["/assets/launch-builder/agentboard-demo.mp4"],
         poster: "/assets/launch-builder/agentboard-poster.jpg",
+        slug: "agentboard.fun",
         product: "agentboard.fun",
         description: (
           <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
@@ -100,6 +107,7 @@ export const experiences: Experience[] = [
       {
         images: ["/assets/launch-builder/sniffinu-demo.mp4"],
         poster: "/assets/launch-builder/sniffinu-poster.jpg",
+        slug: "sniffinu.fun",
         product: "sniffinu.fun",
         description: (
           <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
@@ -144,6 +152,7 @@ export const experiences: Experience[] = [
       {
         images: ["/assets/launch-builder/partnerpad-demo.mp4"],
         poster: "/assets/launch-builder/partnerpad-poster.jpg",
+        slug: "partnerpad.fun",
         product: "partnerpad.fun",
         description: (
           <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
@@ -189,6 +198,7 @@ export const experiences: Experience[] = [
       {
         images: ["/assets/launch-builder/cliplaunchpad-demo.mp4"],
         poster: "/assets/launch-builder/cliplaunchpad-poster.jpg",
+        slug: "cliplaunchpad.fun",
         product: "cliplaunchpad.fun",
         description: (
           <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
@@ -232,11 +242,12 @@ export const experiences: Experience[] = [
   },
 
   {
+    slug: "the-suits",
     role: "Freelance Fullstack Web3 Developer",
     company: "The Suits",
     companyLogo: "/assets/suits/suits-logo.png",
     location: "Remote · Robinhood Chain",
-    time: "Aug 2026 — Present",
+    time: "Aug 2026 – Present",
     summary:
       "Sole engineer on a 3,000-piece NFT collection, from spec to launch-day ops.",
     links: [
@@ -273,6 +284,7 @@ export const experiences: Experience[] = [
       {
         images: ["/assets/suits/suits-mint-demo.webm"],
         poster: "/assets/suits/02-mint-page-live.png",
+        slug: "mint",
         product: "The Suits Mint",
         description: (
           <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
@@ -322,6 +334,7 @@ export const experiences: Experience[] = [
       {
         images: ["/assets/suits/suits-claim-demo.webm"],
         poster: "/assets/suits/04-claim-page-live.png",
+        slug: "paycheck",
         product: "$SUIT Paycheck",
         description: (
           <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
@@ -369,6 +382,7 @@ export const experiences: Experience[] = [
           "/assets/suits/14-sourcify-paycheck-verified.png",
           "/assets/suits/16-launch-call-sheet.png",
         ],
+        slug: "token-launch",
         product: "$SUIT Token + Uniswap v4 Launch",
         description: (
           <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
@@ -409,16 +423,18 @@ export const experiences: Experience[] = [
   },
 
   {
+    slug: "viseo",
     role: "Blockchain Developer",
     company: "VISEO",
-    companyLogo: "",
+    companyLogo: "/assets/logos/viseo.png",
     location: "Remote",
-    time: "Jan 2026 — Jun 2026",
+    time: "Jan 2026 – Jun 2026",
     summary:
       "Smart contracts for Hong Kong's first licensed stablecoin, at Anchorpoint Financial.",
     contributions: [
       {
         images: [],
+        slug: "sanction-directory-compliance",
         product: "Sanction & Directory Compliance",
         description: (
           <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
@@ -449,6 +465,7 @@ export const experiences: Experience[] = [
       },
       {
         images: [],
+        slug: "onchain-rate-limiting",
         product: "On-chain Rate Limiting",
         description: (
           <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
@@ -479,6 +496,7 @@ export const experiences: Experience[] = [
       },
       {
         images: [],
+        slug: "smart-contract-test-suite",
         product: "Smart Contract Test Suite",
         description: (
           <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
@@ -508,16 +526,18 @@ export const experiences: Experience[] = [
   },
 
   {
-    role: "Chief Technology Officer",
+    slug: "kingdomly",
+    role: "Lead Developer / CTO",
     company: "Kingdomly",
     location: "Remote",
-    companyLogo: "",
-    time: "Oct 2023 — Dec 2025",
+    companyLogo: "/assets/logos/kingdomly.svg",
+    time: "Oct 2023 – Dec 2025",
     summary:
       "Architected V2 from scratch and led a 13-person engineering team.",
     contributions: [
       {
         images: ["/assets/creator-demo.webm"],
+        slug: "creator-mint",
         product: "Kingdomly Creator + Mint",
         description: (
           <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
@@ -569,6 +589,7 @@ export const experiences: Experience[] = [
       },
       {
         images: ["/assets/bridge-demo.webm"],
+        slug: "bridge",
         product: "Kingdomly Bridge",
         description: (
           <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
@@ -619,6 +640,7 @@ export const experiences: Experience[] = [
           "/assets/marketplace-preview-1.png",
           "/assets/marketplace-preview-2.png",
         ],
+        slug: "marketplace",
         product: "Kingdomly Marketplace",
         description: (
           <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
@@ -664,6 +686,7 @@ export const experiences: Experience[] = [
       },
       {
         images: ["/assets/staking-demo.webm"],
+        slug: "staking",
         product: "Kingdomly Staking",
         description: (
           <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
@@ -696,6 +719,7 @@ export const experiences: Experience[] = [
       },
       {
         images: ["/assets/kingdomly-docs.png"],
+        slug: "docs",
         product: "Kingdomly Docs",
         description: (
           <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">
@@ -722,17 +746,19 @@ export const experiences: Experience[] = [
   },
 
   {
+    slug: "stratpoint",
     role: "DevOps Engineer Intern",
     company: "Stratpoint",
-    companyLogo: "",
+    companyLogo: "/assets/logos/stratpoint.png",
     location: "Mandaluyong City, Philippines",
     compact: true,
-    time: "Jul 2023 — Oct 2023",
+    time: "Jul 2023 – Oct 2023",
     summary:
       "First DevOps intern to skip the cloud fundamentals track, on live infrastructure within a week.",
     contributions: [
       {
         images: ["/assets/stratpoint-page.png"],
+        slug: "devops-internship",
         product: "Stratpoint DevOps Internship",
         description: (
           <ul className="list-disc list-outside space-y-1.5 pl-4 text-sm text-slate-400">

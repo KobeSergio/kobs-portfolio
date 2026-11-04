@@ -1,0 +1,752 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Kobs, Experience</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #0d1117; color: #f0f6fc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.5">
+
+<header style="background: #010409; border-bottom: 1px solid #3d444d; padding: 16px clamp(16px, 4vw, 32px) 0">
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+    <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; color: #f0f6fc; font-weight: 600; font-size: 16px; min-height: 44px; text-decoration: none">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="7" stroke="#ffffff" stroke-width="2"></rect><path d="M10.5 8v16M18.5 12.5 10.5 19M14 16.2l4.8 7.8" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path><rect x="21" y="21.6" width="4.5" height="2.4" rx="0.6" fill="#ffffff"></rect></svg>
+      <span>KobeSergio</span>
+    </a>
+    <a href="https://calendly.com/ckasergio/30min" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 16px; background: #238636; border: 1px solid rgba(240,246,252,0.1); border-radius: 6px; color: #ffffff; font-weight: 600; font-size: 14px; text-decoration: none">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v3"></path><path d="M16 2v3"></path><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path><path d="M8 13h.01"></path><path d="M12 13h.01"></path><path d="M16 13h.01"></path><path d="M8 17h.01"></path><path d="M12 17h.01"></path><path d="M16 17h.01"></path></svg>
+      Book a call
+    </a>
+  </div>
+  <nav aria-label="Profile sections" style="display: flex; gap: 4px; margin-top: 12px; overflow-x: auto">
+    <a href="Main.dc.html" style="display: flex; align-items: center; padding: 10px clamp(4px, 1.6vw, 8px) 12px; color: #f0f6fc; border-bottom: 2px solid transparent; white-space: nowrap; text-decoration: none">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9198a1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto; width: clamp(0px, calc((100vw - 480px) * 1000), 16px); margin-right: clamp(0px, calc((100vw - 480px) * 1000), 8px)"><path d="M2 3.5h4a2 2 0 0 1 2 2V13a1.5 1.5 0 0 0-1.5-1.5H2zM14 3.5h-4a2 2 0 0 0-2 2V13a1.5 1.5 0 0 1 1.5-1.5H14z"></path></svg>
+      Overview
+    </a>
+    <a href="Experience.dc.html" style="display: flex; align-items: center; padding: 10px clamp(4px, 1.6vw, 8px) 12px; color: #f0f6fc; font-weight: {{expWeight}}; border-bottom: 2px solid {{expBorder}}; white-space: nowrap; text-decoration: none">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9198a1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto; width: clamp(0px, calc((100vw - 480px) * 1000), 16px); margin-right: clamp(0px, calc((100vw - 480px) * 1000), 8px)"><rect x="2" y="5" width="12" height="8.5" rx="1.5"></rect><path d="M6 5V3.5h4V5M2 8.5h12"></path></svg>
+      Experience
+      <span style="margin-left: 6px; background: #2f3742; color: #f0f6fc; border-radius: 2em; padding: 0 7px; font-size: 12px; font-weight: 500; line-height: 18px">5</span>
+    </a>
+    <a href="Projects.dc.html" style="display: flex; align-items: center; padding: 10px clamp(4px, 1.6vw, 8px) 12px; color: #f0f6fc; font-weight: {{projWeight}}; border-bottom: 2px solid {{projBorder}}; white-space: nowrap; text-decoration: none">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9198a1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto; width: clamp(0px, calc((100vw - 480px) * 1000), 16px); margin-right: clamp(0px, calc((100vw - 480px) * 1000), 8px)"><path d="M3.5 13V3a1 1 0 0 1 1-1h8v10h-8a1 1 0 0 0-1 1 1 1 0 0 0 1 1h8"></path></svg>
+      Projects
+      <span style="margin-left: 6px; background: #2f3742; color: #f0f6fc; border-radius: 2em; padding: 0 7px; font-size: 12px; font-weight: 500; line-height: 18px">2</span>
+    </a>
+    <a href="Resume.dc.html" style="display: flex; align-items: center; padding: 10px clamp(4px, 1.6vw, 8px) 12px; color: #f0f6fc; border-bottom: 2px solid transparent; white-space: nowrap; text-decoration: none">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9198a1" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto; width: clamp(0px, calc((100vw - 480px) * 1000), 16px); margin-right: clamp(0px, calc((100vw - 480px) * 1000), 8px)"><path d="M8 1.8l5.5 3.1v6.2L8 14.2 2.5 11.1V4.9z"></path></svg>
+      Resume
+    </a>
+  </nav>
+</header>
+
+<sc-if value="{{isList}}" hint-placeholder-val="{{ true }}">
+<main style="max-width: 1280px; margin: 0 auto; padding: 32px clamp(16px, 4vw, 32px); box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+
+  <aside style="flex: 1 1 296px; max-width: 100%; display: flex; flex-direction: column; gap: 16px">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px">
+      <img src="/_blob/e615dd64c5ba3c0097e3f67fe0eeffc2" alt="Portrait of Kobe Sergio" style="flex: 0 0 auto; width: min(296px, 28vw); aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 1px solid #3d444d; display: block">
+      <div style="flex: 1 1 160px; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+        <h1 style="margin: 0; font-size: 26px; font-weight: 600; line-height: 1.25">Kobs</h1>
+        <p style="margin: 0; font-size: 20px; font-weight: 300; color: #9198a1; line-height: 1.3">Christian Kobe Sergio</p>
+        <span style="align-self: flex-start; margin-top: 8px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid #3d444d; border-radius: 2em; padding: 3px 10px; font-size: 12px; font-weight: 600; color: #f0f6fc">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #3fb950"></span>Open to work
+        </span>
+      </div>
+    </div>
+    <p style="margin: 0; font-size: 16px; line-height: 1.5">Fullstack Web3 developer with 5 years of shipping products end to end. Utilizes AI with spec-driven development to deliver day-to-day work more efficiently.</p>
+    <a href="mailto:ckasergio@gmail.com" style="display: flex; align-items: center; justify-content: center; min-height: 36px; background: #212830; border: 1px solid #3d444d; border-radius: 6px; color: #f0f6fc; font-weight: 600; text-decoration: none">Email me</a>
+  </aside>
+
+  <section aria-labelledby="list-title" style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column">
+    <h2 id="list-title" style="margin: 0; padding-bottom: 16px; border-bottom: 1px solid #3d444d; font-size: 16px; font-weight: 400; color: #9198a1">{{listTitle}}</h2>
+    <ul style="list-style: none; margin: 0; padding: 0">
+      <sc-for list="{{items}}" as="r" hint-placeholder-count="4">
+        <li style="border-bottom: 1px solid #3d444d; padding: 24px 0; display: flex; flex-wrap: wrap; gap: 16px 24px; justify-content: space-between; align-items: flex-start">
+          <div style="flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">
+              <sc-if value="{{r.hasLogo}}" hint-placeholder-val="{{ true }}">
+                <img src="{{r.logo}}" alt="" style="width: 28px; height: 28px; border-radius: 6px; border: 1px solid #3d444d; background: #151b23; object-fit: contain; display: block; flex: 0 0 auto">
+              </sc-if>
+              <sc-if value="{{r.noLogo}}" hint-placeholder-val="{{ false }}">
+                <span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 6px; border: 1px dashed #3d444d; background: #151b23; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #9198a1; flex: 0 0 auto">{{r.letter}}</span>
+              </sc-if>
+              <button type="button" onClick="{{r.openMore}}" style="background: none; border: 0; padding: 4px 0; font: inherit; font-size: 20px; font-weight: 600; line-height: 1.4; color: #4493f8; cursor: pointer; text-align: left; overflow-wrap: anywhere">{{r.slug}}</button>
+              <sc-for list="{{r.pills}}" as="p" hint-placeholder-count="1">
+                <span style="border: 1px solid #3d444d; border-radius: 2em; padding: 0 7px; font-size: 12px; font-weight: 500; color: #9198a1; line-height: 18px">{{p}}</span>
+              </sc-for>
+            </div>
+            <sc-if value="{{r.hasRole}}" hint-placeholder-val="{{ true }}">
+              <p style="margin: 0; font-weight: 600">{{r.role}}</p>
+            </sc-if>
+            <p style="margin: 0; color: #9198a1; max-width: 72ch">{{r.summary}}</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px">
+              <sc-for list="{{r.chips}}" as="s" hint-placeholder-count="8">
+                <span style="background: #111d2e; color: #4493f8; border-radius: 2em; padding: 0 10px; font-size: 12px; font-weight: 500; line-height: 22px">{{s}}</span>
+              </sc-for>
+              <sc-if value="{{r.moreChips}}" hint-placeholder-val="{{ false }}">
+                <span style="border: 1px solid #3d444d; color: #9198a1; border-radius: 2em; padding: 0 9px; font-size: 12px; font-weight: 500; line-height: 20px">{{r.moreLabel}}</span>
+              </sc-if>
+            </div>
+            <sc-if value="{{r.hasMeta}}" hint-placeholder-val="{{ true }}">
+              <p style="margin: 4px 0 0; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; color: #9198a1; font-size: 12px">
+                <span>{{r.period}}</span>
+                <span>{{r.countLabel}}</span>
+              </p>
+            </sc-if>
+            <button type="button" onClick="{{r.toggle}}" aria-expanded="{{r.expandedAttr}}" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px 0 6px; margin-left: -6px; background: none; border: 0; border-radius: 6px; color: #f0f6fc; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9198a1" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate({{r.chevRot}}deg)"><path d="M6 4l4 4-4 4"></path></svg>
+              {{r.toggleLabel}}
+            </button>
+            <sc-if value="{{r.showBuilds}}" hint-placeholder-val="{{ false }}">
+              <ul style="list-style: none; margin: 0; padding: 0; border: 1px solid #3d444d; border-radius: 6px; overflow: hidden">
+                <sc-for list="{{r.builds}}" as="b" hint-placeholder-count="3">
+                  <li style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 12px 16px; border-top: {{b.border}}">
+                    <div style="min-width: 0; display: flex; flex-direction: column; gap: 2px">
+                      <button type="button" onClick="{{b.open}}" style="align-self: flex-start; background: none; border: 0; padding: 0; font: inherit; font-weight: 600; color: #4493f8; cursor: pointer; text-align: left">{{b.title}}</button>
+                      <span style="color: #9198a1; font-size: 13px">{{b.tagline}}</span>
+                    </div>
+                    <sc-if value="{{b.hasBuild}}" hint-placeholder-val="{{ false }}">
+                      <a href="{{b.build}}" style="flex: 0 0 auto; display: inline-flex; align-items: center; gap: 4px; color: #9198a1; font-size: 12px; text-decoration: none; white-space: nowrap">
+                        Live
+                        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 8 8M11.5 9.5v3a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3"></path></svg>
+                      </a>
+                    </sc-if>
+                  </li>
+                </sc-for>
+              </ul>
+            </sc-if>
+            <sc-if value="{{r.showNotes}}" hint-placeholder-val="{{ false }}">
+              <div style="border: 1px solid #3d444d; border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+                <sc-if value="{{r.notes.hasOutcome}}" hint-placeholder-val="{{ false }}">
+                  <p style="margin: 0; font-weight: 600">{{r.notes.outcome}}</p>
+                </sc-if>
+                <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px">
+                  <sc-for list="{{r.notes.bullets}}" as="l" hint-placeholder-count="3">
+                    <li><sc-for list="{{l.segs}}" as="s" hint-placeholder-count="3"><sc-if value="{{s.bold}}" hint-placeholder-val="{{ false }}"><strong style="font-weight: 600">{{s.t}}</strong></sc-if><sc-if value="{{s.plain}}" hint-placeholder-val="{{ true }}"><span>{{s.t}}</span></sc-if></sc-for></li>
+                  </sc-for>
+                </ul>
+                <sc-if value="{{r.notes.hasBuild}}" hint-placeholder-val="{{ false }}">
+                  <a href="{{r.notes.build}}" style="align-self: flex-start; color: #4493f8; font-weight: 600; text-decoration: none">View build: {{r.notes.host}}</a>
+                </sc-if>
+              </div>
+            </sc-if>
+          </div>
+          <div style="flex: 1 0 auto">
+            <button type="button" onClick="{{r.openMore}}" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 36px; padding: 0 12px; background: #212830; border: 1px solid #3d444d; border-radius: 6px; color: #f0f6fc; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; white-space: nowrap">
+              View more
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#9198a1" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg>
+            </button>
+          </div>
+        </li>
+      </sc-for>
+    </ul>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{isFile}}" hint-placeholder-val="{{ false }}">
+<main style="max-width: 1440px; margin: 0 auto; padding: clamp(16px, 3vw, 24px); box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+
+  <nav aria-label="{{treeLabel}}" style="flex: 1 1 260px; min-width: 0; border: 1px solid #3d444d; border-radius: 6px; overflow: hidden">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; border-bottom: 1px solid #3d444d; background: #151b23">
+      <span style="display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9198a1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2.5" width="12" height="11" rx="1.5"></rect><path d="M6 2.5v11"></path></svg>
+        {{treeLabel}}
+      </span>
+      <button type="button" onClick="{{back}}" style="display: inline-flex; align-items: center; gap: 4px; min-height: 28px; padding: 0 8px; background: none; border: 1px solid #3d444d; border-radius: 6px; color: #f0f6fc; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4 3 8l4 4"></path></svg>
+        {{backLabel}}
+      </button>
+    </div>
+    <sc-if value="{{narrow}}" hint-placeholder-val="{{ false }}">
+      <button type="button" onClick="{{toggleTree}}" aria-expanded="{{mobileTreeAttr}}" style="width: 100%; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; background: none; border: 0; color: #f0f6fc; font: inherit; cursor: pointer; text-align: left">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9198a1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto"><path d="M4 1.5h5.5l3 3V14a.5.5 0 0 1-.5.5H4a.5.5 0 0 1-.5-.5V2a.5.5 0 0 1 .5-.5zM9.5 1.5v3h3"></path></svg>
+        <span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><span style="color: #9198a1">{{cur.slug}} / </span>{{fileName}}</span>
+        <span style="font-size: 12px; color: #9198a1; white-space: nowrap">{{treeToggleLabel}}</span>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#9198a1" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto; transform: rotate({{mobileTreeRot}}deg)"><path d="M4 6l4 4 4-4"></path></svg>
+      </button>
+    </sc-if>
+    <sc-if value="{{showTreeList}}" hint-placeholder-val="{{ true }}">
+    <ul style="list-style: none; margin: 0; padding: 8px; border-top: {{treeListBorder}}">
+      <sc-for list="{{tree}}" as="t" hint-placeholder-count="5">
+        <li>
+          <button type="button" onClick="{{t.toggle}}" aria-expanded="{{t.expandedAttr}}" style="width: 100%; display: flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 8px; background: none; border: 0; border-radius: 6px; color: #f0f6fc; font: inherit; cursor: pointer; text-align: left">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#9198a1" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto; transform: rotate({{t.rot}}deg)"><path d="M6 4l4 4-4 4"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" style="flex: 0 0 auto"><path d="M1.75 2.5h4.1l1.5 1.5h6.9c.41 0 .75.34.75.75v8.5c0 .41-.34.75-.75.75H1.75A.75.75 0 0 1 1 13.25V3.25c0-.41.34-.75.75-.75z" fill="#9198a1"></path></svg>
+            <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{t.slug}}</span>
+          </button>
+          <sc-if value="{{t.isOpen}}" hint-placeholder-val="{{ false }}">
+            <ul style="list-style: none; margin: 0; padding: 0">
+              <sc-for list="{{t.files}}" as="f" hint-placeholder-count="3">
+                <li>
+                  <button type="button" onClick="{{f.select}}" aria-current="{{f.current}}" style="width: 100%; display: flex; align-items: center; gap: 8px; min-height: 34px; padding: 0 8px 0 44px; background: {{f.bg}}; box-shadow: inset 3px 0 0 {{f.bar}}; border: 0; border-radius: 6px; color: #f0f6fc; font: inherit; font-weight: {{f.weight}}; cursor: pointer; text-align: left">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9198a1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto"><path d="M4 1.5h5.5l3 3V14a.5.5 0 0 1-.5.5H4a.5.5 0 0 1-.5-.5V2a.5.5 0 0 1 .5-.5zM9.5 1.5v3h3"></path></svg>
+                    <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{f.label}}</span>
+                  </button>
+                </li>
+              </sc-for>
+            </ul>
+          </sc-if>
+        </li>
+      </sc-for>
+    </ul>
+    </sc-if>
+  </nav>
+
+  <div style="flex: 999 1 640px; min-width: 0; display: flex; flex-wrap: wrap-reverse; gap: 24px; align-items: flex-start">
+
+    <div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+      <p style="margin: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 20px">
+        <button type="button" onClick="{{openReadme}}" style="background: none; border: 0; padding: 0; font: inherit; font-weight: 600; color: #4493f8; cursor: pointer">{{cur.slug}}</button>
+        <span style="color: #9198a1">/</span>
+        <strong style="font-weight: 600">{{fileName}}</strong>
+      </p>
+
+      <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 12px 16px; border: 1px solid #3d444d; border-radius: 6px">
+        <img src="/_blob/e615dd64c5ba3c0097e3f67fe0eeffc2" alt="" style="width: 22px; height: 22px; border-radius: 50%; object-fit: cover">
+        <strong>KobeSergio</strong>
+        <span style="flex: 1 1 200px; min-width: 0; color: #9198a1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{commitText}}</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#3fb950" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"></path></svg>
+        <span style="color: #9198a1; font-size: 13px">{{cur.periodLabel}}</span>
+      </div>
+
+      <article style="border: 1px solid #3d444d; border-radius: 6px; overflow: hidden">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 8px 8px 8px 16px; background: #151b23; border-bottom: 1px solid #3d444d">
+          <span style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9198a1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 1.5h5.5l3 3V14a.5.5 0 0 1-.5.5H4a.5.5 0 0 1-.5-.5V2a.5.5 0 0 1 .5-.5zM9.5 1.5v3h3"></path></svg>
+            {{fileName}}
+          </span>
+          <sc-if value="{{doc.hasBuild}}" hint-placeholder-val="{{ true }}">
+            <a href="{{doc.build}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 12px; background: #212830; border: 1px solid #3d444d; border-radius: 6px; color: #f0f6fc; font-size: 12px; font-weight: 600; text-decoration: none">
+              View build
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#9198a1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 8 8M11.5 9.5v3a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3"></path></svg>
+            </a>
+          </sc-if>
+        </div>
+
+        <div style="padding: clamp(16px, 4vw, 32px); display: flex; flex-direction: column; gap: 16px; font-size: 16px; line-height: 1.6">
+          <sc-if value="{{isReadme}}" hint-placeholder-val="{{ false }}">
+            <h1 style="margin: 0; font-size: 32px; font-weight: 600; line-height: 1.25; padding-bottom: 8px; border-bottom: 1px solid #3d444d">{{cur.name}}</h1>
+            <p style="margin: 0">{{cur.summary}}</p>
+          </sc-if>
+
+          <sc-if value="{{showContracts}}" hint-placeholder-val="{{ false }}">
+            <h2 style="margin: 8px 0 0; font-size: 24px; font-weight: 600; line-height: 1.25; padding-bottom: 6px; border-bottom: 1px solid #3d444d">On-chain</h2>
+            <div style="overflow-x: auto">
+              <table style="border-collapse: collapse; font-size: 14px">
+                <thead>
+                  <tr>
+                    <th style="text-align: left; padding: 6px 13px; border: 1px solid #3d444d; font-weight: 600">Contract</th>
+                    <th style="text-align: left; padding: 6px 13px; border: 1px solid #3d444d; font-weight: 600">Address</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <sc-for list="{{cur.contracts}}" as="c" hint-placeholder-count="3">
+                    <tr>
+                      <td style="padding: 6px 13px; border: 1px solid #3d444d">{{c.name}}</td>
+                      <td style="padding: 6px 13px; border: 1px solid #3d444d"><a href="{{c.url}}" style="color: #4493f8; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; text-decoration: none">{{c.short}}</a></td>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{showIndex}}" hint-placeholder-val="{{ false }}">
+            <h2 style="margin: 8px 0 0; font-size: 24px; font-weight: 600; line-height: 1.25; padding-bottom: 6px; border-bottom: 1px solid #3d444d">Builds</h2>
+            <ul style="margin: 0; padding-left: 24px; display: flex; flex-direction: column; gap: 8px">
+              <sc-for list="{{index}}" as="b" hint-placeholder-count="3">
+                <li><button type="button" onClick="{{b.open}}" style="background: none; border: 0; padding: 0; font: inherit; font-weight: 600; color: #4493f8; cursor: pointer; text-align: left">{{b.title}}</button><span style="color: #9198a1">: {{b.tagline}}</span></li>
+              </sc-for>
+            </ul>
+          </sc-if>
+
+          <sc-if value="{{showDoc}}" hint-placeholder-val="{{ true }}">
+            <sc-if value="{{doc.showTitle}}" hint-placeholder-val="{{ true }}">
+              <h1 style="margin: 0; font-size: 32px; font-weight: 600; line-height: 1.25; padding-bottom: 8px; border-bottom: 1px solid #3d444d">{{doc.title}}</h1>
+              <p style="margin: 0"><strong style="font-weight: 600">{{doc.tagline}}</strong></p>
+            </sc-if>
+            <sc-if value="{{doc.hasImg}}" hint-placeholder-val="{{ true }}">
+              <img src="{{doc.img}}" alt="Screenshot of {{doc.title}}" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: top; border-radius: 6px; border: 1px solid #3d444d; display: block">
+            </sc-if>
+            <h2 style="margin: 8px 0 0; font-size: 24px; font-weight: 600; line-height: 1.25; padding-bottom: 6px; border-bottom: 1px solid #3d444d">How I built it</h2>
+            <ul style="margin: 0; padding-left: 24px; display: flex; flex-direction: column; gap: 8px">
+              <sc-for list="{{doc.bullets}}" as="l" hint-placeholder-count="3">
+                <li><sc-for list="{{l.segs}}" as="s" hint-placeholder-count="3"><sc-if value="{{s.bold}}" hint-placeholder-val="{{ false }}"><strong style="font-weight: 600">{{s.t}}</strong></sc-if><sc-if value="{{s.plain}}" hint-placeholder-val="{{ true }}"><span>{{s.t}}</span></sc-if></sc-for></li>
+              </sc-for>
+            </ul>
+            <p style="margin: 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center"><strong style="font-weight: 600">Stack:</strong>
+              <sc-for list="{{doc.stack}}" as="s" hint-placeholder-count="5"><code style="font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; background: rgba(101,108,118,0.2); border-radius: 6px; padding: 2px 6px">{{s}}</code></sc-for>
+            </p>
+          </sc-if>
+
+          <sc-if value="{{showWork}}" hint-placeholder-val="{{ false }}">
+            <h2 style="margin: 8px 0 0; font-size: 24px; font-weight: 600; line-height: 1.25; padding-bottom: 6px; border-bottom: 1px solid #3d444d">How I built it</h2>
+            <p style="margin: 0"><strong style="font-weight: 600">{{work.outcome}}</strong></p>
+            <ul style="margin: 0; padding-left: 24px; display: flex; flex-direction: column; gap: 8px">
+              <sc-for list="{{work.bullets}}" as="l" hint-placeholder-count="3">
+                <li><sc-for list="{{l.segs}}" as="s" hint-placeholder-count="3"><sc-if value="{{s.bold}}" hint-placeholder-val="{{ false }}"><strong style="font-weight: 600">{{s.t}}</strong></sc-if><sc-if value="{{s.plain}}" hint-placeholder-val="{{ true }}"><span>{{s.t}}</span></sc-if></sc-for></li>
+              </sc-for>
+            </ul>
+            <p style="margin: 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center"><strong style="font-weight: 600">Stack:</strong>
+              <sc-for list="{{work.stack}}" as="s" hint-placeholder-count="5"><code style="font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; background: rgba(101,108,118,0.2); border-radius: 6px; padding: 2px 6px">{{s}}</code></sc-for>
+            </p>
+          </sc-if>
+        </div>
+      </article>
+    </div>
+
+    <div style="flex: 1 1 260px; min-width: 0; align-self: stretch">
+      <aside style="position: sticky; top: 24px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; align-items: center; gap: 10px">
+          <sc-if value="{{cur.hasLogo}}" hint-placeholder-val="{{ true }}">
+            <img src="{{cur.logo}}" alt="" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #3d444d; background: #151b23; object-fit: contain; display: block">
+          </sc-if>
+          <sc-if value="{{cur.noLogo}}" hint-placeholder-val="{{ false }}">
+            <span aria-hidden="true" style="width: 32px; height: 32px; border-radius: 6px; border: 1px dashed #3d444d; background: #151b23; display: flex; align-items: center; justify-content: center; font-weight: 600; color: #9198a1">{{cur.letter}}</span>
+          </sc-if>
+          <h2 style="margin: 0; font-size: 16px; font-weight: 600">About</h2>
+        </div>
+        <p style="margin: 0; font-size: 15px">{{cur.summary}}</p>
+        <sc-for list="{{cur.links}}" as="l" hint-placeholder-count="1">
+          <a href="{{l.url}}" style="display: flex; align-items: center; gap: 8px; color: #4493f8; font-weight: 600; text-decoration: none; overflow-wrap: anywhere">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9198a1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto"><path d="M6.5 9.5l3-3M7 4.5l1-1a2.5 2.5 0 0 1 3.5 3.5l-1 1M9 11.5l-1 1A2.5 2.5 0 0 1 4.5 9l1-1"></path></svg>
+            {{l.label}}
+          </a>
+        </sc-for>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; color: #9198a1">
+          <sc-if value="{{cur.hasRole}}" hint-placeholder-val="{{ true }}">
+            <li style="display: flex; align-items: flex-start; gap: 8px">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto; margin-top: 2px"><rect x="2" y="5" width="12" height="8.5" rx="1.5"></rect><path d="M6 5V3.5h4V5M2 8.5h12"></path></svg>
+              <span style="color: #f0f6fc">{{cur.role}}</span>
+            </li>
+            <li style="display: flex; align-items: center; gap: 8px">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="12" height="11" rx="1.5"></rect><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"></path></svg>
+              {{cur.period}}
+            </li>
+          </sc-if>
+        </ul>
+        <sc-if value="{{narrow}}" hint-placeholder-val="{{ false }}">
+          <button type="button" onClick="{{toggleAboutMore}}" aria-expanded="{{aboutMoreAttr}}" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 10px 0 6px; margin-left: -6px; background: none; border: 0; border-radius: 6px; color: #f0f6fc; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9198a1" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate({{aboutMoreRot}}deg)"><path d="M6 4l4 4-4 4"></path></svg>
+            {{aboutMoreLabel}}
+          </button>
+        </sc-if>
+        <sc-if value="{{showAboutMore}}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; flex-wrap: wrap; gap: 6px">
+          <sc-for list="{{cur.skills}}" as="s" hint-placeholder-count="8">
+            <span style="background: #111d2e; color: #4493f8; border-radius: 2em; padding: 0 10px; font-size: 12px; font-weight: 500; line-height: 22px">{{s}}</span>
+          </sc-for>
+        </div>
+        <sc-if value="{{showAboutBuilds}}" hint-placeholder-val="{{ true }}">
+          <div style="border-top: 1px solid #3d444d; padding-top: 16px; display: flex; flex-direction: column; gap: 8px">
+            <h2 style="margin: 0; display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600">Builds <span style="background: #2f3742; border-radius: 2em; padding: 0 7px; font-size: 12px; font-weight: 500; line-height: 18px">{{indexCount}}</span></h2>
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px">
+              <sc-for list="{{index}}" as="b" hint-placeholder-count="3">
+                <li style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+                  <button type="button" onClick="{{b.open}}" style="min-height: 36px; background: none; border: 0; padding: 0; font: inherit; color: #f0f6fc; cursor: pointer; text-align: left">{{b.title}}</button>
+                  <sc-if value="{{b.hasBuild}}" hint-placeholder-val="{{ false }}">
+                    <a href="{{b.build}}" aria-label="Open {{b.title}} live" style="display: inline-flex; align-items: center; gap: 4px; color: #3fb950; font-size: 12px; text-decoration: none">
+                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6"></circle><path d="M5.5 8l1.8 1.8L10.5 6.3"></path></svg>
+                      Live
+                    </a>
+                  </sc-if>
+                </li>
+              </sc-for>
+            </ul>
+          </div>
+        </sc-if>
+        </sc-if>
+      </aside>
+    </div>
+
+  </div>
+</main>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"section":{"editor":"enum","options":["experience","projects"],"default":"experience"},"view":{"editor":"enum","options":["list","file"],"default":"list"},"open":{"editor":null,"tsType":"string"},"file":{"editor":null,"tsType":"string"},"accent":{"editor":"color","default":"#fbbf24","options":["#fbbf24","#f78166","#4493f8","#3fb950"]},"$preview":{"width":1280,"height":1750}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    var narrow = false;
+    try { narrow = window.innerWidth < 980; } catch (e) {}
+    this.state = Object.assign({ narrow: narrow, mobileTree: false, aboutMore: false }, this.init(props));
+  }
+  componentDidMount() {
+    var self = this;
+    this.onResize = function () {
+      var n = window.innerWidth < 980;
+      if (n !== self.state.narrow) self.setState({ narrow: n });
+    };
+    window.addEventListener('resize', this.onResize);
+    this.onResize();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+  }
+  init(p) {
+    var repos = this.repos(p.section === 'projects' ? 'projects' : 'experience');
+    var slug = p.open || repos[0].slug;
+    var expanded = {};
+    if (p.section !== 'projects') expanded[repos[0].slug] = true;
+    var tree = {};
+    tree[slug] = true;
+    return { view: p.view === 'file' ? 'file' : 'list', slug: slug, fileId: p.file || 'readme', expanded: expanded, tree: tree };
+  }
+  componentDidUpdate(prev) {
+    var p = this.props;
+    if (prev.section !== p.section || prev.view !== p.view || prev.open !== p.open || prev.file !== p.file) this.setState(this.init(p));
+  }
+  repos(section) {
+    return section === 'projects' ? this.projects() : this.experiences();
+  }
+  experiences() {
+    return [
+      { slug: 'solana-launch-builder', name: 'Solana Launch Builder', logo: '', letter: 'S',
+        pills: ['Remote · Solana'], role: 'Freelance Fullstack Web3 Developer', period: 'Oct 2026 – Nov 2026',
+        summary: 'Four memecoin dApps for one client in under three weeks, all from one scaffold, on about $50 a month of infra. I owned each one solo: the pitch to the client, the build, the brand and the X launch.',
+        links: [], contracts: [],
+        builds: [
+          { anchor: 'agentboard', slug: 'agentboard.fun', title: 'agentboard.fun', img: '/_blob/ff72a4fa4b362d0cc05d3eb844ffc117', build: 'https://www.agentboard.fun',
+            tagline: 'AI agents trading from their own Solana wallets · every order policy-checked before signing · model calls metered and settled in USDC',
+            stack: ['Next.js 16', 'TypeScript', 'Anthropic SDK', 'Claude Haiku / Sonnet / Opus', 'Solana web3.js', 'pump.fun SDK', 'PumpPortal', 'Supabase', 'Vercel'],
+            bullets: [
+              'AI agents with **their own Solana wallets**, sealed server-side, read the board and the news, then trade, launch and post. Owners fund an agent and set its limits.',
+              'Each agent runs on **Claude Haiku 4.5, Sonnet 5.5 or Opus 5.5** with strict tool use: buy, sell, launch, post, remember, rewrite its own personality.',
+              'Claude only returns tool calls. Every order then passes the owner\'s limits and a **byte-level policy check** (pump.fun and PumpSwap only, the agent\'s own accounts only, capped priority fees) before one signing module signs it, so a prompt injection can\'t move funds.'
+            ] },
+          { anchor: 'sniffinu', slug: 'sniffinu.fun', title: 'sniffinu.fun', img: '/_blob/e2cd1c758b8f65186f87cb955e1166ef', build: 'https://www.sniffinu.fun',
+            tagline: '12 on-chain checks per sniff, every flag with its evidence · 973 tests · Claude notes under a hard monthly cap',
+            stack: ['Next.js 16', 'TypeScript', 'Vitest', 'Anthropic SDK', 'Solana web3.js', 'DexScreener', 'Supabase', 'Vercel cron', 'Claude Code'],
+            bullets: [
+              'Paste a contract address and get **12 on-chain rug checks**, each with its evidence and a link, plus a crawl of the project\'s own site for $SNIFFINU holders. Notes, never a verdict.',
+              '**Claude Haiku 5.5** writes the cited notes under a hard monthly cap. Past the cap, an offline path has a Claude Code session write them from exported fact sheets instead of the API.',
+              'The **holder gate** takes a signed message plus an on-chain balance read and nothing else. A Vercel cron re-sniffs coins on a schedule, and every figure on screen is live chain data.'
+            ] },
+          { anchor: 'partnerpad', slug: 'partnerpad.fun', title: 'partnerpad.fun', img: '/_blob/b8ab9a386ff2afd704144b3c691f829c', build: 'https://www.partnerpad.fun',
+            tagline: 'AI designs and draws a partner for any running Solana coin · launch and trade both side by side · signed in your own wallet',
+            stack: ['Next.js 16', 'TypeScript', 'Anthropic SDK (Haiku)', 'fal.ai', 'Solana Wallet Adapter', 'PumpPortal', 'Jupiter', 'Filebase (IPFS)', 'Supabase'],
+            bullets: [
+              'Pick any coin already running on Solana. **Claude Haiku** designs its partner (name, ticker, description and image prompt as validated JSON) and **fal.ai\'s nano-banana** edit model draws it from the original coin\'s own picture.',
+              'You launch the partner from your own wallet through **PumpPortal** and trade both side by side, with live numbers from DexScreener and a direct read of the pump.fun bonding curve.',
+              '**Non-custodial** end to end: launches and swaps are signed in the user\'s wallet, and the submit route verifies a launched coin\'s IPFS metadata image by content hash before it goes on the board.'
+            ] },
+          { anchor: 'cliplaunchpad', slug: 'cliplaunchpad.fun', title: 'cliplaunchpad.fun', img: '/_blob/fd0f38a5d668cc531eb796ba915dcc66', build: 'https://www.cliplaunchpad.fun',
+            tagline: 'First of the four · launch a coin from a clip in your own wallet · trade it on the board',
+            stack: ['Next.js 16', 'TypeScript', 'Tailwind 4', 'Solana Wallet Adapter', 'PumpPortal', 'Jupiter', 'DexScreener', 'Supabase', 'Filebase (IPFS)', 'Vercel'],
+            bullets: [
+              'Pick a meme from a clip, launch it on pump.fun from your own wallet, trade it on the board. The first of the four pads.',
+              'The **shared scaffold** every pad starts from: Next.js on Vercel, Supabase with per-pad tables, Filebase for IPFS pins, Solana Wallet Adapter, PumpPortal for launches, Jupiter for swaps, DexScreener plus bonding curve reads for live numbers.',
+              'A **preflight script** rehearses a full launch against Solana without spending SOL. Seeded the board with my own launches and ran the X launch, then rolled the code forward as the next pad\'s base.'
+            ] }
+        ] },
+      { slug: 'the-suits', name: 'The Suits', logo: '/_blob/b83ac13b90ea6b0d609f3cb377688f68', letter: 'T',
+        pills: ['Remote · Robinhood Chain'], role: 'Freelance Fullstack Web3 Developer', period: 'Aug 2026 – Present',
+        summary: 'Sole engineer on a 3,000-piece NFT collection, from spec to launch-day ops.',
+        links: [
+          { label: 'putthesuiton.xyz', url: 'https://www.putthesuiton.xyz' },
+          { label: 'OpenSea', url: 'https://opensea.io/collection/the-suits-nft' },
+          { label: 'Dexscreener', url: 'https://dexscreener.com/robinhood/0xd98b860a51a5da17fd2e83124db9981a85060224fc8b9240e5466edb86d64c16' }
+        ],
+        contracts: [
+          { name: 'TheSuits NFT', short: '0x05C2…B297', url: 'https://robinscan.io/address/0x05C2174aa494BBDf72AEeab0cA3C10216D33B297' },
+          { name: 'SuitPaycheck', short: '0xb127…54a6', url: 'https://robinscan.io/address/0xb127bE00e0Cd39a3cE14591F74b7f86c87D054a6' },
+          { name: '$SUIT token', short: '0x87A7…4386', url: 'https://robinscan.io/address/0x87A78590D563F0EFC62192239af46707FFF74386' }
+        ],
+        builds: [
+          { anchor: 'suits-mint', slug: 'mint', title: 'The Suits Mint', img: '/_blob/a2a0ee1fb8884181037beea2db354e22',
+            tagline: '3,000 minted · sold out ~2 h after opening · 691 holders · $36K+ resale volume',
+            stack: ['Next.js', 'TypeScript', 'Solidity', 'ERC-721C', 'Foundry', 'wagmi / viem', 'IPFS (Filebase)', 'Playwright', 'Vercel'],
+            bullets: [
+              'The **ERC-721C mint contract** runs phased allowlist windows with per-wallet caps, keeps a 50-piece airdrop reserve, and enforces creator royalties on every resale.',
+              'The **mint site** opens on a closet door, tracks supply and windows live, and ends on a **reveal card** with each suit\'s rank, tier and traits.',
+              'Handled the **art and metadata upload to IPFS**, all 3,000 images pinned and paired with their metadata.',
+              'Managed the **whole mint**: NFT holder snapshots, allowlist upload, mint setup, phase scheduling, and the live changes on launch day.'
+            ] },
+          { anchor: 'suit-paycheck', slug: 'paycheck', title: '$SUIT Paycheck', img: '/_blob/6168755207683140f841e8020e6d5f04',
+            tagline: '657 holders paid in week one · 40% claimed in the first hour · 300M $SUIT set aside for payouts',
+            stack: ['Solidity', 'OpenZeppelin', 'Foundry', 'Node.js', 'Merkle trees', 'OpenSea API', 'Next.js', 'wagmi', 'Playwright'],
+            bullets: [
+              '**SuitPaycheck** is the weekly $SUIT payout for Suits NFT holders, verified on-chain so only real holders can claim. Each week holders get 24 hours to claim their cut; whatever goes unclaimed is burned, so supply only ever goes down.',
+              'Built the **holder snapshot script**: it pulls every Suits owner, then uses the OpenSea API to drop any NFT currently listed, so listed suits don\'t get paid.',
+              'The **Payday page** counts down to the drop, shows each suit\'s cut, and claims every open week in one transaction.'
+            ] },
+          { anchor: 'suit-token', slug: 'token-launch', title: '$SUIT Token + Uniswap v4 Launch', img: '/_blob/85de04ea976abd6d7dc65af5f09eaea0',
+            tagline: '3,100 trades from 728 traders in the first 24 h · live on Uniswap 7 Sep 2026 · 1B $SUIT supply',
+            stack: ['Solidity', 'Foundry', 'Uniswap v4', 'Dexscreener', 'Blockscout / Sourcify', 'Bash', 'Node.js'],
+            bullets: [
+              '**$SUIT** is a plain ERC-20: 1B minted once, 700M to the client\'s ops wallet, 300M to the paycheck. Burnable, no owner, no tax.',
+              '**Launch scripts** for deploy, verify, wire-to-paycheck, fund and sanity checks, each guarded so it won\'t run twice or against the wrong token.',
+              'Ran the **Uniswap v4 launch** live with the client: trading pair against tokenised Palantir stock, starting-price maths, safe custody of the liquidity position, every command on a call sheet.'
+            ] }
+        ] },
+      { slug: 'viseo', name: 'VISEO', logo: '/_blob/0ee8be5dc9dc74b7a8debafd394ff9db', letter: 'V',
+        pills: ['Remote'], role: 'Blockchain Developer', period: 'Jan 2026 – Jun 2026',
+        summary: 'Smart contracts for Hong Kong\'s first licensed stablecoin, at Anchorpoint Financial.',
+        links: [], contracts: [],
+        builds: [
+          { anchor: 'sanction-compliance', slug: 'sanction-directory-compliance', title: 'Sanction & Directory Compliance',
+            tagline: 'Sanctioned wallets blocked from issuing or redeeming, enforced on-chain',
+            stack: ['Solidity', 'Hardhat', 'TypeScript', 'Chai', 'Mocha'],
+            bullets: [
+              'Engineered the **sanction enforcement contract** for Anchorpoint Financial\'s stablecoin, blocking issuance and redemption for any wallet matching a live on-chain sanctions directory, meeting Hong Kong licensing requirements.',
+              'Designed and deployed a **platform and user directory contract system** that serves as the single source of truth for permissioned access across Anchorpoint\'s stablecoin and tokenised-asset operations.'
+            ] },
+          { anchor: 'rate-limiting', slug: 'onchain-rate-limiting', title: 'On-chain Rate Limiting',
+            tagline: 'Abuse capped per wallet, with human review on high-risk transactions · ready for tokenised real-world assets',
+            stack: ['Solidity', 'Hardhat', 'TypeScript', 'wagmi', 'viem', 'Ethereum'],
+            bullets: [
+              'Implemented a **custom on-chain rate-limiting module** for Anchorpoint\'s stablecoin contracts, enforcing per-address call quotas to prevent abuse of minting and redemption flows on a live regulated platform.',
+              'Designed an **elevated policy layer** that routes flagged mint and redemption requests through a secondary review, adding a human-in-the-loop gate before high-risk transactions are settled on-chain.'
+            ] },
+          { anchor: 'test-suite', slug: 'smart-contract-test-suite', title: 'Smart Contract Test Suite',
+            tagline: '70% unit test coverage across 50+ smart contracts',
+            stack: ['Hardhat', 'Forge', 'Chai', 'Mocha', 'TypeScript'],
+            bullets: [
+              'Authored the unit test suite for Anchorpoint\'s stablecoin and tokenised-asset platform using Hardhat, Chai, and Mocha, achieving **70% coverage across 50+ smart contracts** before client handoff.',
+              'Integrated **automated testing pipelines** into the QA workflow, wiring Hardhat test runs into CI so contract regressions were caught automatically on every push.'
+            ] }
+        ] },
+      { slug: 'kingdomly', name: 'Kingdomly', logo: '/_blob/5d67fa3e498d3d190b0f02af1064146f', letter: 'K',
+        pills: ['Remote'], role: 'Chief Technology Officer', period: 'Oct 2023 – Dec 2025',
+        summary: 'Architected V2 from scratch and led a 13-person engineering team.',
+        links: [], contracts: [],
+        builds: [
+          { anchor: 'creator-mint', slug: 'creator-mint', title: 'Kingdomly Creator + Mint',
+            tagline: '$8M+ volume traded · 50K+ unique wallets · 144K+ mints · 7K NFT projects launched',
+            stack: ['Next.js', 'TypeScript', 'Solidity', 'IPFS', 'Node.js', 'PostgreSQL', 'AWS', 'Vercel'],
+            bullets: [
+              'Built a full **generative art engine**: layers, traits, rarity, rules, and 1/1 logic.',
+              'Shipped customizable **mint gates**, phases, and forms: allowlists, presales, and KYC.',
+              'Built the **admin dashboard** for scheduling, quotas, toggles, and live mint management.',
+              'Generated **auto-provisioned mint pages** per project, individually load-tested to handle traffic spikes, peaking at **60K visitors in a single minute**.',
+              'Shipped **gas-free mints on Sophon Chain**: users mint without holding SOPH to pay network fees.'
+            ] },
+          { anchor: 'bridge', slug: 'bridge', title: 'Kingdomly Bridge',
+            tagline: '100K+ NFTs moved between chains · $250K+ revenue',
+            stack: ['Next.js', 'TypeScript', 'Solidity', 'LayerZero', 'Viem', 'PostgreSQL', 'Docker', 'AWS'],
+            bullets: [
+              'Shipped cross-chain NFT transfers across **Ethereum, Arbitrum, Optimism, Zora, Base, and Bera** via LayerZero cross-chain messaging.',
+              'Built a **permissionless bridge setup interface**: any project can enable cross-chain bridging without custom contracts.',
+              'Delivered custom partner integrations including **Honey Jar\'s** multi-chain bridge into the Bera ecosystem.',
+              'Handled **LayerZero message verification, refund logic, and gas estimation**, ensuring transfers landed reliably with no double-bridge incidents.'
+            ] },
+          { anchor: 'marketplace', slug: 'marketplace', title: 'Kingdomly Marketplace', img: '/_blob/33ba57e8eccd9df65e2604ed31de48cf',
+            tagline: '$50K+ trading revenue from v1',
+            stack: ['Next.js', 'TypeScript', 'Solidity', 'Reservoir SDK', 'Seaport', 'Subgraph / Indexer', 'Vercel'],
+            bullets: [
+              'Shipped **v1 on Berachain day one** using Reservoir SDK, extending mint drops into active secondary trading.',
+              'Led **v2 on Seaport + LimitBreak**: custom indexer, orderbooks, and multi-chain transaction handling.',
+              'Kept listings cheap to post and creators paid on every resale, using the **ERC721AC + EIP-2981** royalty standards.',
+              'Shipped **collection pages, rarity rankings, offer/bid flows**, and a real-time activity feed on top of the orderbook.'
+            ] },
+          { anchor: 'staking', slug: 'staking', title: 'Kingdomly Staking',
+            tagline: '6 staking pools launched · including 1 protocol-level pool',
+            stack: ['Next.js', 'TypeScript', 'Solidity', 'Viem', 'Firebase', 'Vercel'],
+            bullets: [
+              'Engineered smart contracts, **audited by Hashlock**, powering secure, flexible NFT staking pools.',
+              'Built **permissionless pool deployment**: any creator can launch staking for any collection without writing code.',
+              'Delivered a **self-serve pool configuration UI**: creators set reward tokens, lock durations, multipliers, and capacity caps from a no-code admin panel.'
+            ] },
+          { anchor: 'docs', slug: 'docs', title: 'Kingdomly Docs', img: '/_blob/48c55b29fbe1189a9be5f99e41185a1e',
+            tagline: '50% less onboarding & support overhead',
+            stack: ['Mintlify', 'MDX'],
+            bullets: [
+              'Authored **end-to-end documentation** covering Creator, Mint, Marketplace, Staking, and Bridge.',
+              'Implemented **MDX components** and a scalable information architecture to stay consistent across rapid product iterations.'
+            ] }
+        ] },
+      { slug: 'stratpoint', name: 'Stratpoint', logo: '/_blob/fca61ec58f0fb3eb1528ee466a775d3a', letter: 'S',
+        pills: [], role: 'DevOps Engineer Intern', period: 'Jul 2023 – Oct 2023',
+        summary: 'First DevOps intern to skip the cloud fundamentals track, on live infrastructure within a week.',
+        links: [], contracts: [], builds: [],
+        work: {
+          outcome: 'More reliable deploys and faster incident response',
+          stack: ['Docker', 'Kubernetes', 'Grafana', 'Jenkins', 'Telegram Bot API'],
+          bullets: [
+            'Containerized and deployed internal services with **Docker** and **Kubernetes**.',
+            'Implemented observability with **Grafana** and **Jenkins** to track uptime and logs.',
+            'Built a **Telegram alerting** system that posts outage and health updates automatically.'
+          ]
+        } }
+    ];
+  }
+  projects() {
+    return [
+      { slug: 'prc-inspection-monitoring', name: 'PRC Inspection and Monitoring System', logo: '', letter: 'P',
+        pills: ['Production ready', 'Pending Pilot Test'], role: '', period: '',
+        summary: 'Replaces paper-based inspections of schools and hospitals nationwide',
+        links: [{ label: 'prc-inspection-and-monitoring.gitbook.io', url: 'https://prc-inspection-and-monitoring.gitbook.io/product-docs' }],
+        contracts: [],
+        builds: [
+          { anchor: 'prc', slug: 'prc-inspection-monitoring', title: 'PRC Inspection and Monitoring System', img: '/_blob/1b37460371caf3ee7d754dc9990ddf75',
+            build: 'https://prc-inspection-and-monitoring.gitbook.io/product-docs',
+            tagline: 'Replaces paper-based inspections of schools and hospitals nationwide',
+            stack: ['Next.js', 'TypeScript', 'Tailwind', 'Node.js', 'Firebase', 'NextAuth', 'SMTP', 'Vercel'],
+            bullets: [
+              'Built a **multi-tenant platform** supporting 5 user roles (PRC Board Members, ACD, Regional Offices, Oversight Commissioners, and HEIs/Hospitals), each with separate portals.',
+              'Developed a **compliance monitoring workflow** purpose-built for PRC BOND\'s inspection cycles, replacing the legacy accreditation system.',
+              'Delivered **real-time inspection tracking**, document submissions, findings, recommendations, and nationwide compliance coverage.'
+            ] }
+        ] },
+      { slug: 'tenelos', name: 'Tenelos: Tennis ELO Rating System', logo: '', letter: 'T',
+        pills: ['Production deployed', 'Freelance Project'], role: '', period: '',
+        summary: 'Player rankings, analytics and match predictions, built from raw match data',
+        links: [{ label: 'tenelos.com', url: 'https://tenelos.com' }],
+        contracts: [],
+        builds: [
+          { anchor: 'tenelos', slug: 'tenelos', title: 'Tenelos: Tennis ELO Rating System', img: '/_blob/2c3c8062fc0e47e0d30ec6bb70f747e0',
+            build: 'https://tenelos.com',
+            tagline: 'Player rankings, analytics and match predictions, built from raw match data',
+            stack: ['MERN Stack', 'Tailwind', 'MongoDB', 'Python', 'ETL Pipelines'],
+            bullets: [
+              'Processed large volumes of inconsistent Excel records using **Python ETL scripts**, turning raw tennis data into a clean, structured dataset.',
+              'Built a complete **player analytics experience**: profiles, head-to-head records, match histories, and ELO-based dynamic rankings.',
+              'Implemented **Chart.js visualizations** for performance trends, win/loss charts, H2H stats, and ranking changes.',
+              'Delivered a fullstack platform with **admin interface**, auth, automated data ingestion, and SEO optimization.'
+            ] }
+        ] }
+    ];
+  }
+  renderVals() {
+    var self = this;
+    var st = this.state;
+    var isProj = this.props.section === 'projects';
+    var accent = this.props.accent ?? '#fbbf24';
+    var repos = this.repos(isProj ? 'projects' : 'experience');
+    var NORM = {
+      'Next.js 16': ['Next.js'], 'Tailwind 4': ['Tailwind'], 'Anthropic SDK (Haiku)': ['Anthropic SDK'],
+      'Claude Haiku / Sonnet / Opus': ['Claude'], 'Vercel cron': ['Vercel'], 'wagmi / viem': ['wagmi', 'viem'],
+      'Viem': ['viem'], 'Filebase (IPFS)': ['IPFS'], 'IPFS (Filebase)': ['IPFS'], 'Dexscreener': ['DexScreener']
+    };
+    function segs(text) {
+      return { segs: text.split('**').map(function (t, i) { return { t: t, bold: i % 2 === 1, plain: i % 2 === 0 }; }).filter(function (s) { return s.t.length > 0; }) };
+    }
+    function host(u) { return (u || '').replace(/^https?:\/\/(www\.)?/, '').replace(/\/.*$/, ''); }
+    function skills(r) {
+      var all = [], out = [];
+      r.builds.forEach(function (b) { all = all.concat(b.stack || []); });
+      if (r.work) all = all.concat(r.work.stack || []);
+      all.forEach(function (s) { (NORM[s] || [s]).forEach(function (x) { if (out.indexOf(x) === -1) out.push(x); }); });
+      return out;
+    }
+    function openFile(slug, id) {
+      return function () {
+        var t = Object.assign({}, self.state.tree);
+        t[slug] = true;
+        self.setState({ view: 'file', slug: slug, fileId: id, tree: t, mobileTree: false });
+        try { window.scrollTo(0, 0); } catch (e) {}
+      };
+    }
+    var empty = { title: '', tagline: '', img: '', hasImg: false, showTitle: false, bullets: [], stack: [], build: '', hasBuild: false };
+    function docOf(b, showTitle) {
+      if (!b) return empty;
+      return { title: b.title, tagline: b.tagline, img: b.img || '', hasImg: !!b.img, showTitle: showTitle, bullets: (b.bullets || []).map(segs), stack: b.stack || [], build: b.build || '', hasBuild: !!b.build };
+    }
+
+    var items = repos.map(function (r) {
+      var sk = skills(r);
+      var n = r.builds.length;
+      var buildMode = !isProj && n > 0;
+      var notesSrc = isProj ? r.builds[0] : (n ? null : r.work);
+      var open = !!st.expanded[r.slug];
+      var notes = notesSrc
+        ? { outcome: notesSrc.outcome || '', hasOutcome: !!notesSrc.outcome, bullets: (notesSrc.bullets || []).map(segs), hasBuild: !!notesSrc.build, build: notesSrc.build || '', host: host(notesSrc.build) }
+        : { outcome: '', hasOutcome: false, bullets: [], hasBuild: false, build: '', host: '' };
+      return {
+        slug: r.slug, name: r.name, logo: r.logo, letter: r.letter, hasLogo: !!r.logo, noLogo: !r.logo,
+        pills: r.pills, role: r.role, hasRole: !!r.role, summary: r.summary,
+        period: r.period, countLabel: buildMode ? (n + ' builds') : '', hasMeta: !!r.period,
+        chips: sk.slice(0, 10), moreChips: sk.length > 10, moreLabel: '+' + (sk.length - 10) + ' more',
+        expandedAttr: open ? 'true' : 'false', chevRot: open ? 90 : 0,
+        toggleLabel: open ? (buildMode ? 'Hide builds' : 'Hide details') : (buildMode ? ('Show ' + n + ' builds') : 'Show details'),
+        showBuilds: open && buildMode,
+        showNotes: open && !buildMode,
+        builds: r.builds.map(function (b, i) { return { title: b.title, tagline: b.tagline, hasBuild: !!b.build, build: b.build || '', border: i ? '1px solid #3d444d' : '0', open: openFile(r.slug, b.anchor) }; }),
+        notes: notes,
+        toggle: function () { var e = Object.assign({}, self.state.expanded); e[r.slug] = !e[r.slug]; self.setState({ expanded: e }); },
+        openMore: openFile(r.slug, 'readme')
+      };
+    });
+
+    var tree = repos.map(function (r) {
+      var tOpen = !!st.tree[r.slug];
+      var files = [{ id: 'readme', label: 'README.md' }].concat(isProj ? [] : r.builds.map(function (b) { return { id: b.anchor, label: b.slug + '.md' }; }));
+      return {
+        slug: r.slug, rot: tOpen ? 90 : 0, isOpen: tOpen, expandedAttr: tOpen ? 'true' : 'false',
+        toggle: function () { var t = Object.assign({}, self.state.tree); t[r.slug] = !t[r.slug]; self.setState({ tree: t }); },
+        files: files.map(function (f) {
+          var sel = st.slug === r.slug && st.fileId === f.id;
+          return { label: f.label, select: openFile(r.slug, f.id), bg: sel ? '#212830' : 'transparent', bar: sel ? '#4493f8' : 'transparent', weight: sel ? 600 : 400, current: sel ? 'page' : 'false' };
+        })
+      };
+    });
+
+    var curRaw = repos.filter(function (r) { return r.slug === st.slug; })[0] || repos[0];
+    var curBuild = st.fileId === 'readme' ? null : (curRaw.builds.filter(function (b) { return b.anchor === st.fileId; })[0] || null);
+    var isReadme = !curBuild;
+    var docBuild = curBuild || (isProj ? curRaw.builds[0] : null);
+    var index = curRaw.builds.map(function (b) { return { title: b.title, tagline: b.tagline, hasBuild: !!b.build, build: b.build || '', open: openFile(curRaw.slug, b.anchor) }; });
+    var cur = {
+      slug: curRaw.slug, name: curRaw.name, summary: curRaw.summary, logo: curRaw.logo, letter: curRaw.letter,
+      hasLogo: !!curRaw.logo, noLogo: !curRaw.logo, role: curRaw.role, hasRole: !!curRaw.role, period: curRaw.period,
+      periodLabel: curRaw.period || curRaw.pills.join(' · '), links: curRaw.links, contracts: curRaw.contracts, skills: skills(curRaw)
+    };
+    var work = curRaw.work ? { outcome: curRaw.work.outcome, stack: curRaw.work.stack, bullets: curRaw.work.bullets.map(segs) } : { outcome: '', stack: [], bullets: [] };
+
+    return {
+      accent: accent,
+      isList: st.view !== 'file',
+      isFile: st.view === 'file',
+      listTitle: isProj ? '2 projects' : '5 experiences, newest first',
+      treeLabel: isProj ? 'Projects' : 'Experience',
+      backLabel: 'All',
+      back: function () { self.setState({ view: 'list' }); try { window.scrollTo(0, 0); } catch (e) {} },
+      items: items,
+      tree: tree,
+      cur: cur,
+      isReadme: isReadme,
+      fileName: isReadme ? 'README.md' : curBuild.slug + '.md',
+      commitText: curBuild ? curBuild.tagline : (curRaw.role || curRaw.pills.join(' · ')),
+      openReadme: openFile(curRaw.slug, 'readme'),
+      showContracts: isReadme && curRaw.contracts.length > 0,
+      showIndex: isReadme && !isProj && curRaw.builds.length > 0,
+      index: index,
+      indexCount: index.length,
+      showAboutBuilds: !isProj && index.length > 0,
+      showDoc: !!docBuild,
+      doc: docOf(docBuild, !!curBuild),
+      showWork: isReadme && !!curRaw.work,
+      work: work,
+      narrow: st.narrow,
+      showTreeList: !st.narrow || st.mobileTree,
+      treeListBorder: st.narrow ? '1px solid #3d444d' : '0',
+      mobileTreeAttr: st.mobileTree ? 'true' : 'false',
+      mobileTreeRot: st.mobileTree ? 180 : 0,
+      treeToggleLabel: st.mobileTree ? 'Close' : 'Browse',
+      toggleTree: function () { self.setState({ mobileTree: !self.state.mobileTree }); },
+      showAboutMore: !st.narrow || st.aboutMore,
+      aboutMoreAttr: st.aboutMore ? 'true' : 'false',
+      aboutMoreRot: st.aboutMore ? 90 : 0,
+      aboutMoreLabel: st.aboutMore ? (isProj ? 'Hide skills' : 'Hide skills and builds') : (isProj ? 'Show skills' : 'Show skills and builds'),
+      toggleAboutMore: function () { self.setState({ aboutMore: !self.state.aboutMore }); },
+      expBorder: isProj ? 'transparent' : accent,
+      expWeight: isProj ? 400 : 600,
+      projBorder: isProj ? accent : 'transparent',
+      projWeight: isProj ? 600 : 400
+    };
+  }
+}
+</script>
+</body>
+</html>

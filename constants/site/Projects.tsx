@@ -1,6 +1,7 @@
 import React from "react";
 
 export type Project = {
+  slug: string;
   title: string;
   headline: string;
   description: React.ReactNode;
@@ -12,6 +13,7 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "prc-inspection-monitoring",
     title: "PRC Inspection and Monitoring System",
     headline:
       "Replaces paper-based inspections of schools and hospitals nationwide",
@@ -65,6 +67,7 @@ export const projects: Project[] = [
   },
 
   {
+    slug: "tenelos",
     title: "Tenelos — Tennis ELO Rating System",
     headline:
       "Player rankings, analytics and match predictions, built from raw match data",

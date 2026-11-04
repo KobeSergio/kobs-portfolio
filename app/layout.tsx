@@ -1,21 +1,33 @@
 import type { Metadata } from "next";
-import { Nunito_Sans } from "next/font/google";
+import { JetBrains_Mono, Mona_Sans } from "next/font/google";
 import "./globals.css";
 import "lenis/dist/lenis.css";
+import { headers } from "next/headers";
 import SmoothScroll from "@/components/SmoothScroll";
 import WagmiWrapper from "@/providers/WagmiProvider";
-import { headers } from "next/headers"; // added
 import { ToastProvider } from "@/providers/Toasts";
+import SiteHeader from "@/components/site/SiteHeader";
+import { profile } from "@/constants/site/site";
 
 export const metadata: Metadata = {
-  title: "Kobe Sergio | Full Stack Web3 Developer",
-  description:
-    "Fullstack Web3 developer with 5 years of shipping products end to end. Utilizes AI with spec-driven development to deliver day-to-day work more efficiently.",
+  title: {
+    default: "Kobe Sergio | Full Stack Web3 Developer",
+    template: "%s | Kobe Sergio",
+  },
+  description: profile.bio,
 };
 
-const nunitoSans = Nunito_Sans({
-  variable: "--font-nunito-sans",
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
+
+const monaSans = Mona_Sans({
+  subsets: ["latin"],
+  axes: ["wdth"],
+  variable: "--font-mona-sans",
+  display: "swap",
 });
 
 export default async function RootLayout({
@@ -27,13 +39,17 @@ export default async function RootLayout({
   const cookies = headersObj.get("cookie");
 
   return (
-    <html lang="en">
-      <body
-        className={`${nunitoSans.variable} ${nunitoSans.className} antialiased`}
-      >
+    <html
+      lang="en"
+      className={`${jetbrainsMono.variable} ${monaSans.variable}`}
+    >
+      <body className="antialiased">
         <SmoothScroll>
           <WagmiWrapper cookies={cookies}>
-            <ToastProvider>{children}</ToastProvider>
+            <ToastProvider>
+              <SiteHeader />
+              {children}
+            </ToastProvider>
           </WagmiWrapper>
         </SmoothScroll>
       </body>

@@ -60,126 +60,29 @@ export const stats = [
   { label: "clients served at Kingdomly", value: "25+" },
 ];
 
-export const navItems: {
-  href: string;
-  label: string;
-  icon: React.ReactNode;
-}[] = [
-  {
-    href: "#top",
-    label: "Top",
-    icon: (
-      <path
-        d="M12 5.5v13m0-13L7.5 10m4.5-4.5L16.5 10"
-        stroke="#ededed"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    ),
+// Identity and contact details shared by the header, sidebar, CTA and footer.
+export const profile = {
+  handle: "KobeSergio",
+  name: "Kobs",
+  fullName: "Christian Kobe Sergio",
+  avatar: "/assets/carousel-2.png",
+  bio: "Fullstack Web3 developer with 5 years of shipping products end to end. Utilizes AI with spec-driven development to deliver day-to-day work more efficiently.",
+  location: "Remote, Philippines",
+  timezone: "UTC+8 (PH)",
+  languages: "EN, Tagalog",
+  availability: "Open to collabs · replies in < 24 hours",
+  email: "ckasergio@gmail.com",
+  calendly: "https://calendly.com/ckasergio/30min",
+  linkedin: {
+    label: "in/kobesergio",
+    href: "https://www.linkedin.com/in/kobesergio",
   },
-  {
-    href: "#about",
-    label: "About",
-    icon: (
-      <>
-        <circle cx="12" cy="8" r="3.5" stroke="#ededed" strokeWidth="1.6" />
-        <path
-          d="M6 19c0-3 2.7-5.5 6-5.5s6 2.5 6 5.5"
-          stroke="#ededed"
-          strokeWidth="1.6"
-          strokeLinecap="round"
-        />
-      </>
-    ),
+  github: {
+    label: "github.com/KobeSergio",
+    href: "https://github.com/KobeSergio",
   },
-  {
-    href: "#projects",
-    label: "Projects",
-    icon: (
-      <>
-        <rect
-          x="4"
-          y="4"
-          width="7"
-          height="7"
-          rx="1.3"
-          stroke="#ededed"
-          strokeWidth="1.6"
-        />
-        <rect
-          x="13"
-          y="4"
-          width="7"
-          height="7"
-          rx="1.3"
-          stroke="#ededed"
-          strokeWidth="1.6"
-        />
-        <rect
-          x="4"
-          y="13"
-          width="7"
-          height="7"
-          rx="1.3"
-          stroke="#ededed"
-          strokeWidth="1.6"
-        />
-        <rect
-          x="13"
-          y="13"
-          width="7"
-          height="7"
-          rx="1.3"
-          stroke="#ededed"
-          strokeWidth="1.6"
-        />
-      </>
-    ),
+  discord: {
+    label: "Discord",
+    href: "https://discord.com/users/622772696870158347",
   },
-  {
-    href: "#experience",
-    label: "Experience",
-    icon: (
-      <>
-        <rect
-          x="5"
-          y="8"
-          width="14"
-          height="10"
-          rx="2"
-          stroke="#ededed"
-          strokeWidth="1.6"
-        />
-        <path
-          d="M9 8V6.8A2.8 2.8 0 0 1 12 4a2.8 2.8 0 0 1 3 2.8V8"
-          stroke="#ededed"
-          strokeWidth="1.6"
-        />
-      </>
-    ),
-  },
-  {
-    href: "#contact",
-    label: "Contact",
-    icon: (
-      <>
-        <rect
-          x="3.5"
-          y="6"
-          width="17"
-          height="12"
-          rx="2"
-          stroke="#ededed"
-          strokeWidth="1.6"
-        />
-        <path
-          d="m5 8 7 5 7-5"
-          stroke="#ededed"
-          strokeWidth="1.6"
-          strokeLinecap="round"
-        />
-      </>
-    ),
-  },
-];
+};
