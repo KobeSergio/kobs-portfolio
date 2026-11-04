@@ -57,7 +57,7 @@ export const stats = [
   { label: "years building", value: "5+" },
   { label: "products shipped", value: "10+" },
   { label: "engineers led", value: "13" },
-  { label: "clients served at Kingdomly", value: "25+" },
+  { label: "clients and founders served", value: "25+" },
 ];
 
 // Identity and contact details shared by the header, sidebar, CTA and footer.
