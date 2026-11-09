@@ -317,7 +317,8 @@ uses em dashes.
 - **README box** (`components/overview/ReadmeBox.tsx`): the
   `KobeSergio / README.md` breadcrumb, the ASCII banner as two stacked `<pre>`
   layers (edge in `border`, fill in `fg`, `aria-hidden`, with an sr-only
-  "Hi, I'm Kobs" heading), the four bio paragraphs (the last in `fg-muted`)
+  "Hi, I'm Kobs" heading, sized from its container with `cqw` units so it
+  spans the box edge to edge at every width), the four bio paragraphs (the last in `fg-muted`)
   and the tech stack chips with icons from `constants/site/site.tsx`.
 - **Experience cards**: the four newest companies in a grid of at most two
   columns (`minmax(max(320px, 50% - 8px), 1fr)`), each a bordered card whose
