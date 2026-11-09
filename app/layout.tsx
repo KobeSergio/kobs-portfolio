@@ -21,8 +21,8 @@ export const metadata: Metadata = {
 // Browser chrome matches the header (bg-inset) for the system theme.
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f2ede4" },
-    { media: "(prefers-color-scheme: dark)", color: "#0d0b08" },
+    { media: "(prefers-color-scheme: light)", color: "#e7ebf2" },
+    { media: "(prefers-color-scheme: dark)", color: "#070e1b" },
   ],
 };
 

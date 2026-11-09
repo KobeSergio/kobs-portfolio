@@ -1,29 +1,31 @@
 @import "tailwindcss";
 
-/* Ink and paper. Warm charcoal in dark mode, cream in light mode, and Kobe's
-   amber doing the work GitHub gives to blue and green: anything you can act on
-   is amber. Green is status only, red is errors only. */
+/* Midnight and brass. The canvas is the studio backdrop from Kobe's portrait:
+   deep navy in dark mode, cool daylight paper in light mode, with a soft light
+   from above and a film grain on both. Kobe's amber does the work GitHub gives
+   to blue and green: anything you can act on is amber. Green is status only,
+   red is errors only. */
 @theme {
-  --color-bg: #14110d;
-  --color-bg-inset: #0d0b08;
-  --color-surface: #1d1915;
-  --color-btn: #282320;
-  --color-border: #443b33;
-  --color-counter: #332d27;
-  --color-fg: #f4efe6;
-  --color-fg-muted: #a69e92;
-  --color-fg-soft: #d6cfc3;
+  --color-bg: #0b1627;
+  --color-bg-inset: #070e1b;
+  --color-surface: #121f38;
+  --color-btn: #1a2a4a;
+  --color-border: #27395d;
+  --color-counter: #1f3052;
+  --color-fg: #e9eef7;
+  --color-fg-muted: #94a3bd;
+  --color-fg-soft: #c6d0e2;
   --color-link: #fbbf24;
-  --color-topic-bg: #2a2211;
-  --color-topic-fg: #e8c15a;
-  --color-success-fg: #8fc857;
-  --color-danger-fg: #f2735f;
+  --color-topic-bg: #1c2b4b;
+  --color-topic-fg: #f3cd6d;
+  --color-success-fg: #4ccf86;
+  --color-danger-fg: #f47c6c;
   --color-accent: #fbbf24;
   /* Text on amber, the same in both themes. */
-  --color-accent-fg: #14110d;
-  /* Focus outline and the active tab underline. Same as accent on dark; the
-     light accent is too pale on cream for a 2px line, so light swaps in the
-     ink-dark amber. */
+  --color-accent-fg: #0b1627;
+  /* Focus outline and the active tab underline. Same as accent on navy; the
+     light accent is too pale on paper for a 2px line, so light swaps in the
+     brass-dark amber. */
   --color-ring: #fbbf24;
 
   --font-sans:
@@ -44,36 +46,52 @@
     "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-/* Dark is the default. The paper palette switches in on
-   <html data-theme="light">, which lib/themeScript.ts sets before paint. */
+/* Dark is the default. The daylight palette switches in on
+   <html data-theme="light">, which lib/themeScript.ts sets before paint.
+
+   --grain is a tiled SVG noise, white specks on dark and black specks on
+   light, at a few percent alpha. --spotlight is the soft light from above
+   behind the header. Both sit on the canvas only; cards stay clean. */
 :root {
   color-scheme: dark;
-  --shadow-pop: 0 8px 24px rgba(10, 8, 5, 0.6);
-  --shadow-modal: 0 24px 64px rgba(10, 8, 5, 0.7);
-  --overlay: rgba(10, 8, 5, 0.8);
+  --shadow-pop: 0 8px 24px rgba(3, 8, 20, 0.6);
+  --shadow-modal: 0 24px 64px rgba(3, 8, 20, 0.7);
+  --overlay: rgba(3, 8, 20, 0.8);
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0.12 0 0 0 -0.02'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  --spotlight: radial-gradient(
+    ellipse 60% 100% at 50% 0%,
+    rgba(126, 152, 204, 0.16),
+    transparent 70%
+  );
 }
 
 :root[data-theme="light"] {
   color-scheme: light;
-  --color-bg: #faf7f1;
-  --color-bg-inset: #f2ede4;
-  --color-surface: #fffdf9;
-  --color-btn: #ede7db;
-  --color-border: #d8d0c2;
-  --color-counter: #e4dccd;
-  --color-fg: #1c1814;
-  --color-fg-muted: #6f675c;
-  --color-fg-soft: #433d35;
-  --color-link: #a84d08;
-  --color-topic-bg: #f8ebcc;
-  --color-topic-fg: #a84d08;
-  --color-success-fg: #457a14;
+  --color-bg: #f2f4f8;
+  --color-bg-inset: #e7ebf2;
+  --color-surface: #ffffff;
+  --color-btn: #e5e9f0;
+  --color-border: #d0d8e4;
+  --color-counter: #dbe2ec;
+  --color-fg: #0f1b2d;
+  --color-fg-muted: #56657d;
+  --color-fg-soft: #2f3d55;
+  --color-link: #9a5400;
+  --color-topic-bg: #fbeecf;
+  --color-topic-fg: #8a4a00;
+  --color-success-fg: #1e7b3e;
   --color-danger-fg: #b3261e;
   --color-accent: #f59e0b;
-  --color-ring: #a84d08;
-  --shadow-pop: 0 8px 24px rgba(28, 24, 20, 0.15);
-  --shadow-modal: 0 24px 64px rgba(28, 24, 20, 0.3);
-  --overlay: rgba(28, 24, 20, 0.5);
+  --color-ring: #9a5400;
+  --shadow-pop: 0 8px 24px rgba(15, 27, 45, 0.14);
+  --shadow-modal: 0 24px 64px rgba(15, 27, 45, 0.28);
+  --overlay: rgba(15, 27, 45, 0.5);
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0 0 0 -0.01'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  --spotlight: radial-gradient(
+    ellipse 60% 100% at 50% 0%,
+    rgba(255, 255, 255, 0.9),
+    transparent 70%
+  );
 }
 
 @layer base {
@@ -84,7 +102,12 @@
   }
 
   body {
-    background: var(--color-bg);
+    background-color: var(--color-bg);
+    background-image: var(--grain), var(--spotlight);
+    background-repeat: repeat, no-repeat;
+    background-size:
+      200px 200px,
+      100% 640px;
     color: var(--color-fg);
     font-size: 14px;
     line-height: 1.5;
@@ -111,13 +134,20 @@
     background-size: 18px 18px;
   }
 
+  /* The fade to solid, with the grain on top so it covers the whole page. */
   .resume-fade {
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--color-bg-inset) 15%, transparent) 0%,
-      color-mix(in srgb, var(--color-bg-inset) 80%, transparent) 50%,
-      var(--color-bg-inset) 100%
-    );
+    background-image:
+      var(--grain),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--color-bg-inset) 15%, transparent) 0%,
+        color-mix(in srgb, var(--color-bg-inset) 80%, transparent) 50%,
+        var(--color-bg-inset) 100%
+      );
+    background-repeat: repeat, no-repeat;
+    background-size:
+      200px 200px,
+      100% 100%;
   }
 
   .resume-art {
@@ -128,6 +158,12 @@
 }
 
 @layer utilities {
+  /* The canvas grain on an opaque band (the header). */
+  .grain {
+    background-image: var(--grain);
+    background-size: 200px 200px;
+  }
+
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }

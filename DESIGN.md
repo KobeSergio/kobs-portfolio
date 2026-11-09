@@ -1,23 +1,23 @@
 ---
 name: Kobs Portfolio
-description: A GitHub-profile-style developer portfolio in a warm ink-and-paper palette built around Kobe's amber
+description: A GitHub-profile-style developer portfolio in a midnight-and-brass palette, navy and daylight paper with Kobe's amber
 colors:
-  bg: "#14110d"
-  bg-inset: "#0d0b08"
-  surface: "#1d1915"
-  btn: "#282320"
-  border: "#443b33"
-  counter: "#332d27"
-  fg: "#f4efe6"
-  fg-muted: "#a69e92"
-  fg-soft: "#d6cfc3"
+  bg: "#0b1627"
+  bg-inset: "#070e1b"
+  surface: "#121f38"
+  btn: "#1a2a4a"
+  border: "#27395d"
+  counter: "#1f3052"
+  fg: "#e9eef7"
+  fg-muted: "#94a3bd"
+  fg-soft: "#c6d0e2"
   link: "#fbbf24"
-  topic-bg: "#2a2211"
-  topic-fg: "#e8c15a"
-  success-fg: "#8fc857"
-  danger-fg: "#f2735f"
+  topic-bg: "#1c2b4b"
+  topic-fg: "#f3cd6d"
+  success-fg: "#4ccf86"
+  danger-fg: "#f47c6c"
   accent: "#fbbf24"
-  accent-fg: "#14110d"
+  accent-fg: "#0b1627"
   ring: "#fbbf24"
 typography:
   body:
@@ -140,13 +140,15 @@ as a single-file view with a tree on the left, the file in the middle and an
 About panel on the right. The Resume page is the one immersive moment: a
 full-bleed mint page for the resume NFT.
 
-The palette is not GitHub's. It is ink and paper: warm charcoal with a brown
-undertone in dark mode, cream paper in light mode, and Kobe's amber doing the
-work GitHub gives to blue and green. Amber is the color of anything you can
-act on: links and repo titles, the active tab, the "Book a call" and mint
-buttons, the contribution calendar, focus rings and text selection. Green is
-reserved for status (the "Open to work" dot, check marks, "Live" links, the
-success toast) and red for errors. Nothing else carries color.
+The palette is not GitHub's. It is midnight and brass: the canvas is the
+studio backdrop of Kobe's portrait, a deep navy in dark mode and cool daylight
+paper in light mode, lit softly from above and carrying a film grain. Kobe's
+amber does the work GitHub gives to blue and green. Amber is the color of
+anything you can act on: links and repo titles, the active tab, the "Book a
+call" and mint buttons, the contribution calendar, focus rings and text
+selection. Green is reserved for status (the "Open to work" dot, check marks,
+"Live" links, the success toast) and red for errors. Nothing else carries
+color, and the only blue is the canvas itself.
 
 The source of truth for structure and copy is `docs/redesign/HANDOFF.md`, with
 the canvas files beside it in `docs/redesign/design-reference/` and the target
@@ -158,6 +160,9 @@ audience, voice and accessibility.
 - One palette, defined once as Tailwind theme tokens in `app/globals.css`.
 - Every border and divider is 1px `border`. Depth comes from borders and the
   two darker surfaces, never from shadows, except on the Resume page.
+- Texture lives on the canvas only: `body` and the header band carry
+  `--grain` (a tiled SVG noise at a few percent alpha) and `body` the
+  `--spotlight` glow behind the header. Cards, buttons and chips are flat.
 - Content is data. Every page renders from `constants/site/` through the
   `Repo` view-model in `lib/repos.ts`. The pages add no copy of their own.
 - Every view has a route, so deep links and the back button work.
@@ -166,62 +171,73 @@ audience, voice and accessibility.
 
 | Token | Value | Use |
 |---|---|---|
-| `bg` | `#14110d` | Page background |
-| `bg-inset` | `#0d0b08` | Header, Resume page, modal overlay |
-| `surface` | `#1d1915` | Box headers, CTA box, logo tiles, toasts, modal |
-| `btn` | `#282320` | Neutral buttons, the selected tree row |
-| `border` | `#443b33` | Every 1px border and divider, the ASCII edge layer |
-| `counter` | `#332d27` | Tab and "Builds" count badges, the modal token badge, stack code chips |
-| `fg` | `#f4efe6` | Primary text, the ASCII fill layer |
-| `fg-muted` | `#a69e92` | Secondary text, icons, metadata |
-| `fg-soft` | `#d6cfc3` | Body copy on the Resume page |
+| `bg` | `#0b1627` | Page background, under the grain and the spotlight |
+| `bg-inset` | `#070e1b` | Header, Resume page, modal overlay |
+| `surface` | `#121f38` | Box headers, CTA box, logo tiles, toasts, modal |
+| `btn` | `#1a2a4a` | Neutral buttons, the selected tree row |
+| `border` | `#27395d` | Every 1px border and divider, the ASCII edge layer |
+| `counter` | `#1f3052` | Tab and "Builds" count badges, the modal token badge, stack code chips |
+| `fg` | `#e9eef7` | Primary text, the ASCII fill layer |
+| `fg-muted` | `#94a3bd` | Secondary text, icons, metadata |
+| `fg-soft` | `#c6d0e2` | Body copy on the Resume page |
 | `link` | `#fbbf24` | Links, repo titles, addresses, the mint card icons, the modal label |
-| `topic-bg` / `topic-fg` | `#2a2211` / `#e8c15a` | Skill and topic chips |
-| `success-fg` | `#8fc857` | Status dots, check marks, "Live" links, success toast |
-| `danger-fg` | `#f2735f` | Error toast |
+| `topic-bg` / `topic-fg` | `#1c2b4b` / `#f3cd6d` | Skill and topic chips |
+| `success-fg` | `#4ccf86` | Status dots, check marks, "Live" links, success toast |
+| `danger-fg` | `#f47c6c` | Error toast |
 | `accent` | `#fbbf24` | Filled buttons ("Book a call", the CTA, mint), the copies-left bar, selection |
-| `accent-fg` | `#14110d` | Text on amber, in both themes |
+| `accent-fg` | `#0b1627` | Text on amber, in both themes |
 | `ring` | `#fbbf24` | Focus outline and the active tab underline |
 
 Translucent variants use the token with an opacity modifier (`border-fg/16`,
 `bg-bg-inset/60`, `border-accent/35`) rather than new hex values.
 
 **Contrast.** Every text token passes WCAG AA on every surface it sits on in
-both themes: `fg-muted` on `bg` is 7.1:1 dark and 5.2:1 light, `link` on `bg`
-is 11.3:1 dark and 5.3:1 light. Body copy on the Resume page uses `fg-soft`
-because it sits on blurred art. `ring` exists because the light accent
-(`#f59e0b`) is too pale on cream for a 2px line; the ring is the ink-dark amber
-there.
+both themes: `fg-muted` on `bg` is 7.1:1 dark and 5.4:1 light, `link` on `bg`
+is 10.9:1 dark and 5.2:1 light, and the tightest pair is `fg-muted` on `btn`
+at 4.9:1 light. Body copy on the Resume page uses `fg-soft` because it sits on
+blurred art. `ring` exists because the light accent (`#f59e0b`) is too pale on
+paper for a 2px line; the ring is the brass-dark amber there.
+
+**Textures.** `--grain` is a 200px tile of SVG `feTurbulence` noise, white
+specks on dark (alpha up to about 10%) and black specks on light (up to about
+7%), tiled on `body` and, through the `.grain` utility, on the header band.
+`--spotlight` is a 640px-tall radial glow at the top of `body`, a cool
+slate-blue at 16% on dark and white at 90% on light, so the page reads as lit
+from above like the portrait. Both are background images on the canvas only,
+never on cards, and they ride on the theme switch like every other token.
 
 ### Light mode
 
 Dark is the default. Setting `data-theme="light"` on `<html>` swaps the same
-tokens for the paper palette, so no component knows which theme it is in. Light
-is composed, not inverted: the page is cream, cards are near-white paper on
-top of it, and amber splits into a bright fill for buttons and a dark
-terracotta ink for text:
+tokens for the daylight palette, so no component knows which theme it is in.
+Light is composed, not inverted: the page is cool paper, cards are white on
+top of it, text is navy ink rather than black, and amber splits into a bright
+fill for buttons and a dark brass for text:
 
 | Token | Light value |
 |---|---|
-| `bg` | `#faf7f1` |
-| `bg-inset` | `#f2ede4` |
-| `surface` | `#fffdf9` |
-| `btn` | `#ede7db` |
-| `border` | `#d8d0c2` |
-| `counter` | `#e4dccd` |
-| `fg` | `#1c1814` |
-| `fg-muted` | `#6f675c` |
-| `fg-soft` | `#433d35` |
-| `link`, `topic-fg`, `ring` | `#a84d08` |
-| `topic-bg` | `#f8ebcc` |
-| `success-fg` | `#457a14` |
+| `bg` | `#f2f4f8` |
+| `bg-inset` | `#e7ebf2` |
+| `surface` | `#ffffff` |
+| `btn` | `#e5e9f0` |
+| `border` | `#d0d8e4` |
+| `counter` | `#dbe2ec` |
+| `fg` | `#0f1b2d` |
+| `fg-muted` | `#56657d` |
+| `fg-soft` | `#2f3d55` |
+| `link`, `ring` | `#9a5400` |
+| `topic-bg` / `topic-fg` | `#fbeecf` / `#8a4a00` |
+| `success-fg` | `#1e7b3e` |
 | `danger-fg` | `#b3261e` |
 | `accent` | `#f59e0b` |
 
-`accent-fg` (`#14110d`) is the text color on amber in both themes. Shadows and
+`accent-fg` (`#0b1627`) is the text color on amber in both themes. Shadows and
 the modal overlay come from `--shadow-pop`, `--shadow-modal` and `--overlay`,
-which the light theme softens. The contribution calendar is an amber ramp in
-both themes: `#2a241e` to `#fbbf24` on dark, `#ebe4d6` to `#a85d07` on light.
+navy-based and softened in the light theme. The contribution calendar is an
+amber ramp in both themes with a canvas-colored empty cell: `#172442` to
+`#fbbf24` on dark, `#e3e8f0` to `#a85d07` on light. The browser theme-color
+in `app/layout.tsx` and the favicon in `app/icon.svg` carry `bg-inset` and
+`bg` respectively.
 
 An inline script in `app/layout.tsx` (`lib/themeScript.ts`) applies the stored
 choice, else the system preference, before the first paint. The header toggle
@@ -304,7 +320,7 @@ uses em dashes.
 - **GitHub activity**: `GithubContributionGraph` with the amber theme inside a
   bordered box.
 - **CTA box**: "Ready for your next product or MVP" on `surface`, a full-width
-  green "Book a 30-min call" and the Email, LinkedIn and Discord buttons.
+  amber "Book a 30-min call" and the Email, LinkedIn and Discord buttons.
 
 ### Lists and file views (`components/repo/`)
 
@@ -383,5 +399,10 @@ a neutral "View NFT" and an amber "View resume".
   toasts.
 - **Don't** use gradient text, side-stripe accents or amber card borders. The
   only amber border is Card B on the Resume page.
+- **Don't** put the grain or the spotlight on cards, buttons or chips. Texture
+  belongs to the canvas and the header band; the `.grain` utility is for
+  opaque bands that cover the body, nothing else.
+- **Don't** add a second blue. The navy is the backdrop, not an accent; links,
+  tabs and buttons stay amber.
 - **Don't** make the header sticky or add a second navigation.
 - **Don't** invent stats, sections, testimonials or links.

@@ -87,8 +87,8 @@ export default function GithubContributionGraph() {
             colorScheme={theme}
             username="kobesergio"
             theme={{
-              light: ["#ebe4d6", "#f7dc9a", "#f3c24f", "#e39a10", "#a85d07"],
-              dark: ["#2a241e", "#4f3a0f", "#8c6514", "#c8941b", "#fbbf24"],
+              light: ["#e3e8f0", "#f7dc9a", "#f3c24f", "#e39a10", "#a85d07"],
+              dark: ["#172442", "#5a4514", "#937014", "#c9961a", "#fbbf24"],
             }}
             blockSize={sizing.blockSize}
             blockMargin={sizing.blockMargin}

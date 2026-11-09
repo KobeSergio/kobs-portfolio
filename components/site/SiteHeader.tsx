@@ -9,7 +9,7 @@ import ThemeToggle from "./ThemeToggle";
 
 export default function SiteHeader() {
   return (
-    <header className="relative z-2 border-b bg-bg-inset px-[clamp(16px,4vw,32px)] pt-4">
+    <header className="grain relative z-2 border-b bg-bg-inset px-[clamp(16px,4vw,32px)] pt-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Link
           href="/"
