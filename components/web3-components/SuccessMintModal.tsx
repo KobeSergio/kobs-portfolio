@@ -73,8 +73,8 @@ export default function SuccessMintModal({
           </button>
 
           <div className="flex min-h-6 items-center gap-2 pr-10">
-            <span className="size-2 rounded-full bg-accent shadow-[0_0_10px_#fbbf24]" />
-            <span className="font-jetbrains text-xs font-semibold uppercase tracking-[0.08em] text-accent">
+            <span className="size-2 rounded-full bg-accent" />
+            <span className="font-jetbrains text-xs font-semibold uppercase tracking-[0.08em] text-link">
               Mint successful
             </span>
             {tokenLabel ? (

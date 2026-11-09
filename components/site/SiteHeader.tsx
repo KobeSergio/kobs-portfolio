@@ -24,7 +24,7 @@ export default function SiteHeader() {
             href={profile.calendly}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-9 items-center gap-2 rounded-md border border-fg/10 bg-success px-4 text-sm font-semibold text-white"
+            className="inline-flex min-h-9 items-center gap-2 rounded-md bg-accent px-4 text-sm font-semibold text-accent-fg"
           >
             <CalendarDays size={16} aria-hidden="true" />
             Book a call

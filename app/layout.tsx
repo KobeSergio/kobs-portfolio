@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, Mona_Sans } from "next/font/google";
 import "./globals.css";
 import "lenis/dist/lenis.css";
@@ -16,6 +16,14 @@ export const metadata: Metadata = {
     template: "%s | Kobe Sergio",
   },
   description: profile.bio,
+};
+
+// Browser chrome matches the header (bg-inset) for the system theme.
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f2ede4" },
+    { media: "(prefers-color-scheme: dark)", color: "#0d0b08" },
+  ],
 };
 
 const jetbrainsMono = JetBrains_Mono({

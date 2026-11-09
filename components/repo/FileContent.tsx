@@ -21,7 +21,7 @@ function Stack({ tech }: { tech: string[] }) {
       {tech.map((item) => (
         <code
           key={item}
-          className="rounded-md bg-[rgba(101,108,118,0.2)] px-1.5 py-0.5 font-mono text-[13px]"
+          className="rounded-md bg-counter px-1.5 py-0.5 font-mono text-[13px]"
         >
           {item}
         </code>

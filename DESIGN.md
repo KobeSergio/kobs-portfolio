@@ -1,23 +1,24 @@
 ---
 name: Kobs Portfolio
-description: A GitHub-profile-style developer portfolio in GitHub's dark palette, with Kobe's amber kept as the one brand accent
+description: A GitHub-profile-style developer portfolio in a warm ink-and-paper palette built around Kobe's amber
 colors:
-  bg: "#0d1117"
-  bg-inset: "#010409"
-  surface: "#151b23"
-  btn: "#212830"
-  border: "#3d444d"
-  counter: "#2f3742"
-  fg: "#f0f6fc"
-  fg-muted: "#9198a1"
-  fg-soft: "#c9d1d9"
-  link: "#4493f8"
-  topic-bg: "#111d2e"
-  topic-fg: "#4493f8"
-  success: "#238636"
-  success-fg: "#3fb950"
-  danger-fg: "#f85149"
+  bg: "#14110d"
+  bg-inset: "#0d0b08"
+  surface: "#1d1915"
+  btn: "#282320"
+  border: "#443b33"
+  counter: "#332d27"
+  fg: "#f4efe6"
+  fg-muted: "#a69e92"
+  fg-soft: "#d6cfc3"
+  link: "#fbbf24"
+  topic-bg: "#2a2211"
+  topic-fg: "#e8c15a"
+  success-fg: "#8fc857"
+  danger-fg: "#f2735f"
   accent: "#fbbf24"
+  accent-fg: "#14110d"
+  ring: "#fbbf24"
 typography:
   body:
     fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, Noto Sans, Helvetica, Arial, sans-serif"
@@ -86,9 +87,8 @@ spacing:
   about: "260px to 296px"
 components:
   button-primary:
-    backgroundColor: "{colors.success}"
-    borderColor: "rgba(240,246,252,0.1)"
-    textColor: "#ffffff"
+    backgroundColor: "{colors.accent}"
+    textColor: "{colors.accent-fg}"
     rounded: "{rounded.button}"
     minHeight: "36px (44px for the CTA box)"
   button-neutral:
@@ -140,10 +140,13 @@ as a single-file view with a tree on the left, the file in the middle and an
 About panel on the right. The Resume page is the one immersive moment: a
 full-bleed mint page for the resume NFT.
 
-Everything is GitHub's dark palette. Kobe's amber survives as the single brand
-accent and appears in exactly five places: the active tab underline, the mint
-button, the mint card border and art glow, the GitHub contribution colors, and
-text selection. Nothing else is amber.
+The palette is not GitHub's. It is ink and paper: warm charcoal with a brown
+undertone in dark mode, cream paper in light mode, and Kobe's amber doing the
+work GitHub gives to blue and green. Amber is the color of anything you can
+act on: links and repo titles, the active tab, the "Book a call" and mint
+buttons, the contribution calendar, focus rings and text selection. Green is
+reserved for status (the "Open to work" dot, check marks, "Live" links, the
+success toast) and red for errors. Nothing else carries color.
 
 The source of truth for structure and copy is `docs/redesign/HANDOFF.md`, with
 the canvas files beside it in `docs/redesign/design-reference/` and the target
@@ -163,55 +166,62 @@ audience, voice and accessibility.
 
 | Token | Value | Use |
 |---|---|---|
-| `bg` | `#0d1117` | Page background |
-| `bg-inset` | `#010409` | Header, Resume page, modal overlay |
-| `surface` | `#151b23` | Box headers, CTA box, logo tiles, toasts, modal |
-| `btn` | `#212830` | Neutral buttons, the selected tree row |
-| `border` | `#3d444d` | Every 1px border and divider, the ASCII edge layer |
-| `counter` | `#2f3742` | Tab and "Builds" count badges, the modal token badge |
-| `fg` | `#f0f6fc` | Primary text, the ASCII fill layer |
-| `fg-muted` | `#9198a1` | Secondary text, icons, metadata |
-| `fg-soft` | `#c9d1d9` | Body copy on the Resume page |
-| `link` | `#4493f8` | Links, repo titles, the selected tree bar, addresses |
-| `topic-bg` / `topic-fg` | `#111d2e` / `#4493f8` | Skill and topic chips |
-| `success` | `#238636` | Green buttons ("Book a call", the CTA) |
-| `success-fg` | `#3fb950` | Status dots, check marks, "Live" links, success toast |
-| `danger-fg` | `#f85149` | Error toast |
-| `accent` | `#fbbf24` | Active tab underline, mint button, mint glow, selection |
+| `bg` | `#14110d` | Page background |
+| `bg-inset` | `#0d0b08` | Header, Resume page, modal overlay |
+| `surface` | `#1d1915` | Box headers, CTA box, logo tiles, toasts, modal |
+| `btn` | `#282320` | Neutral buttons, the selected tree row |
+| `border` | `#443b33` | Every 1px border and divider, the ASCII edge layer |
+| `counter` | `#332d27` | Tab and "Builds" count badges, the modal token badge, stack code chips |
+| `fg` | `#f4efe6` | Primary text, the ASCII fill layer |
+| `fg-muted` | `#a69e92` | Secondary text, icons, metadata |
+| `fg-soft` | `#d6cfc3` | Body copy on the Resume page |
+| `link` | `#fbbf24` | Links, repo titles, addresses, the mint card icons, the modal label |
+| `topic-bg` / `topic-fg` | `#2a2211` / `#e8c15a` | Skill and topic chips |
+| `success-fg` | `#8fc857` | Status dots, check marks, "Live" links, success toast |
+| `danger-fg` | `#f2735f` | Error toast |
+| `accent` | `#fbbf24` | Filled buttons ("Book a call", the CTA, mint), the copies-left bar, selection |
+| `accent-fg` | `#14110d` | Text on amber, in both themes |
+| `ring` | `#fbbf24` | Focus outline and the active tab underline |
 
 Translucent variants use the token with an opacity modifier (`border-fg/16`,
 `bg-bg-inset/60`, `border-accent/35`) rather than new hex values.
 
-**Contrast.** `fg-muted` on `bg` passes 4.5:1, so secondary text can stay
-muted. Body copy on the Resume page uses `fg-soft` because it sits on blurred
-art.
+**Contrast.** Every text token passes WCAG AA on every surface it sits on in
+both themes: `fg-muted` on `bg` is 7.1:1 dark and 5.2:1 light, `link` on `bg`
+is 11.3:1 dark and 5.3:1 light. Body copy on the Resume page uses `fg-soft`
+because it sits on blurred art. `ring` exists because the light accent
+(`#f59e0b`) is too pale on cream for a 2px line; the ring is the ink-dark amber
+there.
 
 ### Light mode
 
 Dark is the default. Setting `data-theme="light"` on `<html>` swaps the same
-tokens for GitHub's light palette, so no component knows which theme it is in:
+tokens for the paper palette, so no component knows which theme it is in. Light
+is composed, not inverted: the page is cream, cards are near-white paper on
+top of it, and amber splits into a bright fill for buttons and a dark
+terracotta ink for text:
 
 | Token | Light value |
 |---|---|
-| `bg` | `#ffffff` |
-| `bg-inset`, `surface` | `#f6f8fa` |
-| `btn` | `#eaeef2` |
-| `border` | `#d1d9e0` |
-| `counter` | `#dde3ea` |
-| `fg` | `#1f2328` |
-| `fg-muted` | `#59636e` |
-| `fg-soft` | `#454c54` |
-| `link`, `topic-fg` | `#0969da` |
-| `topic-bg` | `#ddf4ff` |
-| `success` | `#1f883d` |
-| `success-fg` | `#1a7f37` |
-| `danger-fg` | `#d1242f` |
-| `accent` | `#fbbf24`, unchanged |
+| `bg` | `#faf7f1` |
+| `bg-inset` | `#f2ede4` |
+| `surface` | `#fffdf9` |
+| `btn` | `#ede7db` |
+| `border` | `#d8d0c2` |
+| `counter` | `#e4dccd` |
+| `fg` | `#1c1814` |
+| `fg-muted` | `#6f675c` |
+| `fg-soft` | `#433d35` |
+| `link`, `topic-fg`, `ring` | `#a84d08` |
+| `topic-bg` | `#f8ebcc` |
+| `success-fg` | `#457a14` |
+| `danger-fg` | `#b3261e` |
+| `accent` | `#f59e0b` |
 
-`accent-fg` (`#0d1117`) is the text color on amber in both themes. Shadows and
+`accent-fg` (`#14110d`) is the text color on amber in both themes. Shadows and
 the modal overlay come from `--shadow-pop`, `--shadow-modal` and `--overlay`,
-which the light theme softens. The GitHub calendar switches to a light ramp
-starting at `#ebedf0`.
+which the light theme softens. The contribution calendar is an amber ramp in
+both themes: `#2a241e` to `#fbbf24` on dark, `#ebe4d6` to `#a85d07` on light.
 
 An inline script in `app/layout.tsx` (`lib/themeScript.ts`) applies the stored
 choice, else the system preference, before the first paint. The header toggle
@@ -324,9 +334,9 @@ uses em dashes.
 
 Three background layers on `bg-inset`: the NFT art blurred (`blur(90px)
 saturate(1.4)`, 35% opacity, scaled 1.25), an 18px dot grid, and a vertical
-fade to solid `#010409`. The hero is two columns that wrap to one: the art
+fade to solid `bg-inset`. The hero is two columns that wrap to one: the art
 (520px max, 20px radius, 1px light ring, amber glow) and the header, Card A
-("Just want to read my CV?", a white "View my CV" button to the IPFS resume)
+("Just want to read my CV?", an `fg`-filled "View my CV" button to the IPFS resume)
 and Card B ("Or collect a copy on-chain", the live copies-left bar, the wallet
 button and the Arbiscan contract link). The FAQ is a six-item accordion with a
 "+" that rotates to "×"; the first item opens by default and one opens at a
@@ -342,8 +352,8 @@ taller than the viewport, "MINT SUCCESSFUL #id", the art, name, description,
 a neutral "View NFT" and an amber "View resume".
 
 **Toasts** (`providers/Toasts.tsx`): `surface` cards with a 10px radius pinned
-16px from the bottom-right, an icon, a dismiss ×, and a green
-(`rgba(63,185,80,.45)`) or red (`rgba(248,81,73,.5)`) border.
+16px from the bottom-right, an icon, a dismiss ×, and a translucent
+`success-fg` or `danger-fg` border (`color-mix`, 45% and 50%).
 
 ## 6. Motion and Accessibility
 
@@ -363,8 +373,8 @@ a neutral "View NFT" and an amber "View resume".
 
 - **Do** add content in `constants/site/` only. Pages and components render
   data; they do not carry copy.
-- **Do** keep amber to the five places listed above. If a new element needs
-  attention, use `link` blue or a green button first.
+- **Do** keep amber for things you can act on. Status stays green, errors
+  red, and everything else neutral; never add a third hue.
 - **Do** write bullets as strings with `**bold**` markers; `Bullets.tsx`
   renders them.
 - **Do** keep date ranges on en dashes and copy free of em dashes

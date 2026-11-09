@@ -69,7 +69,7 @@ export default function ProfileTabs({
             href={tab.href}
             aria-current={active ? "page" : undefined}
             className={`flex items-center whitespace-nowrap border-b-2 px-[clamp(4px,1.6vw,8px)] pb-3 pt-2.5 text-fg ${
-              active ? "border-accent font-semibold" : "border-transparent"
+              active ? "border-ring font-semibold" : "border-transparent"
             }`}
           >
             <svg

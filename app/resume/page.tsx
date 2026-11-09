@@ -48,7 +48,7 @@ export default function ResumePage() {
               className="resume-art block aspect-square w-full rounded-[20px] object-cover"
             />
             <span className="absolute left-3.5 top-3.5 inline-flex items-center gap-2 rounded-full border border-fg/14 bg-bg-inset/72 px-3 py-1.5 font-jetbrains text-xs font-medium">
-              <HexIcon size={14} stroke="currentColor" className="text-accent" />
+              <HexIcon size={14} stroke="currentColor" className="text-link" />
               {resumePage.chip}
             </span>
           </div>

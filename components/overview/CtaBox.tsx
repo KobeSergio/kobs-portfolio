@@ -23,7 +23,7 @@ export default function CtaBox() {
           href={profile.calendly}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex min-h-11 flex-[1_1_100%] items-center justify-center gap-2 rounded-md border border-fg/10 bg-success px-4 font-semibold text-white"
+          className="inline-flex min-h-11 flex-[1_1_100%] items-center justify-center gap-2 rounded-md bg-accent px-4 font-semibold text-accent-fg"
         >
           <CalendarDays size={16} aria-hidden="true" />
           Book a 30-min call

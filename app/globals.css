@@ -1,25 +1,30 @@
 @import "tailwindcss";
 
-/* GitHub's dark palette with Kobe's amber kept as the brand accent. */
+/* Ink and paper. Warm charcoal in dark mode, cream in light mode, and Kobe's
+   amber doing the work GitHub gives to blue and green: anything you can act on
+   is amber. Green is status only, red is errors only. */
 @theme {
-  --color-bg: #0d1117;
-  --color-bg-inset: #010409;
-  --color-surface: #151b23;
-  --color-btn: #212830;
-  --color-border: #3d444d;
-  --color-counter: #2f3742;
-  --color-fg: #f0f6fc;
-  --color-fg-muted: #9198a1;
-  --color-fg-soft: #c9d1d9;
-  --color-link: #4493f8;
-  --color-topic-bg: #111d2e;
-  --color-topic-fg: #4493f8;
-  --color-success: #238636;
-  --color-success-fg: #3fb950;
-  --color-danger-fg: #f85149;
+  --color-bg: #14110d;
+  --color-bg-inset: #0d0b08;
+  --color-surface: #1d1915;
+  --color-btn: #282320;
+  --color-border: #443b33;
+  --color-counter: #332d27;
+  --color-fg: #f4efe6;
+  --color-fg-muted: #a69e92;
+  --color-fg-soft: #d6cfc3;
+  --color-link: #fbbf24;
+  --color-topic-bg: #2a2211;
+  --color-topic-fg: #e8c15a;
+  --color-success-fg: #8fc857;
+  --color-danger-fg: #f2735f;
   --color-accent: #fbbf24;
   /* Text on amber, the same in both themes. */
-  --color-accent-fg: #0d1117;
+  --color-accent-fg: #14110d;
+  /* Focus outline and the active tab underline. Same as accent on dark; the
+     light accent is too pale on cream for a 2px line, so light swaps in the
+     ink-dark amber. */
+  --color-ring: #fbbf24;
 
   --font-sans:
     -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica,
@@ -39,35 +44,36 @@
     "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-/* Dark is the default. GitHub's light palette switches in on
+/* Dark is the default. The paper palette switches in on
    <html data-theme="light">, which lib/themeScript.ts sets before paint. */
 :root {
   color-scheme: dark;
-  --shadow-pop: 0 8px 24px rgba(1, 4, 9, 0.6);
-  --shadow-modal: 0 24px 64px rgba(1, 4, 9, 0.7);
-  --overlay: rgba(1, 4, 9, 0.8);
+  --shadow-pop: 0 8px 24px rgba(10, 8, 5, 0.6);
+  --shadow-modal: 0 24px 64px rgba(10, 8, 5, 0.7);
+  --overlay: rgba(10, 8, 5, 0.8);
 }
 
 :root[data-theme="light"] {
   color-scheme: light;
-  --color-bg: #ffffff;
-  --color-bg-inset: #f6f8fa;
-  --color-surface: #f6f8fa;
-  --color-btn: #eaeef2;
-  --color-border: #d1d9e0;
-  --color-counter: #dde3ea;
-  --color-fg: #1f2328;
-  --color-fg-muted: #59636e;
-  --color-fg-soft: #454c54;
-  --color-link: #0969da;
-  --color-topic-bg: #ddf4ff;
-  --color-topic-fg: #0969da;
-  --color-success: #1f883d;
-  --color-success-fg: #1a7f37;
-  --color-danger-fg: #d1242f;
-  --shadow-pop: 0 8px 24px rgba(31, 35, 40, 0.15);
-  --shadow-modal: 0 24px 64px rgba(31, 35, 40, 0.3);
-  --overlay: rgba(31, 35, 40, 0.5);
+  --color-bg: #faf7f1;
+  --color-bg-inset: #f2ede4;
+  --color-surface: #fffdf9;
+  --color-btn: #ede7db;
+  --color-border: #d8d0c2;
+  --color-counter: #e4dccd;
+  --color-fg: #1c1814;
+  --color-fg-muted: #6f675c;
+  --color-fg-soft: #433d35;
+  --color-link: #a84d08;
+  --color-topic-bg: #f8ebcc;
+  --color-topic-fg: #a84d08;
+  --color-success-fg: #457a14;
+  --color-danger-fg: #b3261e;
+  --color-accent: #f59e0b;
+  --color-ring: #a84d08;
+  --shadow-pop: 0 8px 24px rgba(28, 24, 20, 0.15);
+  --shadow-modal: 0 24px 64px rgba(28, 24, 20, 0.3);
+  --overlay: rgba(28, 24, 20, 0.5);
 }
 
 @layer base {
@@ -85,7 +91,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-ring);
     outline-offset: 2px;
   }
 
@@ -117,7 +123,7 @@
   .resume-art {
     box-shadow:
       0 0 0 1px color-mix(in srgb, var(--color-fg) 14%, transparent),
-      0 40px 120px -24px rgba(251, 191, 36, 0.4);
+      0 40px 120px -24px color-mix(in srgb, var(--color-accent) 40%, transparent);
   }
 }
 

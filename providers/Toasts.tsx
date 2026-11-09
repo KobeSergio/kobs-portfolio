@@ -32,8 +32,8 @@ type ToastContextValue = {
 const ToastContext = createContext<ToastContextValue | null>(null);
 
 const variantBorder: Record<ToastVariant, string> = {
-  success: "border-[rgba(63,185,80,0.45)]",
-  error: "border-[rgba(248,81,73,0.5)]",
+  success: "border-[color-mix(in_srgb,var(--color-success-fg)_45%,transparent)]",
+  error: "border-[color-mix(in_srgb,var(--color-danger-fg)_50%,transparent)]",
   info: "border-border",
 };
 
