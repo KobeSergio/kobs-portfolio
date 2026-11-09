@@ -34,7 +34,7 @@ export default function ResumePage() {
 
       <section
         aria-labelledby="mint-title"
-        className="relative mx-auto flex max-w-[1200px] flex-wrap items-center gap-[clamp(32px,6vw,64px)] px-[clamp(16px,4vw,32px)] pb-16 pt-[clamp(32px,7vw,72px)]"
+        className="relative mx-auto flex max-w-[1440px] flex-wrap items-center gap-[clamp(32px,6vw,64px)] px-[clamp(16px,4vw,32px)] pb-16 pt-[clamp(32px,7vw,72px)]"
       >
         <div className="flex min-w-0 flex-[1_1_380px] justify-center">
           <div className="relative w-full max-w-[520px]">

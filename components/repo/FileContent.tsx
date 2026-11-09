@@ -145,7 +145,7 @@ export default function FileContent({
   const message = build ? build.impact : (repo.role ?? repo.summary);
 
   return (
-    <div className="flex min-w-0 flex-[999_1_520px] flex-col gap-4">
+    <div className="flex min-w-0 flex-[6_1_520px] flex-col gap-4">
       <p className="flex flex-wrap items-center gap-2 text-xl">
         <Link
           href={repoHref(repo)}

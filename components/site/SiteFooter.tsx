@@ -11,7 +11,7 @@ export default function SiteFooter() {
   ];
 
   return (
-    <footer className="mx-auto flex w-full max-w-[1280px] flex-wrap items-center justify-between gap-3 border-t px-[clamp(16px,4vw,32px)] pb-10 pt-6 text-xs text-fg-muted">
+    <footer className="mx-auto flex w-full max-w-shell flex-wrap items-center justify-between gap-3 border-t px-[clamp(16px,4vw,32px)] pb-10 pt-6 text-xs text-fg-muted">
       <span className="flex items-center gap-2.5">
         <KobsMark size={20} />© {new Date().getFullYear()} Kobe Sergio
       </span>

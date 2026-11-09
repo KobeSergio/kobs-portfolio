@@ -12,7 +12,7 @@ export default function ReadmeBox() {
       <h2 className="sr-only">Hi, I&apos;m Kobs</h2>
       <AsciiBanner />
 
-      <div className="flex max-w-[72ch] flex-col gap-3 text-base leading-[1.6] text-pretty">
+      <div className="flex max-w-[80ch] flex-col gap-3 text-base leading-[1.6] text-pretty">
         {bioParagraphs.map((paragraph, index) => (
           <p
             key={index}

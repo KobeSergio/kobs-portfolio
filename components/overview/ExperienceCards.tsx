@@ -15,7 +15,7 @@ export default function ExperienceCards() {
           See all {experiences.length} experiences
         </Link>
       </div>
-      <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))]">
+      <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(max(min(320px,100%),calc(50%_-_8px)),1fr))]">
         {experiences.slice(0, 4).map((experience) => (
           <article
             key={experience.slug}

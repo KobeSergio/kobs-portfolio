@@ -28,6 +28,11 @@
      brass-dark amber. */
   --color-ring: #fbbf24;
 
+  /* The content band on the profile pages, the file view and the footer
+     (max-w-shell). Fluid below it with clamp() gutters, capped so README and
+     file prose never run too long on wide monitors. */
+  --container-shell: 1600px;
+
   --font-sans:
     -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica,
     Arial, sans-serif;

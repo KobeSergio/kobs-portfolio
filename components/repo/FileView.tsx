@@ -34,7 +34,7 @@ export default function FileView({
   }));
 
   return (
-    <main className="mx-auto flex w-full max-w-[1440px] flex-wrap items-start gap-6 p-[clamp(16px,3vw,24px)]">
+    <main className="mx-auto flex w-full max-w-shell flex-wrap items-start gap-6 p-[clamp(16px,3vw,24px)]">
       <FileTree
         label={repo.kind === "projects" ? "Projects" : "Experience"}
         backHref={repoBasePath[repo.kind]}
@@ -42,7 +42,7 @@ export default function FileView({
         currentSlug={repo.slug}
         currentFile={fileName(build)}
       />
-      <div className="flex min-w-0 flex-[999_1_640px] flex-wrap-reverse items-start gap-6">
+      <div className="flex min-w-0 flex-[8_1_640px] flex-wrap-reverse items-start gap-6">
         <FileContent repo={repo} build={build} />
         <div className="min-w-0 flex-[1_1_260px] self-stretch">
           <AboutPanel repo={repo} />

@@ -78,8 +78,8 @@ rounded:
   modal: "12px"
   toast: "10px"
 spacing:
-  content-max: "1280px"
-  file-view-max: "1440px"
+  content-max: "1600px (--container-shell, max-w-shell) on profile pages, file views and the footer"
+  resume-hero-max: "1440px"
   gutter: "16px on phones, 32px from sm"
   gap: "24px"
   sidebar: "296px from lg"
@@ -268,16 +268,20 @@ uses em dashes.
 
 ## 4. Layout and Breakpoints
 
-- Content is 1280px wide at most, file views 1440px. Side padding is
-  `clamp(16px, 4vw, 32px)` (`clamp(16px, 3vw, 24px)` on file views). Gaps are
-  24px.
+- Content is fluid up to 1600px (`--container-shell`, used as `max-w-shell`
+  by the profile shell, the file view and the footer); the Resume hero caps at
+  1440px and its FAQ at 840px. Side padding is `clamp(16px, 4vw, 32px)`
+  (`clamp(16px, 3vw, 24px)` on file views). Gaps are 24px. The cap exists so
+  wide monitors get content instead of gutters, while README prose (80ch) and
+  the file column stay readable.
 - The header is not sticky. The tabs hide their icons below 480px so all four
   fit at 390px.
 - The profile sidebar is a 296px column from `lg` and stacks above the content
   below it. The avatar is `min(296px, 28vw)`: full width in the column, beside
   the name when stacked.
 - File views: three columns from `xl`, where About is `position: sticky;
-  top: 24px`. Between 980px and 1279px the tree stays left and About wraps
+  top: 24px`. Extra width splits tree : (file + About) as 1 : 8 and file :
+  About as 6 : 1, so at 1600px the columns are about 330 / 858 / 316. Between 980px and 1279px the tree stays left and About wraps
   above the file content and stops sticking. Below 980px it is one column in
   the order tree, About, content: the tree collapses into a "Browse" bar that
   opens the full tree and closes after a pick, and About hides its skills and
@@ -315,7 +319,8 @@ uses em dashes.
   layers (edge in `border`, fill in `fg`, `aria-hidden`, with an sr-only
   "Hi, I'm Kobs" heading), the four bio paragraphs (the last in `fg-muted`)
   and the tech stack chips with icons from `constants/site/site.tsx`.
-- **Experience cards**: the four newest companies, each a bordered card whose
+- **Experience cards**: the four newest companies in a grid of at most two
+  columns (`minmax(max(320px, 50% - 8px), 1fr)`), each a bordered card whose
   slug link covers the whole card.
 - **GitHub activity**: `GithubContributionGraph` with the amber theme inside a
   bordered box.
